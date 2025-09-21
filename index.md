@@ -1,35 +1,98 @@
 ---
-title: Home
-layout: home
+layout: default
+title: Godot MIDI Sequencer
+nav_order: 1
+description: "A powerful Euclidean rhythm sequencer with Launchpad integration"
+permalink: /
 ---
 
-This is a *bare-minimum* template to create a Jekyll site that uses the [Just the Docs] theme. You can easily set the created site to be published on [GitHub Pages] – the [README] file explains how to do that, along with other details.
+# Godot MIDI Sequencer User Manual
 
-If [Jekyll] is installed on your computer, you can also build and preview the created site *locally*. This lets you test changes before committing them, and avoids waiting for GitHub Pages.[^1] And you will be able to deploy your local build to a different platform than GitHub Pages.
+Welcome to the comprehensive user manual for the Godot MIDI Sequencer - a powerful, algorithmic step sequencer designed for electronic music production. This sequencer combines the mathematical elegance of Euclidean rhythms with intuitive hardware control via the Novation Launchpad.
 
-More specifically, the created site:
+![Main Interface](docs/img/main-interface.jpg)
+*The main sequencer interface showing track layout and pattern editing*
 
-- uses a gem-based approach, i.e. uses a `Gemfile` and loads the `just-the-docs` gem
-- uses the [GitHub Pages / Actions workflow] to build and publish the site on GitHub Pages
+## What is the Godot MIDI Sequencer?
 
-Other than that, you're free to customize sites that you create with this template, however you like. You can easily change the versions of `just-the-docs` and Jekyll it uses, as well as adding further plugins.
+The Godot MIDI Sequencer is an advanced pattern-based sequencer that generates complex rhythms using Euclidean algorithms. Unlike traditional step sequencers that require you to program each step individually, this sequencer uses mathematical principles to create musically interesting patterns automatically, while still giving you complete control over the details.
 
-[Browse our documentation][Just the Docs] to learn more about how to use this theme.
+Built in the Godot game engine, it offers rock-solid timing, extensive MIDI capabilities, and seamless integration with the Novation Launchpad for hands-on control. Whether you're creating driving techno beats, complex polyrhythms, or experimental ambient textures, this sequencer adapts to your creative workflow.
 
-To get started with creating a site, simply:
+## Key Features
 
-1. click "[use this template]" to create a GitHub repository
-2. go to Settings > Pages > Build and deployment > Source, and select GitHub Actions
+### 🎵 **Euclidean Rhythm Generation**
 
-If you want to maintain your docs in the `docs` directory of an existing project repo, see [Hosting your docs from an existing project repo](https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md#hosting-your-docs-from-an-existing-project-repo) in the template README.
+Generate mathematically perfect rhythmic patterns using the Euclidean algorithm. Specify the number of beats and pattern length, and the sequencer creates optimal distributions automatically. Perfect for creating everything from simple house patterns to complex polyrhythmic sequences.
+[Learn more about Euclidean Rhythms →](euclidean/introduction.html)
 
-----
+### 🎹 **Novation Launchpad Integration**
 
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
+Full integration with Novation Launchpad controllers provides immediate, tactile control over your patterns. The 8x8 grid becomes your canvas for real-time pattern editing, with intelligent LED feedback showing pattern states, active steps, and parameter values.
+[Explore the Launchpad Interface →](launchpad/pad-layout.html)
 
-[Just the Docs]: https://just-the-docs.github.io/just-the-docs/
-[GitHub Pages]: https://docs.github.com/en/pages
-[README]: https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md
-[Jekyll]: https://jekyllrb.com
-[GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
-[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate
+### 🎛️ **7-Track Polyphonic Sequencing**
+
+Seven independent tracks, each with its own MIDI channel, scale, and rhythm parameters. Create complex arrangements by layering different patterns, scales, and timing divisions across multiple tracks.
+[Master Track Management →](tracks/selection.html)
+
+### 🤖 **Generative Algorithms**
+
+Advanced generative features including Markov chain melody generation, algorithmic chord progressions, and intelligent accent systems. Let the sequencer suggest musical ideas while maintaining full creative control.
+[Discover Generative Features →](generative/markov-chains.html)
+
+### 🎛️ **Advanced MIDI Control**
+
+Comprehensive MIDI implementation with CC/NRPN automation, sub-track control, and slew rate automation. Control external synthesizers, effects, and DAW parameters with precision timing and smooth parameter changes.
+[Master MIDI Control →](automation/cc-nrpn.html)
+
+### 📼 **Recording & Project Management**
+
+Built-in MIDI recording captures your performances in real-time. Project management system with quick-save slots lets you instantly recall different pattern configurations during live performance or studio sessions.
+[Learn Recording & Export →](recording/midi-recording.html)
+
+### ⚡ **Real-time Performance**
+
+Optimized for live performance with instant pattern switching, real-time parameter adjustments, and rock-solid timing. Change patterns, modify parameters, and trigger variations without ever stopping the music.
+
+## System Requirements
+
+- **Operating System**: Windows 10/11, macOS 10.14+, or Linux (Ubuntu 18.04+)
+- **Hardware**: Novation Launchpad Mini MK3 or Launchpad X (recommended)
+- **MIDI Interface**: Any class-compliant MIDI interface
+- **Memory**: 512MB RAM minimum
+- **Storage**: 50MB available space
+
+## Quick Navigation
+
+### New Users Start Here
+
+1. [Installation Guide →](getting-started/installation.html) - Get the sequencer running
+2. [First Launch →](getting-started/first-launch.html) - Your first startup experience  
+3. [MIDI Setup →](midi-setup.html) - Connect your devices
+4. [Basic Operation →](getting-started/basic-operation.html) - Essential controls
+
+### Essential Concepts
+
+- [Euclidean Rhythms →](euclidean/introduction.html) - Understanding the core algorithm
+- [Launchpad Interface →](launchpad/pad-layout.html) - Hardware control layout
+- [Track Management →](tracks/selection.html) - Working with multiple tracks
+- [Pattern Editor →](pattern-editor/step-editor.html) - Detailed step editing
+
+### Advanced Features
+
+- [Generative Systems →](generative/markov-chains.html) - Algorithmic composition
+- [Automation Control →](automation/cc-nrpn.html) - MIDI automation
+- [Recording & Export →](recording/midi-recording.html) - Capturing your work
+
+## Getting Help
+
+If you encounter issues or have questions:
+
+- Check the [Troubleshooting Guide →](troubleshooting.html)
+- Review [MIDI Setup →](midi-setup.html) for connection problems
+- Explore specific feature pages for detailed instructions
+
+---
+
+*Ready to create your first pattern? Start with the [Getting Started Guide →](getting-started/installation.html)*
