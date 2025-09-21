@@ -1,8 +1,8 @@
-title: Just the Docs Template
-description: A starter template for a Jeykll site using the Just the Docs theme!
+title: Tack Jammer MIDI Sequencer - User Manual
+description: Ready to unlock the creative potential of your Launchpad?
 theme: just-the-docs
 
-url: https://just-the-docs.github.io
+url: https://eclipsinglines.github.io/trackjammer-user-manual/
 
 aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+  Template Repository: https://eclipsinglines.github.io/trackjammer-user-manual/
