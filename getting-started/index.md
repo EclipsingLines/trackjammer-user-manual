@@ -30,17 +30,6 @@ Before diving into advanced features, ensure you have:
 - ✅ **MIDI Connections** - Launchpad and sound sources connected
 - ✅ **Basic Understanding** - Core concepts and interface familiarity
 
-## Quick Start Path
-
-For the fastest route to making music:
-
-1. **[Install the software →](installation.html)** (5-10 minutes)
-2. **[Launch and explore →](first-launch.html)** (10-15 minutes)
-3. **[Learn basic controls →](basic-operation.html)** (15-20 minutes)
-4. **[Connect MIDI gear →](../midi-setup.html)** (5-10 minutes)
-
-Total time to first pattern: **30-45 minutes**
-
 ## Prerequisites
 
 ### Required Hardware
@@ -65,19 +54,23 @@ The sequencer is designed to be accessible to both beginners and experts. No pre
 
 - **Launchpad Mini MK3**: Budget-friendly, full compatibility
 - **Launchpad X**: Premium option with additional features and better build quality
-- **Other Controllers**: Limited functionality, software-only mode available
+- **Launchpad MK2 MK1**: Both are supported but present a limited pad color palette that might make performance chalenging.
+- **Launchpad Pro**: Is supported but the additional button currently don't offer any extra functionality. Support for these will be added in a later update.
+- **Other Controllers**: These are not supported at the moment.
 
 ### "Do I need external sound sources?"
 
 The sequencer generates MIDI data only. You'll need:
 
 - Hardware synthesizer, drum machine, or sampler
-- Software DAW or virtual instruments
+- Software DAW or virtual instruments (Windows currently does not support native virtual MIDI ports for cross aplication communicatio. Use a third party option like [loopMIDI](https://www.tobias-erichsen.de/software/loopmidi.html))
 - MIDI-to-audio conversion device
 
 ### "Can I use it without a Launchpad?"
 
 Yes, but with limited functionality. The software interface provides all features, but the Launchpad integration is central to the intended workflow.
+
+Other grid controllers might be implemented in the future.
 
 ## Next Steps
 

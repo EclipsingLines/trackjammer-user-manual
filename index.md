@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "{{ site.product_name }}"
+title: "Tracks Jammer - User Manual"
 nav_order: 1
 description: "A powerful Euclidean rhythm sequencer with Launchpad integration"
 permalink: /
