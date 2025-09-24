@@ -29,11 +29,7 @@ Before installing, ensure your system meets these minimum requirements:
 
 Download the latest pre-built version from the releases page. This is the easiest option for most users:
 
-1. Visit the project releases page
-2. Download the appropriate version for your operating system:
-   - `GodotMidiSeq-Windows.zip` for Windows
-   - `GodotMidiSeq-macOS.dmg` for macOS
-   - `GodotMidiSeq-Linux.tar.gz` for Linux
+1. Get the [{{ site.product_name }}](https://eclipsinglines.gumroad.com/l/TracksJammerLE)
 
 ### Building from Source
 
