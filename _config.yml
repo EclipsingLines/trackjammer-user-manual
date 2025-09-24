@@ -1,6 +1,6 @@
 # Product configuration
-product_name: "Track Jammer MIDI Sequencer"
-title: "{{ site.product_name }} User Manual"
+product_name: "Tracks Jammer MIDI Sequencer"
+title: "Tracks Jammer MIDI Sequencer User Manual"
 description: Ready to unlock the creative potential of your Launchpad?
 theme: just-the-docs
 

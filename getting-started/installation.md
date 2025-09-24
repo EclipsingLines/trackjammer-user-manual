@@ -98,11 +98,7 @@ Some systems require explicit MIDI permissions:
 
 ### Configuration Files
 
-The sequencer creates configuration files in your user directory:
-
-- **Windows**: `%APPDATA%\GodotMidiSeq\`
-- **macOS**: `~/Library/Application Support/GodotMidiSeq/`
-- **Linux**: `~/.local/share/GodotMidiSeq/`
+The sequencer creates configuration files next to its executable for easy portability.
 
 ## Troubleshooting Installation
 

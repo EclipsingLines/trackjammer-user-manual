@@ -21,6 +21,10 @@ Built in the Godot game engine, it offers rock-solid timing, extensive MIDI capa
 
 ## Key Features
 
+---
+
+*Don't care abotu any of this and just want to make some music? Jum right into the [Quick start guide →](getting-started/installation.html)*
+
 ### 🎵 **Euclidean Rhythm Generation**
 
 Generate mathematically perfect rhythmic patterns using the Euclidean algorithm. Specify the number of beats and pattern length, and the sequencer creates optimal distributions automatically. Perfect for creating everything from simple house patterns to complex polyrhythmic sequences.
