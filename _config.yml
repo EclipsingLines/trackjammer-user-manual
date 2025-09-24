@@ -2,7 +2,11 @@
 product_name: "Track Jammer MIDI Sequencer"
 title: "{{ site.product_name }} User Manual"
 description: Ready to unlock the creative potential of your Launchpad?
-theme: dark
+theme: just-the-docs
+
+# Color scheme supports "light" (default) and "dark"
+color_scheme: dark
+
 
 url: https://eclipsinglines.github.io/trackjammer-user-manual/
 
