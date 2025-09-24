@@ -1,21 +1,21 @@
 ---
 layout: default
-title: Godot MIDI Sequencer
+title: "{{ site.product_name }}"
 nav_order: 1
 description: "A powerful Euclidean rhythm sequencer with Launchpad integration"
 permalink: /
 ---
 
-# Godot MIDI Sequencer User Manual
+# {{ site.product_name }} User Manual
 
-Welcome to the comprehensive user manual for the Godot MIDI Sequencer - a powerful, algorithmic step sequencer designed for electronic music production. This sequencer combines the mathematical elegance of Euclidean rhythms with intuitive hardware control via the Novation Launchpad.
+Welcome to the comprehensive user manual for the {{ site.product_name }} - a powerful, algorithmic step sequencer designed for electronic music production. This sequencer combines the mathematical elegance of Euclidean rhythms with intuitive hardware control via the Novation Launchpad.
 
 ![Main Interface](docs/img/main-interface.jpg)
 *The main sequencer interface showing track layout and pattern editing*
 
-## What is the Godot MIDI Sequencer?
+## What is the {{ site.product_name }}?
 
-The Godot MIDI Sequencer is an advanced pattern-based sequencer that generates complex rhythms using Euclidean algorithms. Unlike traditional step sequencers that require you to program each step individually, this sequencer uses mathematical principles to create musically interesting patterns automatically, while still giving you complete control over the details.
+The {{ site.product_name }} is an advanced pattern-based sequencer that generates complex rhythms using Euclidean algorithms. Unlike traditional step sequencers that require you to program each step individually, this sequencer uses mathematical principles to create musically interesting patterns automatically, while still giving you complete control over the details.
 
 Built in the Godot game engine, it offers rock-solid timing, extensive MIDI capabilities, and seamless integration with the Novation Launchpad for hands-on control. Whether you're creating driving techno beats, complex polyrhythms, or experimental ambient textures, this sequencer adapts to your creative workflow.
 

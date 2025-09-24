@@ -7,7 +7,7 @@ nav_order: 3
 
 # Basic Operation
 
-Master the essential controls and workflow of the Godot MIDI Sequencer. This guide covers the fundamental operations you'll use in every session, from playback control to pattern editing.
+Master the essential controls and workflow of the {{ site.product_name }}. This guide covers the fundamental operations you'll use in every session, from playback control to pattern editing.
 
 ![Basic Controls Interface](docs/img/basic-controls-interface.jpg)
 *The essential controls for daily sequencer operation*

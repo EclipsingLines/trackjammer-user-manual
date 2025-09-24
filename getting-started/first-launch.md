@@ -7,7 +7,7 @@ nav_order: 2
 
 # First Launch
 
-Your first experience with the Godot MIDI Sequencer sets the foundation for everything that follows. This guide walks you through what to expect when you launch the application for the first time and helps you get oriented with the interface.
+Your first experience with the {{ site.product_name }} sets the foundation for everything that follows. This guide walks you through what to expect when you launch the application for the first time and helps you get oriented with the interface.
 
 ![First Launch Interface](docs/img/first-launch-interface.jpg)
 *The sequencer interface on first startup with default settings*

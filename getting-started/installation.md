@@ -7,7 +7,7 @@ nav_order: 1
 
 # Installation Guide
 
-Getting the Godot MIDI Sequencer up and running is straightforward. This guide will walk you through the installation process for Windows, macOS, and Linux systems.
+Getting the {{ site.product_name }} up and running is straightforward. This guide will walk you through the installation process for Windows, macOS, and Linux systems.
 
 ![Installation Process](docs/img/installation-process.jpg)
 *The installation process showing download and setup steps*

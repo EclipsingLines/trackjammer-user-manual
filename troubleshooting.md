@@ -2,7 +2,7 @@
 layout: default
 title: Troubleshooting
 nav_order: 13
-description: "Common issues and solutions for the Godot MIDI Sequencer"
+description: "Common issues and solutions for the {{ site.product_name }}"
 ---
 
 # Troubleshooting

@@ -14,7 +14,7 @@ Proper MIDI configuration is essential for getting sound from the sequencer and 
 
 ## Understanding MIDI in the Sequencer
 
-The Godot MIDI Sequencer uses two separate MIDI connections:
+The {{ site.product_name }} uses two separate MIDI connections:
 
 ### Control Surface (Launchpad)
 

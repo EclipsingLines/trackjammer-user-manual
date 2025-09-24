@@ -7,7 +7,7 @@ nav_order: 1
 
 # Tracks & Steps
 
-Understanding tracks and steps is fundamental to using the Godot MIDI Sequencer effectively. These core concepts form the building blocks of every pattern and musical idea you'll create with the sequencer.
+Understanding tracks and steps is fundamental to using the {{ site.product_name }} effectively. These core concepts form the building blocks of every pattern and musical idea you'll create with the sequencer.
 
 ![Track and Step Visualization](docs/img/tracks-steps-visualization.jpg)
 *Visual representation of the 7-track system with step patterns of different lengths*

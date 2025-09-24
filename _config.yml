@@ -1,6 +1,8 @@
-title: Track Jammer MIDI Sequencer User Manual
+# Product configuration
+product_name: "Track Jammer MIDI Sequencer"
+title: "{{ site.product_name }} User Manual"
 description: Ready to unlock the creative potential of your Launchpad?
-theme: just-the-docs
+theme: dark
 
 url: https://eclipsinglines.github.io/trackjammer-user-manual/
 

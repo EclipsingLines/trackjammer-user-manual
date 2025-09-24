@@ -8,7 +8,7 @@ permalink: /getting-started/
 
 # Getting Started
 
-Get up and running with the Godot MIDI Sequencer quickly and easily. This section covers everything you need to know to install, configure, and start using the sequencer for your first music production session.
+Get up and running with the {{ site.product_name }} quickly and easily. This section covers everything you need to know to install, configure, and start using the sequencer for your first music production session.
 
 ![Getting Started Overview](../docs/img/getting-started-overview.jpg)
 *Complete setup process from installation to first pattern creation*
