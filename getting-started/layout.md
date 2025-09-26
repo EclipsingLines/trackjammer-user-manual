@@ -24,9 +24,9 @@ The top 8 buttons of the Launchpad are used to navigate the different "pages" an
 
 4 Page buttons allow to switch between the 6 different modes to use the app:
 
-Pattern Page {% include launchpad-drums.html inline=true %}
-Notes Page {% include launchpad-keys.html inline=true %}
-CC Subtracks Page {% include launchpad-user.html inline=true %}
+Pattern Page {% include launchpad-drums.html %}
+Notes Page {% include launchpad-keys.html %}
+CC Subtracks Page {% include launchpad-user.html %}
 Track Settings Page {% include launchpad-session.html inline=true %}
 Sesssion Save/Load Page {% include launchpad-stop-solo-mute.html inline=true %}+{% include launchpad-session.html inline=true %}
 Global Settings {% include launchpad-stop-solo-mute.html inline=true %}+{% include launchpad-user.html inline=true %}
