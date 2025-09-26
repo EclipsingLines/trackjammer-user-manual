@@ -44,8 +44,6 @@ callouts:
   generative:
     title: GENERATIVE ACTION!
     color: red
-  
-  
-  note-title:
+  note:
     color: blue
 
