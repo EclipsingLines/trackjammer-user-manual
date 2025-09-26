@@ -24,12 +24,12 @@ The top 8 buttons of the Launchpad are used to navigate the different "pages" an
 
 4 Page buttons allow to switch between the 6 different modes to use the app:
 
-- Pattern Page {% include launchpad-drums.html inline=true %}.
-- Notes Page {% include launchpad-keys.html inline=true %}.
-- CC Subtracks Page {% include launchpad-user.html inline=true %}.
-- Track Settings Page {% include launchpad-session.html inline=true %}.
-- Sesssion Save/Load Page {% include launchpad-stop-solo-mute.html inline=true %}+{% include launchpad-session.html inline=true %}
-- Global Settings {% include launchpad-stop-solo-mute.html inline=true %}+{% include launchpad-user.html inline=true %}
+Pattern Page {% include launchpad-drums.html inline=true %}
+Notes Page {% include launchpad-keys.html inline=true %}
+CC Subtracks Page {% include launchpad-user.html inline=true %}
+Track Settings Page {% include launchpad-session.html inline=true %}
+Sesssion Save/Load Page {% include launchpad-stop-solo-mute.html inline=true %}+{% include launchpad-session.html inline=true %}
+Global Settings {% include launchpad-stop-solo-mute.html inline=true %}+{% include launchpad-user.html inline=true %}
 
 {: .note-title}
 > Clear Session
@@ -39,23 +39,26 @@ The top 8 buttons of the Launchpad are used to navigate the different "pages" an
 
 The 4 arrow buttons switch between different subpages in the **Pattern**, **Notes** and **CC Subtracks** pages:
 
-- Pattern subpages:
-  - Pattern Length - {% include launchpad-up-arrow.html inline=true %}.
-  - Pattern Beats - {% include launchpad-down-arrow.html inline=true %}.
-  - Mutations - {% include launchpad-left-arrow.html inline=true %}.
-  - Substeps - {% include launchpad-right-arrow.html inline=true %}.
-  - Chance No Button.
+##### Pattern subpages
 
-- Notes subpages:
-  - Velocity - {% include launchpad-up-arrow.html inline=true %}
-  - Gate - {% include launchpad-down-arrow.html inline=true %}
-  - Type - {% include launchpad-left-arrow.html inline=true %}
-  - Variation - {% include launchpad-right-arrow.html inline=true %}
-  - Note Selection - No Button
+Pattern Length - {% include launchpad-up-arrow.html inline=true %}.
+Pattern Beats - {% include launchpad-down-arrow.html inline=true %}.
+Mutations - {% include launchpad-left-arrow.html inline=true %}.
+Substeps - {% include launchpad-right-arrow.html inline=true %}.
+Chance No Button.
 
-- CC Subtracks
-  - Subtrack Selection - {% include launchpad-up-arrow.html inline=true %}OR{% include launchpad-down-arrow.html inline=true %}OR{% include launchpad-left-arrow.html inline=true %}OR{% include launchpad-right-arrow.html inline=true %}
-  - Subtrack Settings - No Button
+##### Notes subpages
+
+Velocity - {% include launchpad-up-arrow.html inline=true %}
+Gate - {% include launchpad-down-arrow.html inline=true %}
+Type - {% include launchpad-left-arrow.html inline=true %}
+Variation - {% include launchpad-right-arrow.html inline=true %}
+Note Selection - No Button
+
+##### CC Subtracks
+
+Subtrack Selection - {% include launchpad-up-arrow.html inline=true %}OR{% include launchpad-down-arrow.html inline=true %}OR{% include launchpad-left-arrow.html inline=true %}OR{% include launchpad-right-arrow.html inline=true %}
+Subtrack Settings - No Button
 
 The selected subpage button is highlihgted to indicate the current selection.
 
