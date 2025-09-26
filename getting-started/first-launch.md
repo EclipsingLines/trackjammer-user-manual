@@ -2,7 +2,7 @@
 layout: default
 title: First Launch
 parent: Getting Started
-nav_order: 2
+nav_order: 4
 ---
 
 # First Launch
@@ -28,85 +28,6 @@ The sequencer loads a default project with basic patterns already configured acr
 
 The main interface displays the track overview, pattern grid, and transport controls. All elements start in their default states, ready for immediate use.
 
-## Understanding the Default Interface
-
-![Interface Overview](docs/img/interface-overview-labeled.jpg)
-*Main interface elements labeled for reference*
-
-### Track Display (Left Side)
-
-Seven track buttons (Track 1-7) are visible on the left side of the interface. Track 1 is selected by default and highlighted. Each track shows:
-
-- Track number and selection status
-- Basic pattern information
-- MIDI channel assignment
-
-### Pattern Grid (Center)
-
-The center area shows the current track's pattern as a step grid. By default, you'll see:
-
-- 16 steps across (the default pattern length)
-- Step activity indicators
-- Current playback position
-- Pattern length markers
-
-### Transport Controls (Bottom)
-
-Standard playback controls are located at the bottom:
-
-- Play/Pause button
-- Stop button
-- Reset/Restart button
-- Tempo display
-
-### Parameter Area (Right)
-
-The right side displays parameters for the currently selected track:
-
-- Pattern settings (length, beats)
-- Scale and musical parameters
-- MIDI routing information
-
-## Your First Pattern
-
-The default project includes a simple Euclidean pattern that demonstrates the sequencer's capabilities:
-
-### Default Pattern Settings
-
-- **Track 1**: 4 beats in 16 steps (classic house pattern)
-- **Tempo**: 120 BPM
-- **Scale**: Phrygian mode
-- **Key**: C4 (Middle C)
-
-### Listening to the Default
-
-1. **Press Play** to hear the default pattern
-2. **Observe** the step indicators showing the current playback position
-3. **Notice** how the Euclidean algorithm distributes the beats evenly
-
-If you don't hear sound immediately, check your [MIDI setup →](../midi-setup.html).
-
-## Making Your First Change
-
-Let's modify the default pattern to understand how the sequencer works:
-
-### Changing the Beat Count
-
-1. **Select Track 1** (if not already selected)
-2. **Locate the "Beats" parameter** in the right panel
-3. **Increase the beats** from 4 to 6
-4. **Observe** how the pattern changes in real-time
-
-The Euclidean algorithm automatically redistributes the 6 beats across the 16 steps, creating a more complex rhythm.
-
-### Switching Tracks
-
-1. **Click Track 2** to select it
-2. **Notice** the pattern grid updates to show Track 2's pattern
-3. **Try different tracks** to see their various configurations
-
-Each track has its own independent pattern, scale, and MIDI settings.
-
 ## Launchpad Integration
 
 If you have a Novation Launchpad connected, it becomes active immediately:
@@ -127,7 +48,6 @@ You can start interacting with the Launchpad immediately:
 
 - **Press track buttons** to switch between tracks
 - **Tap step pads** to toggle steps on/off
-- **Use transport controls** to start/stop playback
 
 ## Common First-Launch Questions
 

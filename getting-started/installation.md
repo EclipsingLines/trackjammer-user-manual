@@ -25,15 +25,7 @@ Before installing, ensure your system meets these minimum requirements:
 
 ## Download Options
 
-### Pre-built Releases (Recommended)
-
-Download the latest pre-built version from the releases page. This is the easiest option for most users:
-
-1. Get the [{{ site.product_name }}](https://eclipsinglines.gumroad.com/l/TracksJammerLE)
-
-### Building from Source
-
-Advanced users can build from source code using the Godot engine. This requires Godot 4.5+ and the included project files.
+[Get {{ site.product_name }} from Gumroad](https://eclipsinglines.gumroad.com/l/TracksJammerLE)
 
 ## Installation Steps
 
@@ -122,8 +114,6 @@ The sequencer creates configuration files next to its executable for easy portab
 
 Once installation is complete:
 
-1. [Connect your MIDI devices →](../midi-setup.html)
+1. [Connect your MIDI devices →](midi-setup.html)
 2. [Launch the application for the first time →](first-launch.html)
 3. [Learn the basic operation →](basic-operation.html)
-
-The sequencer is designed to work immediately after installation, but connecting a Launchpad controller will greatly enhance your experience and provide the intended tactile workflow.

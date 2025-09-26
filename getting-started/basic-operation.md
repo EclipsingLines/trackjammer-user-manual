@@ -2,43 +2,21 @@
 layout: default
 title: Basic Operation
 parent: Getting Started
-nav_order: 3
+nav_order: 5
 ---
 
 # Basic Operation
 
-Master the essential controls and workflow of the {{ site.product_name }}. This guide covers the fundamental operations you'll use in every session, from playback control to pattern editing.
+Master the essential controls and workflow of the {{ site.product_name }}. This guide covers the fundamental operations you'll use in every session, from session management to pattern editing.
 
 ![Basic Controls Interface](docs/img/basic-controls-interface.jpg)
 *The essential controls for daily sequencer operation*
 
 ## Transport Controls
 
-The transport section controls playback and timing for the entire sequencer. These controls work identically whether you're using the software interface or a connected Launchpad.
+The current version of {{ site.product_name }} does not provide transport controls or clock signals of any kind.
 
-### Play/Pause
-
-- **Software**: Click the Play button in the transport bar
-- **Launchpad**: Press the dedicated Play pad (typically green when stopped, red when playing)
-- **Function**: Starts or pauses playback of all active tracks simultaneously
-
-When you press Play, all tracks begin from their current positions and maintain sync with each other. The sequencer's internal clock ensures perfect timing regardless of pattern lengths or speed settings.
-
-### Stop
-
-- **Software**: Click the Stop button (square icon)
-- **Launchpad**: Press the Stop pad
-- **Function**: Immediately stops all playback and resets all tracks to position zero
-
-Stop is different from Pause - it returns everything to the beginning, ready for a fresh start.
-
-### Reset
-
-- **Software**: Click the Reset button (circular arrow)
-- **Launchpad**: Hold Shift + Stop (varies by Launchpad model)
-- **Function**: Returns all tracks to step 1 without stopping playback
-
-Reset is useful for syncing up tracks that have gotten out of phase or starting a new section while maintaining the groove.
+These come from the controlled device, for the purposes of this guide: the Novation Circuit Tracks.
 
 ## Track Selection
 
@@ -49,7 +27,6 @@ The sequencer provides seven independent tracks, each with its own pattern, scal
 
 ### Switching Tracks
 
-- **Software**: Click any of the seven track buttons on the left side
 - **Launchpad**: Press the corresponding track pad on the right edge of the grid
 - **Visual Feedback**: The selected track is highlighted in a different color
 
@@ -82,9 +59,8 @@ A pattern consists of up to 32 steps, though the default is 16. Each step can be
 
 ### Adding and Removing Steps
 
-- **Software**: Click any step in the pattern grid to toggle it on/off
-- **Launchpad**: Press any pad in the main 8x8 grid to toggle that step
-- **Visual Feedback**: Active steps appear brighter/colored, inactive steps are dim
+- **Launchpad**: Press any pad in the main 8x8 grid to toggle that step, long pressing a pad selects that step
+- **Visual Feedback**: Active steps appear brighter/colored, inactive steps are dim, selected steps blink
 
 ![Step Editing](docs/img/step-editing-example.jpg)
 *Before and after example of adding steps to create a new pattern*
@@ -95,14 +71,21 @@ You can change how many steps the pattern uses:
 
 - **Default**: 16 steps (covers 4 beats in 4/4 time)
 - **Range**: 1-32 steps
-- **Software**: Adjust the "Length" parameter in the right panel
-- **Launchpad**: Use the parameter editing pads
+- **Launchpad**: While on the **Pattern Length** subpage tap on the **Step Area** to adjust the pattern legnth.
 
-When you change pattern length, the sequencer automatically adjusts the loop point. Existing steps beyond the new length are preserved but won't play until you extend the length again.
+When you change pattern length, the sequencer automatically adjusts the loop point.
 
-## Essential Parameters
+{: .note-title}
+> Keep Ratio
+> Depending on the current **Keep Ratio** track setting the sequence will try to adapt the number of beats to try to keep the current rhythm when adjusting the sequence or will keep the number of beats intact.
+> Adjusting a 4 on the floor 16 step sequence (16 Length - 4 Beats) to a 32 step with **Keep Ratio ON** will create a 32 step sequence with 8 beats, keeping the 4 on the floor feeling.
+> Adjusting a 4 on the floor 16 step sequence (16 Length - 4 Beats) to a 32 step with **Keep Ratio OFF** will create a 32 step sequence with 4 beats, halving the rhythms speed.
 
-Three parameters form the core of every pattern and should be understood before diving deeper into the sequencer.
+{: .warning }
+> Generative Action!
+> This action regenerates the track pattern using the new parameter values.
+> There's no undo in the current version.
+> Quick Save your sequence if you found something you might want to hear again before performing any **Generative Action**
 
 ### Beats Parameter
 
@@ -110,70 +93,12 @@ Controls how many beats (active steps) the Euclidean algorithm places in the pat
 
 - **Range**: 0 to current pattern length
 - **Effect**: More beats = denser rhythm, fewer beats = sparser rhythm
-- **Real-time**: Changes take effect immediately, even during playback
 
-### Length Parameter  
-
-Sets the total number of steps in the pattern:
-
-- **Range**: 1-32 steps
-- **Common Values**: 16 (4/4 time), 12 (3/4 time), 8 (half-time feel)
-- **Relationship**: Beats are distributed across this length using the Euclidean algorithm
-
-### Speed Multiplier
-
-Controls how fast this track plays relative to the master tempo:
-
-- **1x**: Normal speed (default)
-- **2x**: Double speed (twice as fast)
-- **1/2x**: Half speed
-- **Other Values**: 1/4x, 4x, and other musical divisions
-
-![Parameter Editing](docs/img/parameter-editing.jpg)
-*Parameter editing interface showing beats, length, and speed controls*
-
-## Basic Workflow
-
-Here's a typical workflow for creating your first pattern from scratch:
-
-### 1. Select a Track
-
-Choose which of the seven tracks you want to work with. Start with Track 1 if you're just beginning.
-
-### 2. Set the Foundation
-
-- **Length**: Start with 16 steps for a standard 4/4 pattern
-- **Beats**: Try 4 beats for a basic house rhythm
-- **Speed**: Leave at 1x for normal timing
-
-### 3. Listen and Adjust
-
-- Press Play to hear the generated pattern
-- Adjust the Beats parameter to find a rhythm you like
-- Try different Length values to create different feels
-
-### 4. Fine-tune Individual Steps
-
-- Toggle specific steps on/off to customize the pattern
-- Add or remove beats to create fills or breaks
-- Experiment with different combinations
-
-### 5. Set Musical Parameters
-
-- Choose a scale that fits your track
-- Set the root note (key) for your composition
-- Assign the MIDI channel for your target synthesizer
-
-## Keyboard Shortcuts
-
-Essential keyboard shortcuts for efficient operation:
-
-- **Spacebar**: Play/Pause
-- **S**: Stop
-- **R**: Reset
-- **1-7**: Select tracks 1-7
-- **Delete**: Clear selected track
-- **Escape**: Return to main view
+{: .warning }
+> Generative Action!
+> This action regenerates the track pattern using the new parameter values.
+> There's no undo in the current version.
+> Quick Save your sequence if you found something you might want to hear again before performing any **Generative Action**
 
 ## Next Steps
 
