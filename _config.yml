@@ -45,5 +45,6 @@ callouts:
     title: GENERATIVE ACTION!
     color: red
   note:
+    title: Note
     color: blue
 
