@@ -111,6 +111,12 @@
     text-align: center;
 }
 
+// When stop-solo-mute is used inline, preserve inline-flex display
+.launchpad-button-inline.launchpad-stop-solo-mute {
+    display: inline-flex;
+    flex-direction: column;
+}
+
 .launchpad-stop-solo-mute::after {
     content: "Stop\ASolo\AMute";
     white-space: pre;
