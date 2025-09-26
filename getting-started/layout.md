@@ -54,7 +54,7 @@ The 4 arrow buttons switch between different subpages in the **Pattern**, **Note
   - Note Selection - No Button
 
 - CC Subtracks
-  - Subtrack Selection - {% include launchpad-up-arrow.html inline=true %}{% include launchpad-down-arrow.html inline=true %}{% include launchpad-left-arrow.html inline=true %}{% include launchpad-right-arrow.html inline=true %}
+  - Subtrack Selection - {% include launchpad-up-arrow.html inline=true %}OR{% include launchpad-down-arrow.html inline=true %}OR{% include launchpad-left-arrow.html inline=true %}OR{% include launchpad-right-arrow.html inline=true %}
   - Subtrack Settings - No Button
 
 The selected subpage button is highlihgted to indicate the current selection.
@@ -68,6 +68,8 @@ Pressing on the currently selected subpage takes the user into the "No Button" s
 > The Left and Right subpae buttons are also used to rotate (nudge) tracks backwards and forwards by holding down a Track Button and tapping Left or Right
 
 ### Main Area (8x8 Grid)
+
+{% include full-launchpad.html %}
 
 The main area is composed of 4 sections:
 
