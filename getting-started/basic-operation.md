@@ -18,6 +18,10 @@ The current version of {{ site.product_name }} does not provide transport contro
 
 These come from the controlled device, for the purposes of this guide: the Novation Circuit Tracks.
 
+Press Play, Continue or Stop on your output device to start or stop the sequence.
+
+Change tempo on your output device to speed up or down your sequence.
+
 ## Track Selection
 
 The sequencer provides seven independent tracks, each with its own pattern, scale, and MIDI settings. Understanding track selection is crucial for efficient workflow.
