@@ -81,7 +81,7 @@ When you change pattern length, the sequencer automatically adjusts the loop poi
 > Adjusting a 4 on the floor 16 step sequence (16 Length - 4 Beats) to a 32 step with **Keep Ratio ON** will create a 32 step sequence with 8 beats, keeping the 4 on the floor feeling.
 > Adjusting a 4 on the floor 16 step sequence (16 Length - 4 Beats) to a 32 step with **Keep Ratio OFF** will create a 32 step sequence with 4 beats, halving the rhythms speed.
 
-{: .warning }
+{: .generative }
 > Generative Action!
 > This action regenerates the track pattern using the new parameter values.
 > There's no undo in the current version.
@@ -94,7 +94,7 @@ Controls how many beats (active steps) the Euclidean algorithm places in the pat
 - **Range**: 0 to current pattern length
 - **Effect**: More beats = denser rhythm, fewer beats = sparser rhythm
 
-{: .warning }
+{: .generative }
 > Generative Action!
 > This action regenerates the track pattern using the new parameter values.
 > There's no undo in the current version.

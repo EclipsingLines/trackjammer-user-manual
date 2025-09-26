@@ -39,3 +39,13 @@ footer_content: "Copyright &copy; 2025 Track Jammer. Distributed by an <a href=\
 aux_links:
   "View on GitHub":
     - "https://github.com/eclipsinglines/trackjammer-user-manual"
+
+callouts:
+  generative:
+    title: GENERATIVE ACTION!
+    color: red
+  
+  
+  note-title:
+    color: blue
+
