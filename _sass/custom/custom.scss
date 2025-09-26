@@ -21,32 +21,6 @@
     user-select: none;
 }
 
-// Inline button styles - for use within text/paragraphs
-.launchpad-button-inline {
-    display: inline-flex;
-    width: 40px;
-    height: 40px;
-    vertical-align: middle;
-    margin: 0 3px;
-    font-size: 9px;
-}
-
-// Smaller text for inline buttons
-.launchpad-button-inline.launchpad-top-button {
-    font-size: 8px;
-}
-
-.launchpad-button-inline.launchpad-arrow-up::after,
-.launchpad-button-inline.launchpad-arrow-down::after,
-.launchpad-button-inline.launchpad-arrow-left::after,
-.launchpad-button-inline.launchpad-arrow-right::after {
-    font-size: 12px;
-}
-
-.launchpad-button-inline.launchpad-stop-solo-mute {
-    font-size: 7px;
-}
-
 // Top row buttons (common properties)
 .launchpad-top-button {
     font-weight: bold;
