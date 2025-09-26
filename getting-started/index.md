@@ -19,7 +19,7 @@ Get up and running with the {{ site.product_name }} quickly and easily. This sec
 
 - **[Installation →](installation.html)** - Download and install the sequencer on your system
 - **[First Launch →](first-launch.html)** - Understanding the interface on startup
-- **[Basic Operation →](basic-operation.html)** - Essential controls and workflow
+- **[Layout →](layout.html)** - Essential controls and workflow
 
 ### Essential Preparation
 
@@ -68,7 +68,7 @@ The sequencer generates MIDI data only. You'll need:
 
 ### "Can I use it without a Launchpad?"
 
-Yes, but with limited functionality. The software interface provides all features, but the Launchpad integration is central to the intended workflow.
+Yes, but with limited functionality. Not recommended with the current version.
 
 Other grid controllers might be implemented in the future.
 

@@ -27,7 +27,7 @@ The top 8 buttons of the Launchpad are used to navigate the different "pages" an
 - Pattern Page | Drum
 - Notes Page | Keys
 - CC Subtracks Page | User
-- Track Settings Page | Session
+- Track Settings Page | Session {% include launchpad-session.html %}
 - Sesssion Save/Load Page | Session + Mute
 - Global Settings | User + Mute
 

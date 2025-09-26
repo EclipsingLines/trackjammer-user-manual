@@ -153,9 +153,8 @@ The sequencer uses seven MIDI channels by default, one for each track.
 
 - **Track 1**: MIDI Channel 1
 - **Track 2**: MIDI Channel 2  
-- **Track 3**: MIDI Channel 10 (drums)
-- **Tracks 4-6**: MIDI Channel 10 (drums)
-- **Track 7**: MIDI Channel 16
+- **Tracks 3-6**: MIDI Channel 10 (drums)
+- **Track 7**: MIDI Channel 16 (device control)
 
 ### Customizing Channels
 
@@ -166,67 +165,7 @@ The sequencer uses seven MIDI channels by default, one for each track.
 
 ### Multi-timbral Setup
 
-For synthesizers that respond to multiple MIDI channels:
-
-1. **Configure** your synth to receive on multiple channels
-2. **Assign** different sounds to each channel
-3. **Set** sequencer tracks to match your synth's channel assignments
-
-## Troubleshooting MIDI Issues
-
-Common MIDI problems and their solutions.
-
-### "No MIDI Devices Detected"
-
-1. **Check Connections**: Verify USB cables are properly connected
-2. **Driver Issues**: Ensure device drivers are installed (Windows)
-3. **Permissions**: Check MIDI permissions (macOS) or audio group membership (Linux)
-4. **Restart**: Try restarting the sequencer after connecting devices
-
-### "Launchpad Not Responding"
-
-1. **Mode Check**: Ensure Launchpad isn't in Live mode or other incompatible mode
-2. **Exclusive Access**: Close other software that might be using the Launchpad
-3. **Power Cycle**: Disconnect and reconnect the USB cable
-4. **USB Port**: Try a different USB port
-
-### "No Sound Output"
-
-1. **Verify Routing**: Check that MIDI output is routed to a sound-generating device
-2. **Channel Matching**: Ensure receiving device is listening on the correct MIDI channels
-3. **Volume Levels**: Check volume on both sequencer and receiving device
-4. **Test Signal**: Use the built-in MIDI test function
-
-### "Intermittent Connection Issues"
-
-1. **USB Quality**: Try a different, high-quality USB cable
-2. **Power Management**: Disable USB power management (Windows)
-3. **Buffer Settings**: Adjust MIDI buffer sizes if available
-4. **System Load**: Close unnecessary applications that might interfere
-
-## Advanced MIDI Features
-
-The sequencer supports advanced MIDI capabilities for professional use.
-
-### CC/NRPN Support
-
-- **Control Change**: Standard CC messages on any channel
-- **NRPN**: Non-Registered Parameter Numbers for extended control
-- **Automation**: Real-time parameter automation via sub-tracks
-
-### MIDI Clock
-
-- **Internal Clock**: Sequencer generates its own timing
-- **External Sync**: Can sync to incoming MIDI clock (future feature)
-- **Clock Output**: Sends MIDI clock to slave devices
-
-### System Exclusive
-
-Limited SysEx support for device-specific functions:
-
-- Launchpad mode switching
-- Device identification
-- Custom LED patterns
+We don't support multi timbral output over different MIDI channels in the current version.
 
 ## Next Steps
 
