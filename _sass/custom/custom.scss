@@ -11,8 +11,8 @@
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
-    font-size: 12px;
-    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
     box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
     border-radius: 2px;
     margin: 4px;
@@ -66,7 +66,7 @@
 
 // Right column buttons
 .launchpad-right-button {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
 }
 
@@ -80,7 +80,7 @@
 .launchpad-stop-solo-mute {
     display: flex;
     flex-direction: column;
-    font-size: 10px;
+    font-size: 9px;
     line-height: 1.2;
     text-align: center;
 }
