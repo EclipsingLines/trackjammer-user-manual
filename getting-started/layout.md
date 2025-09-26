@@ -24,12 +24,18 @@ The top 8 buttons of the Launchpad are used to navigate the different "pages" an
 
 4 Page buttons allow to switch between the 6 different modes to use the app:
 
-- Pattern Page - {% include launchpad-drums.html %}
-- Notes Page - {% include launchpad-keys.html %}
-- CC Subtracks Page - {% include launchpad-user.html %}
-- Track Settings Page - {% include launchpad-session.html %}
-- Sesssion Save/Load Page - {% include launchpad-session.html %} + {% include launchpad-stop-solo-mute.html %}
-- Global Settings - {% include launchpad-user.html %} + {% include launchpad-stop-solo-mute.html %}
+- Pattern Page
+  {% include launchpad-drums.html %}
+- Notes Page
+  {% include launchpad-keys.html %}
+- CC Subtracks Page
+  {% include launchpad-user.html %}
+- Track Settings Page
+  {% include launchpad-session.html %}
+- Sesssion Save/Load Page
+  {% include launchpad-session.html %} + {% include launchpad-stop-solo-mute.html %}
+- Global Settings
+  {% include launchpad-user.html %} + {% include launchpad-stop-solo-mute.html %}
 
 {: .note-title}
 > Clear Session
@@ -40,7 +46,8 @@ The top 8 buttons of the Launchpad are used to navigate the different "pages" an
 The 4 arrow buttons switch between different subpages in the **Pattern**, **Notes** and **CC Subtracks** pages:
 
 - Pattern subpages:
-  - Pattern Length  - {% include launchpad-up-arrow.html inline=true %}
+  - Pattern Length
+  {% include launchpad-up-arrow.html%}
   - Pattern Beats- {% include launchpad-down-arrow.html %}
   - Mutations - {% include launchpad-left-arrow.html %}
   - Substeps - {% include launchpad-right-arrow.html %}
