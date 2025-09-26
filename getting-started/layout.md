@@ -54,7 +54,7 @@ The 4 arrow buttons switch between different subpages in the **Pattern**, **Note
   - Note Selection - No Button
 
 - CC Subtracks
-  - Subtrack Selection - {% include launchpad-up-arrow.html inline=true %} - {% include launchpad-down-arrow.html inline=true %} - {% include launchpad-left-arrow.html inline=true %} - {% include launchpad-right-arrow.html inline=true %}
+  - Subtrack Selection - {% include launchpad-up-arrow.html inline=true %}{% include launchpad-down-arrow.html inline=true %}{% include launchpad-left-arrow.html inline=true %}{% include launchpad-right-arrow.html inline=true %}
   - Subtrack Settings - No Button
 
 The selected subpage button is highlihgted to indicate the current selection.
