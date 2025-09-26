@@ -40,10 +40,10 @@ The top 8 buttons of the Launchpad are used to navigate the different "pages" an
 The 4 arrow buttons switch between different subpages in the **Pattern**, **Notes** and **CC Subtracks** pages:
 
 - Pattern subpages:
-  - Pattern Length - Up Button
-  - Pattern Beats - Down Button
-  - Mutations - Left Button
-  - Substeps - Right Button
+  - Pattern Length  - {% include launchpad-up-arrow.html inline=true %}
+  - Pattern Beats- {% include launchpad-down-arrow.html %}
+  - Mutations - {% include launchpad-left-arrow.html %}
+  - Substeps - {% include launchpad-right-arrow.html %}
   - Chance - No Button
 
 - Notes subpages:
