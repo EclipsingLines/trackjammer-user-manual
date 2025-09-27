@@ -1,7 +1,7 @@
 // _sass/custom/launchpad.scss
 
 // Purple color hierarchy for headings
-$lp-top-selection: #b794f6;     // h1 - brightest purple
+$lp-top-color: #b794f6;     // h1 - brightest purple
 $lp-h2-color: #9f7aea;          // h2 - slightly darker purple
 $lp-h3-color: #805ad5;          // h3 - medium purple
 $lp-h4-color: #6b46c1;          // h4 - deeper purple (still readable)
@@ -294,27 +294,27 @@ $lp-link-visited: #9f7aea;      // Slightly muted for visited
 h1 {
   font-size: 2.5rem !important;
   font-weight: 700 !important;
-  color: $lp-top-selection !important;
+  color: $lp-top-color !important;
   margin-bottom: 1rem !important;
 }
 
 h2 {
   font-size: 2rem !important;
   font-weight: 600 !important;
-  color: $lp-h2-selection !important;
+  color: $lp-h2-color !important;
   margin-top: 2rem !important;
 }
 
 h3 {
   font-size: 1.5rem !important;
   font-weight: 600 !important;
-  color: $lp-h3-selection !important;
+  color: $lp-h3-color !important;
 }
 
 h4 {
   font-size: 1.5rem !important;
   font-weight: 600 !important;
-  color: $lp-h4-selection !important;
+  color: $lp-h4-color !important;
 }
 
 // Better code block styling for dark mode
