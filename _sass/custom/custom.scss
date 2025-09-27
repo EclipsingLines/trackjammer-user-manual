@@ -119,16 +119,54 @@ $lp-link-visited: #9f7aea;      // Slightly muted for visited
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-// Container for entire launchpad
+// Container for entire launchpad - Alternative approach
 .launchpad-container {
+    --scale-factor: 1;
     display: grid;
     grid-template-columns: repeat(9, 1fr);
-    gap: 4px;
+    gap: calc(4px * var(--scale-factor));
     width: fit-content;
+    max-width: 100vw;
     background-color: #000;
-    padding: 10px;
+    padding: calc(10px * var(--scale-factor));
     border-radius: 6px;
-    margin: 20px 0;
+    margin: 20px auto;
+    transform: scale(var(--scale-factor));
+    transform-origin: top center;
+    
+    @media screen and (max-width: 900px) {
+        --scale-factor: 0.85;
+    }
+    
+    @media screen and (max-width: 750px) {
+        --scale-factor: 0.7;
+    }
+    
+    @media screen and (max-width: 600px) {
+        --scale-factor: 0.55;
+    }
+    
+    @media screen and (max-width: 450px) {
+        --scale-factor: 0.45;
+    }
+}
+
+// Adjust button and pad sizes to work with scaling
+.launchpad-button,
+.launchpad-pad {
+    width: calc(60px * var(--scale-factor, 1));
+    height: calc(60px * var(--scale-factor, 1));
+    margin: calc(4px * var(--scale-factor, 1));
+    font-size: calc(11px * var(--scale-factor, 1));
+}
+
+// Adjust font sizes for scaled buttons
+.launchpad-right-button {
+    font-size: calc(13px * var(--scale-factor, 1));
+}
+
+.launchpad-stop-solo-mute {
+    font-size: calc(9px * var(--scale-factor, 1));
 }
 
 // Row and column layouts
@@ -271,22 +309,6 @@ $lp-link-visited: #9f7aea;      // Slightly muted for visited
 
     100% {
         transform: scale(1);
-    }
-}
-
-// Responsive adjustments for smaller screens
-@media screen and (max-width: 800px) {
-    .launchpad-container {
-        grid-template-columns: repeat(5, 1fr);
-        overflow-x: auto;
-        max-width: 100%;
-    }
-
-    .launchpad-button,
-    .launchpad-pad {
-        width: 50px;
-        height: 50px;
-        margin: 3px;
     }
 }
 
