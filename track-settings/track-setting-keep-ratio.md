@@ -7,16 +7,18 @@ parent: Track Settings Page
 
 # Keep Ratio
 
-Binary selector.
-
-Depending on the current **Keep Ratio** track setting the sequence will try to adapt the number of beats to try to keep the current rhythm when adjusting the sequence or will keep the number of beats intact.
+**Keep Ratio** is a binary selector that determines how the number of beats is adapted when you change the **Pattern Length**.
 
 {% include launchpad-grid.html presets="track_params_none_r1,track_params_none_r2_3,track_params_none_r2,empty_row_step,empty_row_step,empty_row_step,extra_row_empty,save_slots" page=0 %}
 
-## Keep Ratio ON
+### Keep Ratio ON
 
-Adjusting a 4 on the floor 16 step sequence (16 Length - 4 Beats) to a 32 step with **Keep Ratio ON** will create a 32 step sequence with 8 beats, keeping the 4 on the floor feeling.
+With **Keep Ratio ON**, the sequencer will try to adapt the number of beats to maintain the current rhythm.
 
-## Keep Ratio OFF
+- **Example**: Adjusting a 16-**Step** "four on the floor" **Pattern** (16 Length, 4 Beats) to 32 **Steps** will create a 32-**Step** sequence with 8 beats, preserving the feel.
 
-Adjusting a 4 on the floor 16 step sequence (16 Length - 4 Beats) to a 32 step with **Keep Ratio OFF** will create a 32 step sequence with 4 beats, halving the rhythms speed.
+### Keep Ratio OFF
+
+With **Keep Ratio OFF**, the number of beats will remain the same when you change the **Pattern Length**.
+
+- **Example**: Adjusting a 16-**Step** "four on the floor" **Pattern** (16 Length, 4 Beats) to 32 **Steps** will create a 32-**Step** sequence with 4 beats, halving the rhythm's speed.

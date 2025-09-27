@@ -7,32 +7,32 @@ parent: Track Settings Page
 
 # Track Speed
 
-This parameter adjusts the speed relative to the control clock, the default value is 1x the control clock.
+This **Parameter** adjusts the speed of the current **Track** relative to the main clock. The default value is `1x`, meaning the **Track** plays at the same speed as the main clock.
 
-Available speed options:
+Changing the speed will also change the position of the playhead to maintain musical synchronization.
 
-## Even divisions and multipliers (top row in speed display)
+### Available Speeds
 
-- THIRTY_SECOND,      # 1/32
-- SIXTEENTH,          # 1/16  
-- EIGHTH,             # 1/8
-- QUARTER,            # 1/4
-- HALF,               # 1/2
-- ONE,                # 1x
-- TWO,                # 2x
-- FOUR,               # 4x
+#### Even Divisions and Multipliers (Top Row)
 
-## Triplets and odd signatures (bottom row in speed display)
+- `1/32`
+- `1/16`
+- `1/8`
+- `1/4`
+- `1/2`
+- `1x` (Default)
+- `2x`
+- `4x`
 
-- QUARTER_TRIPLET,    # 1/4T
-- HALF_TRIPLET,       # 1/2T
-- ONE_TRIPLET,        # 1T
-- TWO_TRIPLET,        # 2T
-- FOUR_TRIPLET,       # 4T
-- DOTTED_QUARTER,     # 1/4.
-- DOTTED_HALF,        # 1/2.
-- CUSTOM              # User defined
+#### Triplets and Dotted Rhythms (Bottom Row)
 
-Changing the speed also changes the position of the playhead.
+- `1/4T` (Quarter Triplet)
+- `1/2T` (Half Triplet)
+- `1T` (Whole Triplet)
+- `2T` (Double Triplet)
+- `4T` (Quadruple Triplet)
+- `1/4.` (Dotted Quarter)
+- `1/2.` (Dotted Half)
+- `Custom` (User Defined)
 
 {% include launchpad-grid.html presets="track_params_none_r1_3,track_params_none_r2,track_params_none_r2,empty_row_step,empty_row_step,empty_row_step,extra_row_empty,save_slots" page=0 %}

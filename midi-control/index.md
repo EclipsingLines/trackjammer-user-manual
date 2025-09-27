@@ -6,194 +6,186 @@ has_children: true
 permalink: /midi-control/
 ---
 
-# Automation & Control
+# MIDI Control and Automation
 
-Extend the sequencer's capabilities beyond basic pattern generation with sophisticated MIDI automation and control systems. Transform static patterns into dynamic, evolving musical performances through precise parameter automation, sub-track control, and advanced MIDI communication protocols.
+Go beyond basic **Pattern** generation with sophisticated MIDI automation and control. Transform static **Patterns** into dynamic, evolving musical performances through precise **Parameter** automation, **Sub-track** control, and advanced MIDI communication.
 
 ![Automation Control Interface](../docs/img/automation-control-interface.jpg)
-*Advanced automation interface showing CC/NRPN control, sub-tracks, and slew rate automation*
+*The advanced automation interface, showing CC/NRPN control, **Sub-tracks**, and slew rate automation.*
 
-## Automation Philosophy
+## Our Philosophy on Automation
 
 ### Beyond Static Patterns
 
-While basic patterns provide rhythmic and melodic foundations, automation adds the dynamic movement and parameter changes that bring sequences to life, creating evolving textures and responsive musical elements.
+While basic **Patterns** provide the rhythmic and melodic foundation, automation adds the dynamic movement that brings your sequences to life, creating evolving textures and responsive musical elements.
 
 ### Precision Control
 
-The automation system provides sample-accurate timing for all parameter changes, ensuring that automated movements integrate seamlessly with the musical timing of patterns and maintain professional-quality precision.
+The automation system provides sample-accurate timing for all **Parameter** changes, ensuring that automated movements integrate seamlessly with the musical timing of your **Patterns**.
 
 ### Real-Time Responsiveness
 
-All automation can be adjusted in real-time during performance, allowing live control over parameter movements and dynamic adaptation to musical context.
+All automation can be adjusted in real-time, allowing you to control **Parameter** movements live and adapt to the musical context.
 
 ## Core Automation Features
 
-### **[CC/NRPN Control →](cc-nrpn.html)**
-
-Master the MIDI Control Change and Non-Registered Parameter Number protocols for communicating with external synthesizers, effects units, and DAW automation systems.
-
-### **[Sub-tracks →](sub-tracks.html)**
-
-Explore the sub-track system that allows multiple parameter streams per track, enabling complex multi-dimensional automation and layered control schemes.
-
-### **[Slew Rate Automation →](slew-rate.html)**
-
-Learn smooth parameter interpolation techniques that create natural, musical transitions between different automation values and eliminate abrupt parameter jumps.
+- **[CC/NRPN Control](cc-nrpn.html)**: Master MIDI Control Change (CC) and Non-Registered Parameter Number (NRPN) protocols to communicate with external synthesizers, effects units, and **DAW** automation systems.
+- **[Sub-tracks](sub-tracks.html)**: Explore the **Sub-track** system, which allows for multiple **Parameter** streams per **Track**, enabling complex, multi-dimensional automation.
+- **[Slew Rate Automation](slew-rate.html)**: Learn smooth **Parameter** interpolation techniques to create natural, musical transitions between different automation values.
 
 ## MIDI Communication Protocols
 
 ### Control Change (CC) Messages
 
-- **Standard Controllers** - Volume, pan, modulation, and expression controls
-- **Sound Controllers** - Filter cutoff, resonance, attack, decay, and release
-- **Custom Mapping** - User-definable CC assignments for specific synthesizer parameters
+- **Standard Controllers**: Control volume, pan, modulation, and expression.
+- **Sound Controllers**: Automate filter cutoff, resonance, attack, decay, and release.
+- **Custom Mapping**: Assign user-definable CCs for specific synthesizer **Parameters**.
 
 ### Non-Registered Parameter Numbers (NRPN)
 
-- **Extended Resolution** - 14-bit precision for smooth parameter control
-- **Synthesizer Integration** - Direct access to manufacturer-specific parameters
-- **Complex Control** - Multi-parameter control systems for advanced sound shaping
+- **Extended Resolution**: 14-bit precision for smooth **Parameter** control.
+- **Synthesizer Integration**: Gain direct access to manufacturer-specific **Parameters**.
+- **Complex Control**: Use multi-**Parameter** control systems for advanced sound shaping.
 
 ### Real-Time Control
 
-- **Immediate Response** - Sub-millisecond timing for responsive parameter changes
-- **Smooth Interpolation** - Artifact-free parameter transitions
-- **Performance Integration** - Live automation control during performance
+- **Immediate Response**: Sub-millisecond timing for responsive **Parameter** changes.
+- **Smooth Interpolation**: Achieve artifact-free **Parameter** transitions.
+- **Performance Integration**: Control automation live during a performance.
 
-## Automation Applications
+## Applications for Automation
 
-### Sound Design Integration
+### Sound Design
 
-- **Filter Sweeps** - Dynamic filter cutoff and resonance automation
-- **Amplitude Shaping** - Volume and VCA control beyond basic velocity
-- **Modulation Control** - LFO rate, depth, and routing automation
-- **Effects Processing** - Reverb, delay, and distortion parameter control
+- **Filter Sweeps**: Create dynamic filter cutoff and resonance automation.
+- **Amplitude Shaping**: Control volume and VCA beyond basic velocity.
+--   **Modulation Control**: Automate LFO rate, depth, and routing.
+- **Effects Processing**: Control reverb, delay, and distortion **Parameters**.
 
 ### Musical Expression
 
-- **Dynamic Builds** - Gradual parameter increases for energy building
-- **Textural Evolution** - Slow parameter changes for atmospheric development
-- **Rhythmic Modulation** - Parameter changes synchronized to musical timing
-- **Harmonic Movement** - Automated pitch and tuning adjustments
+- **Dynamic Builds**: Gradually increase **Parameters** to build energy.
+- **Textural Evolution**: Use slow **Parameter** changes for atmospheric development.
+- **Rhythmic Modulation**: Synchronize **Parameter** changes to the musical timing.
+- **Harmonic Movement**: Automate pitch and tuning adjustments.
 
 ### Performance Enhancement
 
-- **Live Parameter Control** - Real-time adjustment during performance
-- **Scene Changes** - Rapid parameter preset switching
-- **Responsive Control** - Parameter automation based on musical context
-- **Interactive Systems** - Automation that responds to other musical elements
+- **Live Parameter Control**: Adjust **Parameters** in real-time during a performance.
+- **Scene Changes**: Switch between **Parameter** presets rapidly.
+- **Responsive Control**: Create **Parameter** automation that adapts to the musical context.
+- **Interactive Systems**: Design automation that responds to other musical elements.
 
 ## Sub-Track Architecture
 
 ### Multi-Dimensional Control
 
-Each track can contain multiple sub-tracks, each controlling different parameters:
+Each **Track** can contain multiple **Sub-tracks**, each controlling a different **Parameter**:
 
-- **Primary Track** - Main musical content (notes, rhythm)
-- **Sub-Track 1** - Filter cutoff automation
-- **Sub-Track 2** - Resonance control
-- **Sub-Track 3** - Pan position automation
+- **Primary Track**: The main musical content (notes, rhythm).
+- **Sub-Track 1**: Filter cutoff automation.
+- **Sub-Track 2**: Resonance control.
+- **Sub-Track 3**: Pan position automation.
 
 ### Independent Pattern Lengths
 
-Sub-tracks can have different pattern lengths from their parent track:
+**Sub-tracks** can have different **Pattern** lengths from their parent **Track**:
 
-- **Polyrhythmic Automation** - Parameter changes at different rates
-- **Evolving Control** - Long-form automation over short musical patterns
-- **Complex Relationships** - Mathematical timing relationships between control layers
+- **Polyrhythmic Automation**: Create **Parameter** changes at different rates.
+- **Evolving Control**: Use long-form automation over short musical **Patterns**.
+- **Complex Relationships**: Establish mathematical timing relationships between control layers.
 
 ### Synchronized Operation
 
-Despite independent lengths, all sub-tracks maintain perfect synchronization with the master clock and their parent track's musical timing.
+Despite having independent lengths, all **Sub-tracks** remain in perfect sync with the master clock and their parent **Track's** musical timing.
 
 ## Advanced Control Techniques
 
 ### Slew Rate Control
 
-- **Natural Transitions** - Smooth parameter changes that avoid zipper noise
-- **Musical Timing** - Transition speeds synchronized to musical timing
-- **Variable Rates** - Different slew rates for different types of parameters
-- **Performance Optimization** - Efficient processing for real-time operation
+- **Natural Transitions**: Create smooth **Parameter** changes that avoid "zipper noise."
+- **Musical Timing**: Synchronize transition speeds to the musical timing.
+- **Variable Rates**: Use different slew rates for different types of **Parameters**.
+- **Performance Optimization**: Process everything efficiently for real-time operation.
 
 ### Parameter Scaling
 
-- **Range Mapping** - Map sequencer values to synthesizer parameter ranges
-- **Curve Shaping** - Linear, exponential, and logarithmic response curves
-- **Bipolar Control** - Positive and negative parameter modulation
-- **Offset and Scale** - Fine-tuning parameter ranges for musical effectiveness
+- **Range Mapping**: Map sequencer values to synthesizer **Parameter** ranges.
+- **Curve Shaping**: Use linear, exponential, and logarithmic response curves.
+- **Bipolar Control**: Modulate **Parameters** both positively and negatively.
+- **Offset and Scale**: Fine-tune **Parameter** ranges for musical effectiveness.
 
 ### Conditional Automation
 
-- **Step-Based Triggers** - Automation that responds to specific pattern steps
-- **Track Relationships** - Automation controlled by other track states
-- **Performance Context** - Automation that adapts to live performance conditions
+- **Step-Based Triggers**: Create automation that responds to specific **Pattern** **Steps**.
+- **Track Relationships**: Control automation with the states of other **Tracks**.
+- **Performance Context**: Design automation that adapts to live performance conditions.
 
 ## Hardware Integration
 
 ### Launchpad Control
 
-- **Visual Feedback** - LED indication of automation states and values
-- **Real-Time Adjustment** - Hardware control over automation parameters
-- **Performance Access** - Quick access to automation controls during live performance
+- **Visual Feedback**: Get LED indications of automation states and values.
+- **Real-Time Adjustment**: Control automation **Parameters** with the hardware.
+- **Performance Access**: Quickly access automation controls during a live performance.
 
 ### External Controller Support
 
-- **MIDI Learn** - Automatic mapping of external MIDI controllers
-- **Multi-Controller Support** - Integration with multiple hardware control surfaces
-- **Bidirectional Communication** - Controllers reflect current automation states
+- **MIDI Learn**: Automatically map external MIDI controllers.
+- **Multi-Controller Support**: Integrate with multiple hardware control surfaces.
+- **Bidirectional Communication**: Your controllers will reflect the current automation states.
 
 ## Workflow Strategies
 
 ### Building Automated Arrangements
 
-1. **Start with Basic Patterns** - Establish musical foundations first
-2. **Add Primary Automation** - Introduce key parameter movements
-3. **Layer Secondary Control** - Build complexity through multiple automation layers
-4. **Refine and Balance** - Adjust automation for musical effectiveness
+1. **Start with Basic Patterns**: Establish the musical foundation first.
+2. **Add Primary Automation**: Introduce key **Parameter** movements.
+3. **Layer Secondary Control**: Build complexity with multiple automation layers.
+4. **Refine and Balance**: Adjust the automation for musical effectiveness.
 
 ### Performance Preparation
 
-- **Essential Controls** - Identify key parameters for live control
-- **Backup Systems** - Prepare alternative control methods
-- **Practice Integration** - Rehearse automation control within musical performance
+- **Essential Controls**: Identify key **Parameters** for live control.
+- **Backup Systems**: Prepare alternative control methods.
+- **Practice Integration**: Rehearse automation control within a musical performance.
 
 ### Studio Integration
 
-- **DAW Synchronization** - Coordinate with external sequencer automation
-- **Recording Preparation** - Set up automation for optimal recording results
-- **Mix Integration** - Plan automation to work with mixing processes
+- **DAW Synchronization**: Coordinate with external sequencer automation.
+- **Recording Preparation**: Set up automation for optimal recording results.
+- **Mix Integration**: Plan your automation to work with your mixing process.
 
 ## Common Applications
 
 ### Electronic Music Production
 
-- **Filter House** - Classic filter cutoff automation for electronic dance music
-- **Ambient Textures** - Slow, evolving parameter changes for atmospheric music
-- **Techno Builds** - Dramatic automation for energy building and releases
+- **Filter House**: Use classic filter cutoff automation for electronic dance music.
+- **Ambient Textures**: Create slow, evolving **Parameter** changes for atmospheric music.
+- **Techno Builds**: Use dramatic automation to build and release energy.
 
 ### Live Performance
 
-- **DJ-Style Control** - Real-time filter and effects control
-- **Band Integration** - Automation synchronized with live musicians
-- **Interactive Performance** - Audience-responsive automation systems
+- **DJ-Style Control**: Control filters and effects in real-time.
+- **Band Integration**: Synchronize automation with live musicians.
+- **Interactive Performance**: Design audience-responsive automation systems.
 
 ### Experimental Music
 
-- **Algorithmic Control** - Automation driven by mathematical algorithms
-- **Generative Systems** - Self-modifying automation patterns
-- **Sound Art** - Extended automation techniques for installation and performance art
+- **Algorithmic Control**: Drive automation with mathematical algorithms.
+- **Generative Systems**: Create self-modifying automation **Patterns**.
+- **Sound Art**: Use extended automation techniques for installation and performance art.
 
 ## Next Steps
 
-Master automation to unlock advanced sequencer capabilities:
+Mastering automation will unlock the advanced capabilities of **TrackJammer**:
 
-- **[Generative Features →](../generative/)** - Combine automation with algorithmic composition
-- **[Advanced Features →](../advanced/)** - Explore complex timing and harmonic systems
-- **[Recording & Export →](../recording/)** - Capture automated performances
+- **Generative Features**: Combine automation with algorithmic composition.
+- **Advanced Features**: Explore complex timing and harmonic systems.
+- **Recording & Export**: Capture your automated performances.
 
-Automation transforms the sequencer from a pattern player into a complete performance instrument capable of sophisticated musical expression.
+Automation transforms **TrackJammer** from a **Pattern** player into a complete performance instrument capable of sophisticated musical expression.
 
 ---
 
-*Ready to automate? Start with [CC/NRPN Control →](cc-nrpn.html)*
+*Ready to automate? Start with [CC/NRPN Control](cc-nrpn.html).*

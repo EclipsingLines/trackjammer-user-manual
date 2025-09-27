@@ -6,12 +6,12 @@ has_children: true
 permalink: /track-settings/
 ---
 
-# Track Settings page
+# The Track Settings Page
 
 {% include launchpad-grid.html presets="track_params_none_r1,track_params_none_r2,track_params_none_r2,empty_row_step,empty_row_step,empty_row_step,extra_row_empty,save_slots" page=0 %}
 
-The Track Settings page allows for setting track wide parameters like, these setting have a direct effect over the track and MIDI control subtracks.
+The **Track Settings Page** allows you to set **Track**-wide **Parameters**. These settings have a direct effect on both the main **Track** and its **Sub-tracks**.
 
-Some of these changes do not change something immediately but will apply changes over the next generative actions.
+Some of these changes will not be audible immediately but will be applied during the next generative action (e.g., changing the **Pattern Length** or **Beats Amount**).
 
-Selecting a **track setting** will trigger a scrolling text with the name of the selected parameter. The UI is still fully responsive under the scrolling text and pressing **any** pad will stop the current scrolling text.
+When you select a **Track Setting**, its name will scroll across the **Launchpad** **Grid**. The interface remains fully responsive during this time, and pressing any pad will stop the text.

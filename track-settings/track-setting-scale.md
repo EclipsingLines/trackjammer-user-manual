@@ -5,33 +5,32 @@ nav_order: 1
 parent: Track Settings Page
 ---
 
-# Track Scale Settings
+# Track Scale
 
-Options selection, 16 options.
+This setting selects the musical scale for the current **Track**. The scale is built upon the selected [**Root Note**](track-setting-root.html) and determines which notes are available to the generative algorithms.
 
-Selects from 15 different scale presets.
+### No Scale
 
-## No Scale
+The first option is **No Scale**. In this mode, only the **Root Note** is available. This is useful for triggering drum samples or other non-pitched instruments.
 
-Option 1 is **No Scale**, in this mode ONLY the root note is available for beat generators (useful for triggering drum samples).
+### Available Scales
 
-## Available Scales
+**TrackJammer** includes 15 different scale presets:
 
-- NO SCALE        # 0 - Only Root Note
-- CHROMATIC       # 1 - All 12 semitones
-- MAJOR           # 2 - Ionian
-- NATURAL_MINOR   # 3 - Aeolian
-- DORIAN          # 4 - Minor with raised 6th
-- PHRYGIAN        # 5 - Minor with flat 2nd
-- LYDIAN          # 6 - Major with raised 4th
-- MIXOLYDIAN      # 7 - Major with flat 7th
-- LOCRIAN         # 8 - Diminished
-- HARMONIC_MINOR  # 9 - Minor with raised 7th
-- MELODIC_MINOR   # 10 - Minor with raised 6th and 7th
-- PENTATONIC_MAJOR# 11 - 5-note major
-- PENTATONIC_MINOR# 12 - 5-note minor
-- BLUES           # 13 - Blues scale
-- WHOLE_TONE      # 14 - All whole steps
-- DIMINISHED      # 15 - Half-whole diminished
+- **Chromatic**: All 12 semitones.
+- **Major**: The Ionian mode.
+- **Natural Minor**: The Aeolian mode.
+- **Dorian**: A minor scale with a raised 6th.
+- **Phrygian**: A minor scale with a flat 2nd.
+- **Lydian**: A major scale with a raised 4th.
+- **Mixolydian**: A major scale with a flat 7th.
+- **Locrian**: A diminished scale.
+- **Harmonic Minor**: A minor scale with a raised 7th.
+- **Melodic Minor**: A minor scale with a raised 6th and 7th.
+- **Pentatonic Major**: A 5-note major scale.
+- **Pentatonic Minor**: A 5-note minor scale.
+- **Blues**: The blues scale.
+- **Whole Tone**: A scale made entirely of whole steps.
+- **Diminished**: A half-whole diminished scale.
 
 {% include launchpad-grid.html presets="track_params_none_r1_1,track_params_none_r2,track_params_none_r2,empty_row_step,empty_row_step,empty_row_step,extra_row_empty,save_slots" page=0 %}

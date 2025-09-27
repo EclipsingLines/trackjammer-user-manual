@@ -11,24 +11,23 @@ nav_order: 3
 
 {% include step-selection-only-info.html %}
 
-## Gate
+## What is Gate?
 
-Gate refers to the step note duration, modifying this value will shorten or extend a single note.
+**Gate** refers to the duration of a note played by a **Step**. Modifying this value will shorten or extend a single note, which is useful for creating everything from short, staccato notes to long, sustained pads.
 
-Gate is useful for creatting sttacato notes and long pads.
+## How to Control the Gate
 
-## Control
+To change the **Gate** of a **Step**:
 
-To change the gate of a note, just select the note and adjust its value in the value area.
+1. **Select the Step**: Long-press the **Step** you want to edit.
+2. **Adjust the Value**: Use the **Value Area** on the **Launchpad** to adjust the **Gate** duration.
 
-Generated steps have a default gate of 64 (half) but this value can be modified by the [Pattern Mutations](../pattern-page/pattern-mutations.md).
-
-Actual gate duration in seconds is relative to the track speed.
+Generated **Steps** have a default **Gate** of 64 (half the **Step** duration), but this can be modified by [**Pattern Mutations**](../pattern-page/pattern-mutations.html). The actual **Gate** duration in seconds is relative to the **Track** speed.
 
 ## Next Steps
 
-Once you have changed the duration of a step you could also:
+After adjusting the **Gate** of a **Step**, you might want to:
 
-- **[Edit Track Parameters →](../track-settings/index.html)** - Change track wide parameters like root note, track scale or speed.
-- **[Edit the Intensity of a Step →](../notes-page/notes-selection.html)** - Change the velocity of the step
-- **[Learn about **Timing Calculations** →](../advance/timing.html)** - Undertand how the **Gate Duration Seconds** is calculated
+- **[Edit Track Parameters](../track-settings/index.html)**: Change **Track**-wide parameters like the root note, scale, or speed.
+- **[Edit Step Velocity](notes-velocity.html)**: Change the intensity of the **Step**.
+- **[Learn about Timing Calculations](../advanced/timing.html)**: Understand how the **Gate** duration is calculated in seconds.

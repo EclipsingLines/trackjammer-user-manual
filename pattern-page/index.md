@@ -6,20 +6,16 @@ has_children: true
 permalink: /pattern-page/
 ---
 
-# Pattern page
+# The Pattern Page
 
 {% include full-launchpad.html page=1 %}
 
-The pattern page allows for changing the pattern hits and their overall behaviour.
+The **Pattern Page** is where you control the generative aspects of your sequence. On this page, you can modify **Parameters** that affect how the **Pattern** as a whole is played, allowing you to use algorithms to create and evolve your rhythms and melodies.
 
-While in this page you will modify parameters that will have a direct effect on how the pattern as a whole plays.
+The following guides will help you get familiar with the generative functions of **TrackJammer**.
 
-The following pages will help you get familiar with the generative functions of {{ site.product_name }}.
+## What You'll Learn
 
-## Next Steps
-
-Once you feel ready get started by:
-
-- **[Generate Steps Algortyhmically →](pattern-beats.html)** - Use the procedural algorythm to generate a melody or rythm pattern
-- **[Edit Steps manually →](../notes-page/index.html)** - Take full control of your sequence and shape it to your liking
-- **[Adjusting the Pattern Length →](pattern-length.html)** - Change the number of steps for a pattern cycle, from 1 to 32
+- **[Generate Steps Algorithmically](pattern-beats.html)**: Use the procedural algorithm to generate a melody or rhythm **Pattern**.
+- **[Adjust the Pattern Length](pattern-length.html)**: Change the number of **Steps** in a **Pattern** cycle, from 1 to 32.
+- **[Edit Steps Manually](../notes-page/index.html)**: Take full control of your sequence and shape it to your liking.

@@ -11,12 +11,14 @@ nav_order: 4
 
 {% include step-selection-only-info.html %}
 
-The step type subpage currently does the same as the [Note Selection](note-selection.html) subpage and might be removed in the future.
+This subpage allows you to change the **Step Type** for a selected **Step**.
+
+Please note that this functionality is also available on the main [**Note Selection**](notes-selection.html) subpage, and this dedicated page may be removed in a future update to streamline the user interface.
 
 ## Next Steps
 
-Once you have selected the step type you might want to:
+After selecting the **Step Type**, you might want to:
 
-- **[Edit Track Parameters →](../track-settings/index.html)** - Change track wide parameters like root note, track scale or speed.
-- **[Edit the Intensity of a Step →](../notes-page/notes-selection.html)** - Change the velocity of the step
-- **[Edit the Duration of a Step →](../notes-page/notes-selection.html)** - Change the gate of a step
+- **[Edit Track Parameters](../track-settings/index.html)**: Change **Track**-wide parameters like the root note, scale, or speed.
+- **[Edit Step Velocity](notes-velocity.html)**: Change the intensity of the **Step**.
+- **[Edit Step Gate](notes-gate.html)**: Adjust the duration of the **Step**.

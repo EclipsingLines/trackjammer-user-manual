@@ -10,80 +10,59 @@ nav_order: 5
 
 {% include step-toggle-info.html %}
 
-In this page you can change the "Chance" for that a selected step will trigger.
+On this page, you can change the chance that a selected **Step** will trigger, allowing you to create evolving and unpredictable **Patterns**.
 
-The value area is divided into 2:
+By default, a **Step** has a 100% probability of triggering.
 
-- The **Top row** allows for setting the **Chance Value** for the current chance type
-- The **Bottom row** allows for setting the **Chance Type**
+The **Value Area** is divided into two rows:
 
-A step has by default a probability **chance type** with a value of 100% to trigger.
+- The **Top Row** sets the **Chance Value** for the current **Chance Type**.
+- The **Bottom Row** selects the **Chance Type**.
 
 {: .note-title}
 > Substep Chance
->
-> Substeps are tied to the step chance all together. If the step should trigger **ALL** substeps will play, if the step should not trigger then **NONE** of the substeps will not trigger.
+> **Substeps** are tied to their parent **Step's** chance. If the parent **Step** triggers, all of its **Substeps** will play. If it does not, none of them will.
 
 ## Chance Types
 
-There are 3 different **chance types** a step could have:
+There are three different **Chance Types** a **Step** can have:
 
-- Based on previous active step
-- Based on sequence cycles
-- Based on probabilities
+### 1. Last / Not Last
 
-### Last / Not Last
+This type ties the current **Step** to the previous active **Step** in the sequence. This is the leftmost option in the **Bottom Row** of the **Value Area**.
 
-This chance type ties the current step to the **previous active step** in the current track sequence.
+- **Last**: This **Step** will only trigger if the previous active **Step** also triggered.
+- **Not Last**: This **Step** will only trigger if the previous active **Step** did *not* trigger.
 
-This is the leftmost option in the **Bottom row** of the value area.
-
-The **Top row** of the value area acts as a toggle button when in this **chance type**
-
-#### Last
-
-If last is active and the last **active** step did **not trigger** (due to it's own chance settings) then this step will **not trigger**.
-If the last **active** step in the sequence **triggered** then this step **will trigger**.
+Use the **Top Row** of the **Value Area** to toggle between **Last** and **Not Last**.
 
 {% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select,steps_empty,steps_empty,value_chance_last,extra_row_empty,save_slots" show_top=true page=1 subpage=-1 %}
 
-#### Not Last
+### 2. Cycles
 
-If last is active and the last **active** step did **not trigger** (due to it's own chance settings) then this step **will trigger**.
-If the last **active** step in the sequence **triggered** then this step will **not trigger**.
+This type ties the current **Step** to a secondary chance sequence. Every time the main **Track** **Pattern** completes a cycle, this secondary sequence advances one **Step**.
 
-{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select,steps_empty,steps_empty,value_chance_not_last,extra_row_empty,save_slots" show_top=true page=1 subpage=-1 %}
+This is the middle option in the **Bottom Row** of the **Value Area**, and it has two buttons:
 
-### Cycles
+- **Left Button**: Sets the length of the secondary chance sequence (up to 8 **Steps**).
+- **Right Button**: Sets the active **Steps** in the secondary chance sequence.
 
-This **chance type** ties the current step to a **secondary chnace sequence**, in this sequence, every time the main track sequence completes a cycle the **secondary chance sequence** advances a step.
-
-The **secondary chance sequence** can have up to 8 steps and each can be trigered individually.
-
-This is the middle option in the **Bottom row** of the value area and it has 2 buttons:
-
-- Left button sets the **secondary chance sequence** length
-- Right button sets the active steps in the **secondary chance sequence**
-
-The **Top row** of the value area displays the **secondary chance sequence** and allows toggling steps ON and OFF
+The **Top Row** of the **Value Area** displays the secondary sequence and allows you to toggle its **Steps** on and off.
 
 {% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select,steps_empty,steps_empty,value_chance_cycle_length,extra_row_empty,save_slots" show_top=true page=1 subpage=-1 %}
 
-### Probability
+### 3. Probability
 
-This **chance type** allows for traditional probability based chance for the selected step.
+This type allows for traditional, probability-based chance for the selected **Step**. This is the rightmost option in the **Bottom Row**. Tapping it sets the **Chance Type** to **Probability** and the value to 100%.
 
-This is the rightmost option in the **Bottom row** of the value area. Tapping this button will immediately set the **chance type** to Probability and the **Chance value** to 100%.
-
-The **Top row** of the value area has a single row "value slider" with 8 different options:
-
-| 1/8 | 1/4 | 1/3 | 1/2 | 2/3 | 3/4 | 7/8 | 19/20 |
+The **Top Row** acts as a value slider with eight options:
+`12.5%`, `25%`, `33%`, `50%`, `66%`, `75%`, `87.5%`, `95%`
 
 {% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select,steps_empty,steps_empty,value_chance_50,extra_row_empty,save_slots" show_top=true page=1 subpage=-1 %}
 
 ## Next Steps
 
-Once you've set up evolving patterns using chance you can:
+After setting up evolving **Patterns** using chance, you can:
 
-- **[Add substeps to Active Steps →](pattern-substeps.html)** - Create rolls, flams and offset hits for accents and groove
-- **[Edit Step Notes →](../notes-page/index.html)** - Take full control of your sequence and shape it to your liking
+- **[Add Substeps](pattern-substeps.html)**: Create rolls, flams, and offset hits for accents and groove.
+- **[Edit Step Notes](../notes-page/index.html)**: Take full control of your sequence and shape it to your liking.

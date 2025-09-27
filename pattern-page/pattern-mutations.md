@@ -11,76 +11,62 @@ nav_order: 3
 
 {% include generative_action_warning.html %}
 
+On this subpage, you can use procedural tools to modify, or "mutate," the current **Pattern**.
+
 {: .note-title}
 > Note
->
-> Mutations will **NOT** add or remove active steps to the pattern.
+> Mutations will **not** add or remove active **Steps** from the **Pattern**; they only modify existing ones.
 
-In this subpage you can control use the procedural tools to modify the current sequence.
+### Mutation Amount & Intensity
 
-Tapping a pad on the Step Area will set the Mutation amount:
+- **Mutation Amount**: Tapping a pad on the **Step Area** sets the number of **Steps** that will be mutated. The first pad is 0 (no mutation), and the last pad (corresponding to the **Pattern Length**) will attempt to mutate all active **Steps**.
+- **Mutation Intensity**: Tapping on the **Value Area** sets the intensity of the mutation, from minimal (first pad of the 5th row) to full (last pad of the 6th row).
 
-- The first pad of the step area means 0. No Steps will be mutated. This is the default value.
-- The last pad of the sequence (same as the current [Pattern Length](pattern-length.html)) means Full and will try to mutate all active steps.
+### Mutation Targets
 
-Tapping on the Value Area will set the Mutation Intensity:
+Tapping an option in the **Extra Area** selects which **Parameters** of the **Steps** will be affected.
 
-- The first pad of the 5th row means 0. Minimal Mutation will be aplied to the mutated steps.
-- The last pad of the 6th row means full intensity and will apply the full range of mutation for the selected values.
+## Mutation Types
 
-Tapping on one of the options in the Extra Area will select what Mutation Targets to affect on the mutated steps. Currently available Mutations:
+### Velocity Mutation
 
-- Velocity
-- Gate
-- Step Repeat
-- Step Timing
-- Note Change
-
-Depending on the selected mutations, several things can happen at the same time.
-
-- The generative algorythm will calculate new weight tables for the current sequence based on the mutation settings.
-- Each step of the sequence will be adjusted according to the weight table and the selected **Mutation Targets**
-
-## Velocity Mutation
-
-Changes the [Velocity](../notes-page/notes-velocity.html) of the mutated step and it's subteps.
+Changes the [**Velocity**](../notes-page/notes-velocity.html) of the mutated **Step** and its **Substeps**.
 
 {% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select_beats,empty_row,empty_row,empty_row,empty_row,extra_row_mutations_1,save_slots" show_value_area=7 show_top=true page=1 subpage=2 %}
 
-## Gate Mutation
+### Gate Mutation
 
-Changes the [Note press duration](../notes-page/notes-gate.html) of the mutated step and it's subteps.
+Changes the [**Gate**](../notes-page/notes-gate.html) (note duration) of the mutated **Step** and its **Substeps**.
 
 {% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select_beats,empty_row,empty_row,empty_row,empty_row,extra_row_mutations_2,save_slots" show_value_area=6 show_top=true page=1 subpage=2 %}
 
-## Step Repeat
+### Step Repeat
 
-Add [Substeps](pattern-substeps.html) to the mutated steps.
+Adds [**Substeps**](pattern-substeps.html) to the mutated **Steps**, creating rolls or flams.
 
 {% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select_beats,empty_row,empty_row,empty_row,empty_row,extra_row_mutations_3,save_slots" show_value_area=7 show_top=true page=1 subpage=2 %}
 
-## Step Timing
+### Step Timing
 
-Offsets the mutated step forwards or backwards in the sequence.
-NOT WORKING IN THE CURRENT VERSION
+Offsets the mutated **Step** forwards or backwards in the sequence.
+**Please note: This feature is not functional in the current version.**
 
 {% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select_beats,empty_row,empty_row,empty_row,empty_row,extra_row_mutations_4,save_slots" show_value_area=7 show_top=true page=1 subpage=2 %}
 
-## Note Change
+### Note Change
 
-Triggers a note change according to the melodic algorythm from the available notes in the current active track scale.
+Triggers a note change based on the melodic algorithm and the currently active **Track** scale.
 
 {% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select_beats,empty_row,empty_row,empty_row,empty_row,extra_row_mutations_5,save_slots" show_value_area=7 show_top=true page=1 subpage=2 %}
 
 {: .note-title}
 > Current Active Scale
->
-> The current is calculated from the [Track Root](../track-settings/root-note.html) and the selected [Track Scale](../track-settings/track-scale.html)
+> The current scale is calculated from the [**Track Root**](../track-settings/track-setting-root.html) and the selected [**Track Scale**](../track-settings/track-setting-scale.html).
 
 ## Next Steps
 
-Once you've programatically modified your sequence you can:
+After programmatically modifying your sequence, you can:
 
-- **[Add substeps to Active Steps →](pattern-substeps.html)** - Create rolls, flams and offset hits for accents and groove
-- **[Change Step Chance →](pattern-chance.html)** - Use the step play chance tools to further evolve your sequence
-- **[Edit Step Notes →](../notes-page/index.html)** - Take full control of your sequence and shape it to your liking
+- **[Add Substeps](pattern-substeps.html)**: Create rolls, flams, and offset hits for accents and groove.
+- **[Change Step Chance](pattern-chance.html)**: Use the **Step** chance tools to further evolve your sequence.
+- **[Edit Step Notes](../notes-page/index.html)**: Take full control of your sequence and shape it to your liking.
