@@ -64,7 +64,7 @@ split: "," -%}
 
 <div class="launchpad-container">
     {%- if show_top -%}
-    {% include launchpad-top-row.html %}
+    {% include launchpad-top-row.html page=page subpage=subpage %}
     {%- endif -%}
     {%- for row_index in (0..rows_to_render) -%}
     {%- assign row_num = row_index | plus: 0 -%}
