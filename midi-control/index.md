@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Automation & Control
-nav_order: 8
+title: MIDI Control
+nav_order: 6
 has_children: true
-permalink: /automation/
+permalink: /midi-control/
 ---
 
 # Automation & Control

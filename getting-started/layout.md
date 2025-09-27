@@ -31,11 +31,15 @@ The top 8 buttons of the Launchpad are used to navigate the different "pages" an
 
 The pattern page allows for changing the pattern by adujsting: Steps, Length, Beats, Mutations, Chance and Substeps.
 
+Find detailed information in the [Pattern Page Section](../pattern-page/index.html)
+
 #### Notes Page
 
 {% include launchpad-keys.html %}
 
 The notes page allows for changing the melody by adjusting: Notes, Velocity, Gate, Step Type and Variation
+
+Find detailed information in the [Notes Page Section](../notes-page/index.html)
 
 #### CC Subtracks Page
 
@@ -43,11 +47,15 @@ The notes page allows for changing the melody by adjusting: Notes, Velocity, Gat
 
 The CC subtracks page allows for editing the midi control subtracks by: Selecting a subtrack or editing subtrack parameters.
 
+Find detailed information in the [MIDI Control Section](../midi-control/index.html)
+
 #### Track Settings Page
 
 {% include launchpad-session.html inline=true %}
 
 The Track Settings page allows for setting track wide parameters like: speed, scale, root note and other settings.
+
+Find detailed information in the [Track Settings Section](../track-settings/index.html)
 
 #### Sesssion Save/Load Page
 
