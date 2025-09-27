@@ -7,7 +7,7 @@ nav_order: 4
 
 # Subteps
 
-{% include launchpad-grid.html presets="empty_row_step,empty_row_step_last_8,empty_row,empty_row" show_top=true page=1 subpage=3 %}
+{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select,steps_empty,steps_empty,substeps_default,steps_empty,extra_row_empty,save_slots" show_top=true page=1 subpage=3 %}
 
 {% include step-selection-only-info.html %}
 
@@ -15,7 +15,7 @@ Subteps are microtiming steps, these allow you to play several notes on a single
 
 The value area provides a timeline of the substeps in the target step, if there's a currently selected step you can also add or remove subteps to this substep timeline.
 
-{% include launchpad-grid.html presets="steps_4_floor_select,steps_4_floor,empty_row,empty_row" %}
+{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select,steps_empty,steps_empty,substeps_triplet,steps_empty,extra_row_empty,save_slots" show_top=true page=1 subpage=3 %}
 
 ## Next Steps
 

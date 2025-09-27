@@ -10,6 +10,10 @@ Parameters: presets (required), rows (optional), include_right_buttons (optional
 {%- assign steps_r_2 = "cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,green:3,cyan:1" | split: "," -%}
 {%- assign steps_r_3 = "cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1" | split: "," -%}
 
+
+{%- assign substeps_default = "green:3,green:1,green:1,green:1,green:1,green:1,green:1,green:1" | split: "," -%}
+{%- assign substeps_triplet = "green:3,green:1,green:3,green:1,green:3,green:1,green:1,green:1" | split: "," -%}
+
 {%- assign steps_4_floor_select_beats ="cyan:3,cyan:1,cyan:1,orange:2,cyan:3,cyan:1,cyan:1,cyan:1" |
 split: "," -%}
 {%- assign steps_4_floor = "cyan:3,cyan:1,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:1" | split: ","
@@ -96,6 +100,9 @@ split: "," -%}
 {%- when "extra_row_mutations_3" -%}{%- assign current_preset = extra_row_mutations_3 -%}
 {%- when "extra_row_mutations_4" -%}{%- assign current_preset = extra_row_mutations_4 -%}
 {%- when "extra_row_mutations_5" -%}{%- assign current_preset = extra_row_mutations_5 -%}
+
+{%- when "substeps_default" -%}{%- assign current_preset = substeps_default -%}
+{%- when "substeps_triplet" -%}{%- assign current_preset = substeps_triplet -%}
 
 
 {%- when "value_chance_last" -%}{%- assign current_preset = value_chance_last -%}
