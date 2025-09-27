@@ -134,21 +134,6 @@ $lp-link-visited: #9f7aea;      // Slightly muted for visited
     transform: scale(var(--scale-factor));
     transform-origin: top center;
     
-    @media screen and (max-width: 900px) {
-        --scale-factor: 0.85;
-    }
-    
-    @media screen and (max-width: 750px) {
-        --scale-factor: 0.7;
-    }
-    
-    @media screen and (max-width: 600px) {
-        --scale-factor: 0.55;
-    }
-    
-    @media screen and (max-width: 450px) {
-        --scale-factor: 0.45;
-    }
 }
 
 // Adjust button and pad sizes to work with scaling
