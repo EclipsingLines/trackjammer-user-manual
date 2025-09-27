@@ -31,26 +31,29 @@ Parameters: presets (required), rows (optional), include_right_buttons (optional
 {%- if calculated_rows > max_rows -%}{%- assign rows_to_render = max_rows -%}
 {%- else -%}{%- assign rows_to_render = calculated_rows -%}{%- endif -%}
 
-{%- for row_index in (0..rows_to_render) -%}
-{%- assign row_num = row_index | plus: 0 -%}
-{%- if row_num < rows_to_render -%} {%- for col_index in (0..7) -%} {%- assign pad_index=row_num | times: 8 | plus:
-    col_index -%} {%- if pad_index < all_colors.size -%} {%- assign color_entry=all_colors[pad_index] | strip -%} {%- if
-    color_entry contains ":" -%} {%- assign color_parts=color_entry | split: ":" -%} {%- assign
-    color_name=color_parts[0] | strip -%} {%- assign intensity=color_parts[1] | strip -%} {%- else -%} {%- assign
-    color_name=color_entry -%} {%- assign intensity="3" -%} {%- endif -%} {%- assign pad_classes="launchpad-pad pad-" |
-    append: color_name -%} {%- unless color_name=="off" -%} {%- assign pad_classes=pad_classes | append: " intensity-" |
-    append: intensity -%} {%- endunless -%} <div class="{{ pad_classes }}">
-    </div>
-    {%- else -%}
-    <div class="launchpad-pad pad-off"></div>
-    {%- endif -%}
-    {%- endfor -%}
-    {%- if show_right_buttons -%}
-    {%- if row_num == rows_to_render | minus: 1 -%}
-    <div class="launchpad-button launchpad-right-button launchpad-stop-solo-mute"></div>
-    {%- else -%}
-    <div class="launchpad-button launchpad-right-button launchpad-arrow-button"></div>
-    {%- endif -%}
-    {%- endif -%}
-    {%- endif -%}
-    {%- endfor -%}
+<div class="launchpad-container">
+    {%- for row_index in (0..rows_to_render) -%}
+    {%- assign row_num = row_index | plus: 0 -%}
+    {%- if row_num < rows_to_render -%} {%- for col_index in (0..7) -%} {%- assign pad_index=row_num | times: 8 | plus:
+        col_index -%} {%- if pad_index < all_colors.size -%} {%- assign color_entry=all_colors[pad_index] | strip -%}
+        {%- if color_entry contains ":" -%} {%- assign color_parts=color_entry | split: ":" -%} {%- assign
+        color_name=color_parts[0] | strip -%} {%- assign intensity=color_parts[1] | strip -%} {%- else -%} {%- assign
+        color_name=color_entry -%} {%- assign intensity="3" -%} {%- endif -%} {%- assign
+        pad_classes="launchpad-pad pad-" | append: color_name -%} {%- unless color_name=="off" -%} {%- assign
+        pad_classes=pad_classes | append: " intensity-" | append: intensity -%} {%- endunless -%} <div
+        class="{{ pad_classes }}">
+</div>
+{%- else -%}
+<div class="launchpad-pad pad-off"></div>
+{%- endif -%}
+{%- endfor -%}
+{%- if show_right_buttons -%}
+{%- if row_num == rows_to_render | minus: 1 -%}
+<div class="launchpad-button launchpad-right-button launchpad-stop-solo-mute"></div>
+{%- else -%}
+<div class="launchpad-button launchpad-right-button launchpad-arrow-button"></div>
+{%- endif -%}
+{%- endif -%}
+{%- endif -%}
+{%- endfor -%}
+</div>
