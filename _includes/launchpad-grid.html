@@ -28,6 +28,8 @@ Parameters: presets (required), rows (optional), include_right_buttons (optional
 {%- when "steps_r_1" -%}{%- assign current_preset = steps_r_1 -%}
 {%- when "steps_r_2" -%}{%- assign current_preset = steps_r_2 -%}
 {%- when "steps_r_3" -%}{%- assign current_preset = steps_r_3 -%}
+{%- when "value_chance" -%}{%- assign current_preset = value_chance -%}
+{%- when "extra_row_empty" -%}{%- assign current_preset = extra_row_empty -%}
 {%- when "empty_row" -%}{%- assign current_preset = empty_row -%}
 {%- else -%}{%- assign current_preset = "off,off,off,off,off,off,off,off" | split: "," -%}
 {%- endcase -%}
