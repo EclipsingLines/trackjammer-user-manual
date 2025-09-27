@@ -86,4 +86,4 @@ The **Top row** of the value area has a single row "value slider" with 8 differe
 Once you've set up evolving patterns using chance you can:
 
 - **[Add substeps to Active Steps →](pattern-substeps.html)** - Create rolls, flams and offset hits for accents and groove
-- **[Edit Step Notes →](../notes-page/index.md)** - Take full control of your sequence and shape it to your liking
+- **[Edit Step Notes →](../notes-page/index.html)** - Take full control of your sequence and shape it to your liking

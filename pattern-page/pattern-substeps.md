@@ -22,4 +22,4 @@ The value area provides a timeline of the substeps in the target step, if there'
 Once you've set up the Repeats and Offsets you can:
 
 - **[Change Step Chance →](pattern-chance.html)** - Use the step play chance tools to further evolve your sequence
-- **[Edit Step Notes →](../notes-page/index.md)** - Take full control of your sequence and shape it to your liking
+- **[Edit Step Notes →](../notes-page/index.html)** - Take full control of your sequence and shape it to your liking

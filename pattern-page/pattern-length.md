@@ -35,6 +35,6 @@ In this subpage you can control the length of the currently selected track, adju
 Once you've set up the Pattern Length you can now:
 
 - **[Generate Steps Algortyhmically →](pattern-beats.html)** - Use the procedural algorythm to generate a melody or rythm pattern
-- **[Edit Steps manually →](../launchpad/)** - Take full control of your sequence and shape it to your liking
+- **[Edit Steps manually →](../notes-page/index.html)** - Take full control of your sequence and shape it to your liking
 - **[Learn about **Keep Ratio** →](../track-settings/keep-ratio.html)** - Undertand how **Beats Amount** is recalculated
 - **[Learn about **Timing Calculations** →](../advance/timing.html)** - Undertand how the **Playhead Position** is recalculated

@@ -49,7 +49,7 @@ Changes the [Velocity](../notes-page/notes-velocity.html) of the mutated step an
 
 ## Gate Mutation
 
-Changes the [Note press duration](../notes-page/notes-gate.md) of the mutated step and it's subteps.
+Changes the [Note press duration](../notes-page/notes-gate.html) of the mutated step and it's subteps.
 
 {% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select_beats,empty_row,empty_row,empty_row,empty_row,extra_row_mutations_2,save_slots" show_value_area=6 show_top=true page=1 subpage=2 %}
 
@@ -83,4 +83,4 @@ Once you've programatically modified your sequence you can:
 
 - **[Add substeps to Active Steps →](pattern-substeps.html)** - Create rolls, flams and offset hits for accents and groove
 - **[Change Step Chance →](pattern-chance.html)** - Use the step play chance tools to further evolve your sequence
-- **[Edit Step Notes →](../notes-page/index.md)** - Take full control of your sequence and shape it to your liking
+- **[Edit Step Notes →](../notes-page/index.html)** - Take full control of your sequence and shape it to your liking
