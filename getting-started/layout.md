@@ -29,31 +29,46 @@ The top 8 buttons of the Launchpad are used to navigate the different "pages" an
 
 {% include launchpad-drums.html %}
 
+The pattern page allows for changing the pattern by adujsting: Steps, Length, Beats, Mutations, Chance and Substeps.
+
 #### Notes Page
 
 {% include launchpad-keys.html %}
+
+The notes page allows for changing the melody by adjusting: Notes, Velocity, Gate, Step Type and Variation
 
 #### CC Subtracks Page
 
 {% include launchpad-user.html %}
 
+The CC subtracks page allows for editing the midi control subtracks by: Selecting a subtrack or editing subtrack parameters.
+
 #### Track Settings Page
 
 {% include launchpad-session.html inline=true %}
+
+The Track Settings page allows for setting track wide parameters like: speed, scale, root note and other settings.
 
 #### Sesssion Save/Load Page
 
 {% include launchpad-stop-solo-mute.html inline=true %}+{% include launchpad-session.html inline=true %}
 
+The Session Save/Load page allows for session management here there are controls for saving, loading, duplicating and deleting session save files.
+
 #### Global Settings
 
 {% include launchpad-stop-solo-mute.html inline=true %}+{% include launchpad-user.html inline=true %}
 
+The Global settings allows for changing app wide settings like: scrolling text on...
+
 {: .note-title}
 > Clear Session
+>
 > Holding the Clear Button and tapping User will clear the current session including Steps, Tracks, Mutations, Automations and Quick Save slots
 
 #### Subpage buttons (4 Top Left Buttons)
+
+{% include launchpad-up-arrow.html inline=true %}{% include launchpad-down-arrow.html inline=true %}{% include launchpad-left-arrow.html inline=true %}{% include launchpad-right-arrow.html inline=true %}
 
 The 4 arrow buttons switch between different subpages in the **Pattern**, **Notes** and **CC Subtracks** pages:
 
@@ -61,29 +76,51 @@ The 4 arrow buttons switch between different subpages in the **Pattern**, **Note
 
 {% include launchpad-up-arrow.html inline=true %}
 
+Allows editing the Pattern Length when in the Pattern page.
+Allows editing note Velocity when in the Note page.
+Allows editing the MIDI control Subtrack 1.
+
 #### Pattern Beats / Gate / Subtrack 2
 
-{% include launchpad-down-arrow.html inline=true %}.
+{% include launchpad-down-arrow.html inline=true %}
+
+Allows editing the Pattern Beat amount when in the Pattern page.
+Allows editing note Gate when in the Note page.
+Allows editing the MIDI control Subtrack 2.
 
 #### Mutations / Type / Subtrack 3
 
-{% include launchpad-left-arrow.html inline=true %}.
+{% include launchpad-left-arrow.html inline=true %}
+
+Allows editing the Pattern Mutations when in the Pattern page.
+Allows editing note Type when in the Note page.
+Allows editing the MIDI control Subtrack 3.
 
 #### Substeps / Variation / Subtrack 4
 
-{% include launchpad-right-arrow.html inline=true %}.
+{% include launchpad-right-arrow.html inline=true %}
+
+Allows editing the Pattern Substeps when in the Pattern page.
+Allows editing note Variations when in the Note page.
+Allows editing the MIDI control Subtrack 4.
 
 #### Chance / Note / Subtrack settings
 
-No button
+NO BUTTON
 
 {: .note }
 Pressing on the currently selected subpage takes the user into the "No Button" subpage.
 
+Allows editing the Step Chance when in the Pattern page.
+Allows editing the step Notes when in the Note page.
+Allows editing the MIDI control Subtrack settings.
+
 {: .note-title }
 > Transposition and Rotation
 >
+> {% include launchpad-up-arrow.html inline=true %}{% include launchpad-down-arrow.html inline=true %}
 > The Up and Down subpage buttons are also used to transpose tracks and steps by holding down a Track Button or step and tapping the Up or Down.
+> {% include launchpad-left-arrow.html inline=true %}{% include launchpad-right-arrow.html inline=true %}
 > The Left and Right subpae buttons are also used to rotate (nudge) tracks backwards and forwards by holding down a Track Button and tapping Left or Right
 
 ### Main Area (8x8 Grid)
