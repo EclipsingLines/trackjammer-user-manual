@@ -277,3 +277,40 @@
         margin: 3px;
     }
 }
+
+// Improved font sizing and weights for headings
+h1 {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: $grey-dk-300 !important;
+  margin-bottom: 1rem !important;
+}
+
+h2 {
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  color: $grey-dk-250 !important;
+  margin-top: 2rem !important;
+}
+
+h3 {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: $grey-dk-200 !important;
+}
+
+// Better code block styling for dark mode
+pre.highlight {
+  background-color: #0f172a !important;
+  border: 1px solid #334155 !important;
+}
+
+// Improve link visibility
+a {
+  color: $link-color !important;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #bae6fd !important;
+}
