@@ -8,8 +8,13 @@ Parameters: presets (required), rows (optional), include_right_buttons (optional
 "red:2,off,blue:3,off,green:3,red:3,off,purple:2,red:2,off,blue:3,off,green:3,red:3,off,purple:2" | split: "," -%}
 {%- assign drums =
 "red:3,orange:3,yellow:3,green:3,cyan:3,blue:3,purple:3,magenta:3,red:2,orange:2,yellow:2,green:2,cyan:2,blue:2,purple:2,magenta:2,red:1,orange:1,yellow:1,green:1,cyan:1,blue:1,purple:1,magenta:1,off,red:3,off,green:3,off,blue:3,off,purple:3" | split: "," -%}
-{%- assign steps_5_beats =
-"cyan:3,cyan:1,cyan:1,cyan:3,orange:3,cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,green:3,cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1" | split: "," -%}
+
+{%- assign steps_r_1  = "cyan:3,cyan:1,cyan:1,cyan:3,orange:3,cyan:1,cyan:3,cyan:1" | split: "," - %}  
+{%- assign steps_r_2  = "cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,green:3,cyan:1" | split: "," - %}  
+{%- assign steps_r_3  = "cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1" | split: "," - %}  
+{%- assign empty_row  = "off,off,off,off,off,off,off,off" | split: "," - %}  
+
+
 
 {%- assign preset_names = include.presets | split: "," -%}
 {%- assign max_rows = include.rows | default: 8 -%}

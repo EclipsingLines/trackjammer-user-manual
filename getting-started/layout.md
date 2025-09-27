@@ -129,7 +129,7 @@ The main area is composed of 4 sections:
 
 #### Step Area (Rows: 1, 2, 3, 4)
 
-{% include launchpad-grid.html presets="steps_5_beats" %}
+{% include launchpad-grid.html presets="steps_r_1,steps_r_2,empty_row,empty_row" %}
 
 The top 32 pads represent the Step Area, in this area you can visulize the steps on the current track sequence and allows depending on the subpage it allows for:
 
