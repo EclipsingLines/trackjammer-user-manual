@@ -1,8 +1,9 @@
 {%- comment -%}
 Launchpad Grid Generator - Generates an 8x8 launchpad grid with customizable color presets.
-Parameters: presets (required), rows (optional), include_right_buttons (optional)
+Parameters: presets (required), rows (optional), include_right_buttons (optional), show_top (optional)
 {%- endcomment -%}
 
+{%- assign show_top = include.show_top | default: false -%}
 {%- assign save_slots = "gray:2,blue:3,gray:2,gray:2,blue:3,gray:2,gray:2,gray:2" | split: "," -%}
 
 {%- assign steps_r_1 = "cyan:3,cyan:1,cyan:1,cyan:3,orange:3,cyan:1,cyan:3,cyan:1" | split: "," -%}
@@ -42,6 +43,9 @@ Parameters: presets (required), rows (optional), include_right_buttons (optional
 {%- else -%}{%- assign rows_to_render = calculated_rows -%}{%- endif -%}
 
 <div class="launchpad-container">
+    {%- if show_top -%}
+    {% include launchpad-top-row.html %}
+    {%- endif -%}
     {%- for row_index in (0..rows_to_render) -%}
     {%- assign row_num = row_index | plus: 0 -%}
     {%- if row_num < rows_to_render -%} {%- for col_index in (0..7) -%} {%- assign pad_index=row_num | times: 8 | plus:
