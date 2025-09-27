@@ -10,19 +10,19 @@ Parameters: presets (required), rows (optional), include_right_buttons (optional
 {%- assign steps_r_2 = "cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,green:3,cyan:1" | split: "," -%}
 {%- assign steps_r_3 = "cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1" | split: "," -%}
 
-{%- assign steps_4_floor_select ="cyan:1", "cyan:1", "cyan:1", "orange:2", "cyan:1", "cyan:1", "cyan:1", "cyan:3" |
+{%- assign steps_4_floor_select ="cyan:1,cyan:1,cyan:1,orange:2,cyan:1,cyan:1,cyan:1,cyan:3" |
 split: "," -%}
-{%- assign steps_4_floor = "cyan:1", "cyan:1", "cyan:1", "cyan:3", "cyan:1", "cyan:1", "cyan:1", "cyan:3" | split: ","
+{%- assign steps_4_floor = "cyan:1,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:1,cyan:3" | split: ","
 -%}
 {%- assign value_chance =
 "green:3,green:3,green:3,green:3,green:3,green:3,green:3,green:3,cyan:2,off,off,purple:3,orange:3,off,off,red:3" |
 split: "," -%}
 
-{%- assign empty_row_step = "cyan:1", "cyan:1", "cyan:1", "cyan:1", "cyan:1", "cyan:1", "cyan:1", "cyan:1" | split: ","
+{%- assign empty_row_step = "cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1" | split: ","
 -%}
-{%- assign empty_row_step_last_5 = "cyan:1", "cyan:1", "cyan:1", "cyan:1", "orange:2", "off", "off", "off" | split: ","
+{%- assign empty_row_step_last_5 = "cyan:1,cyan:1,cyan:1,cyan:1,orange:2,off,off,off" | split: ","
 -%}
-{%- assign empty_row_step_last_8 = "cyan:1", "cyan:1", "cyan:1", "cyan:1", "cyan:1", "cyan:1", "cyan:1", "orange:2" |
+{%- assign empty_row_step_last_8 = "cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1", "orange:2" |
 split: "," -%}
 {%- assign extra_row_empty = "off,off,off,off,off,off,cyan:3,red:1" | split: "," - %}
 {%- assign empty_row = "off,off,off,off,off,off,off,off" | split: "," - %}
