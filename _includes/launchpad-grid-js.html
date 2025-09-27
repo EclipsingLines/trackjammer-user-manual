@@ -1,0 +1,68 @@
+{%- comment -%}
+Launchpad Grid Generator - JavaScript Version
+Generates an 8x8 launchpad grid with customizable color presets using JavaScript.
+Parameters: presets (required), rows (optional), include_right_buttons (optional), show_top (optional)
+{%- endcomment -%}
+
+{%- assign show_top = include.show_top | default: false -%}
+{%- assign max_rows = include.rows | default: 8 -%}
+{%- assign show_right_buttons = include.include_right_buttons | default: true -%}
+{%- assign preset_names = include.presets | default: "" -%}
+{%- assign unique_id = include.presets | slugify | append: "-" | append: "now" | date: "%s" -%}
+
+{%- comment -%} Load the JavaScript file if not already loaded {%- endcomment -%}
+<script>
+    if (typeof window.LaunchpadGrid === 'undefined') {
+        var script = document.createElement('script');
+        script.src = '{{ "/assets/js/launchpad-grid.js" | relative_url }}';
+        script.onload = function () {
+            // Trigger initialization for all waiting grids
+            document.dispatchEvent(new CustomEvent('launchpadGridLoaded'));
+        };
+        document.head.appendChild(script);
+    }
+</script>
+
+<div class="launchpad-container">
+    {%- if show_top -%}
+    {% include launchpad-top-row.html %}
+    {%- endif -%}
+    <div id="launchpad-grid-{{ unique_id }}" data-presets="{{ preset_names }}" data-rows="{{ max_rows }}"
+        data-include-right-buttons="{{ show_right_buttons }}" class="launchpad-grid-js">
+        {%- comment -%} Fallback content while JavaScript loads {%- endcomment -%}
+        <div class="loading-message">Loading launchpad grid...</div>
+    </div>
+</div>
+
+<script>
+    (function () {
+        var containerId = 'launchpad-grid-{{ unique_id }}';
+
+        function initGrid() {
+            if (typeof window.LaunchpadGrid !== 'undefined') {
+                var container = document.getElementById(containerId);
+                if (container) {
+                    var options = {
+                        presets: container.dataset.presets,
+                        rows: parseInt(container.dataset.rows) || 8,
+                        includeRightButtons: container.dataset.includeRightButtons !== 'false',
+                        showTop: false // Top row handled by Jekyll above
+                    };
+
+                    // Generate and insert the grid
+                    container.innerHTML = window.LaunchpadGrid.generate(options);
+                }
+            }
+        }
+
+        // Initialize immediately if LaunchpadGrid is already loaded
+        if (typeof window.LaunchpadGrid !== 'undefined') {
+            initGrid();
+        } else {
+            // Wait for the script to load
+            document.addEventListener('launchpadGridLoaded', initGrid);
+            // Fallback timeout
+            setTimeout(initGrid, 1000);
+        }
+    })();
+</script>
