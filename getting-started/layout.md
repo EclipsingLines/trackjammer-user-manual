@@ -63,11 +63,15 @@ Find detailed information in the [Track Settings Section](../track-settings/inde
 
 The Session Save/Load page allows for session management here there are controls for saving, loading, duplicating and deleting session save files.
 
+Find detailed information in the [Track Settings Section](../session-page/index.html)
+
 #### Global Settings
 
 {% include launchpad-stop-solo-mute.html inline=true %}+{% include launchpad-user.html inline=true %}
 
 The Global settings allows for changing app wide settings like: scrolling text on...
+
+Find detailed information in the [Track Settings Section](../global-settings/index.html)
 
 {: .note-title}
 > Clear Session

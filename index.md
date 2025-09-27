@@ -10,8 +10,7 @@ permalink: /
 
 Welcome to the comprehensive user manual for the {{ site.product_name }} - a powerful, algorithmic step sequencer designed for electronic music production. This sequencer combines the mathematical elegance of Euclidean rhythms and a carefully curated set of stochastic generation tools with intuitive hardware control via the Novation Launchpad.
 
-![Main Interface](docs/img/main-interface.jpg)
-*The main sequencer interface showing track layout and pattern editing*
+{% include full-launchpad.html %}
 
 ## What is the {{ site.product_name }}?
 
