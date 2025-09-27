@@ -16,7 +16,7 @@ In this subpage you can control the amount of automatically generated steps for 
 - The generative algorythm will place new active steps according to the [Pattern Length](pattern-length.html), the Beats Amount and the current [Mutation](pattern-mutations.html) settings.
 - The sequence will continue playing on the current track, from the new position using the new steps.
 
-{% include launchpad-grid.html presets="steps_4_floor_select,steps_4_floor,empty_row,empty_row" show_top=true page=1 subpage=1 %}
+{% include launchpad-grid.html presets="steps_4_floor_select_beats,steps_4_floor,empty_row,empty_row" show_top=true page=1 subpage=1 %}
 
 ## Next Steps
 

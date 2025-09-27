@@ -10,10 +10,12 @@ Parameters: presets (required), rows (optional), include_right_buttons (optional
 {%- assign steps_r_2 = "cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,green:3,cyan:1" | split: "," -%}
 {%- assign steps_r_3 = "cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1" | split: "," -%}
 
-{%- assign steps_4_floor_select ="cyan:1,cyan:1,cyan:1,orange:2,cyan:1,cyan:1,cyan:1,cyan:3" |
+{%- assign steps_4_floor_select_beat ="cyan:3,cyan:1,cyan:1,orange:2,cyan:3,cyan:1,cyan:1,cyan:1" |
 split: "," -%}
-{%- assign steps_4_floor = "cyan:1,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:1,cyan:3" | split: ","
+{%- assign steps_4_floor = "cyan:3,cyan:1,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:1" | split: ","
 -%}
+{%- assign steps_4_floor_select ="cyan:3,cyan:1,cyan:1,cyan:1,gray:3,cyan:1,cyan:1,cyan:1" |
+split: "," -%}
 {%- assign value_chance =
 "green:3,green:3,green:3,green:3,green:3,green:3,green:3,green:3,cyan:2,off,off,purple:3,orange:3,off,off,red:3" |
 split: "," -%}
@@ -24,9 +26,15 @@ split: "," -%}
 -%}
 {%- assign empty_row_step_last_8 = "cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,orange:2" |
 split: "," -%}
-{%- assign extra_row_empty = "off,off,off,off,off,off,cyan:3,red:1" | split: "," - %}
 {%- assign empty_row = "off,off,off,off,off,off,off,off" | split: "," - %}
 
+
+{%- assign extra_row_empty = "off,off,off,off,off,off,cyan:3,red:1" | split: "," - %}
+{%- assign extra_row_mutations_1 = "yellow:3,purple:1,purple:1,purple:1,purple:1,off,cyan:3,red:1" | split: "," - %}
+{%- assign extra_row_mutations_2 = "purple:1,yellow:3,purple:1,purple:1,purple:1,off,cyan:3,red:1" | split: "," - %}
+{%- assign extra_row_mutations_3 = "purple:1,purple:1,yellow:3,purple:1,purple:1,off,cyan:3,red:1" | split: "," - %}
+{%- assign extra_row_mutations_4 = "purple:1,purple:1,purple:1,yellow:3,purple:1,off,cyan:3,red:1" | split: "," - %}
+{%- assign extra_row_mutations_5 = "purple:1,purple:1,purple:1,purple:1,yellow:3,off,cyan:3,red:1" | split: "," - %}
 
 
 {%- assign preset_names = include.presets | split: "," -%}
@@ -46,6 +54,7 @@ split: "," -%}
 {%- when "steps_r_2" -%}{%- assign current_preset = steps_r_2 -%}
 {%- when "steps_r_3" -%}{%- assign current_preset = steps_r_3 -%}
 {%- when "steps_4_floor_select" -%}{%- assign current_preset = steps_4_floor_select -%}
+{%- when "steps_4_floor_select_beat" -%}{%- assign current_preset = steps_4_floor_select_beat -%}
 {%- when "steps_4_floor" -%}{%- assign current_preset = steps_4_floor -%}
 {%- when "empty_row_step" -%}{%- assign current_preset = empty_row_step -%}
 {%- when "empty_row_step_last_5" -%}{%- assign current_preset = empty_row_step_last_5 -%}
@@ -53,6 +62,11 @@ split: "," -%}
 {%- when "value_chance" -%}{%- assign current_preset = value_chance -%}
 {%- when "extra_row_empty" -%}{%- assign current_preset = extra_row_empty -%}
 {%- when "empty_row" -%}{%- assign current_preset = empty_row -%}
+{%- when "extra_row_mutations_1" -%}{%- assign current_preset = extra_row_mutations_1 -%}
+{%- when "extra_row_mutations_2" -%}{%- assign current_preset = extra_row_mutations_2 -%}
+{%- when "extra_row_mutations_3" -%}{%- assign current_preset = extra_row_mutations_3 -%}
+{%- when "extra_row_mutations_4" -%}{%- assign current_preset = extra_row_mutations_4 -%}
+{%- when "extra_row_mutations_5" -%}{%- assign current_preset = extra_row_mutations_5 -%}
 {%- else -%}{%- assign current_preset = "off,off,off,off,off,off,off,off" | split: "," -%}
 {%- endcase -%}
 {%- assign all_colors = all_colors | concat: current_preset -%}

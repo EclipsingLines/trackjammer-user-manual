@@ -7,7 +7,7 @@ nav_order: 3
 
 # Pattern Mutations
 
-{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor,empty_row,empty_row,empty_row,empty_row,extra_row_empty,save_slots" show_top=true page=1 subpage=2 %}
+{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor,empty_row,empty_row,empty_row,empty_row,extra_row_mutations_1,save_slots" show_value_area=7 show_top=true page=1 subpage=2 %}
 
 {% include generative_action_warning.html %}
 
@@ -41,37 +41,41 @@ Depending on the selected mutations, several things can happen at the same time.
 - The generative algorythm will calculate new weight tables for the current sequence based on the mutation settings.
 - Each step of the sequence will be adjusted according to the weight table and the selected **Mutation Targets**
 
-{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor,empty_row,empty_row,empty_row,empty_row,extra_row_empty,save_slots" show_value_area=10 show_top=true page=1 subpage=2 %}
-
 ## Velocity Mutation
 
 Changes the [Velocity](../notes-page/notes-velocity.html) of the mutated step and it's subteps.
+
+{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select_beats,empty_row,empty_row,empty_row,empty_row,extra_row_mutations_1,save_slots" show_value_area=7 show_top=true page=1 subpage=2 %}
 
 ## Gate Mutation
 
 Changes the [Note press duration](../notes-page/notes-gate.md) of the mutated step and it's subteps.
 
+{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select_beats,empty_row,empty_row,empty_row,empty_row,extra_row_mutations_2,save_slots" show_value_area=7 show_top=true page=1 subpage=2 %}
+
 ## Step Repeat
 
 Add [Substeps](pattern-substeps.html) to the mutated steps.
+
+{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select_beats,empty_row,empty_row,empty_row,empty_row,extra_row_mutations_3,save_slots" show_value_area=7 show_top=true page=1 subpage=2 %}
 
 ## Step Timing
 
 Offsets the mutated step forwards or backwards in the sequence.
 NOT WORKING IN THE CURRENT VERSION
 
+{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select_beats,empty_row,empty_row,empty_row,empty_row,extra_row_mutations_4,save_slots" show_value_area=7 show_top=true page=1 subpage=2 %}
+
 ## Note Change
 
 Triggers a note change according to the melodic algorythm from the available notes in the current active track scale.
+
+{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select_beats,empty_row,empty_row,empty_row,empty_row,extra_row_mutations_5,save_slots" show_value_area=7 show_top=true page=1 subpage=2 %}
 
 {: .note-title}
 > Current Active Scale
 >
 > The current is calculated from the [Track Root](../track-settings/root-note.html) and the selected [Track Scale](../track-settings/track-scale.html)
-
-## Panned Future Mutations
-
-The release version will also support pitch bend and aftertouch mutations.
 
 ## Next Steps
 
