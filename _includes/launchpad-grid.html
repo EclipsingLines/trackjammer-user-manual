@@ -20,6 +20,35 @@ split: "," -%}
 "green:3,green:3,green:3,green:3,green:3,green:3,green:3,green:3,cyan:2,off,off,purple:3,orange:3,off,off,red:3" |
 split: "," -%}
 
+{%- assign value_chance_last =
+"cyan:3,cyan:3,cyan:3,cyan:3,cyan:3,cyan:3,cyan:3,cyan:3,gray:2,off,off,purple:3,orange:3,off,off,red:3" |
+split: "," -%}
+
+{%- assign value_chance_not_last =
+"gray:3,gray:3,gray:3,gray:3,gray:3,gray:3,gray:3,gray:3,cyan:2,off,off,purple:3,orange:3,off,off,red:3" |
+split: "," -%}
+
+
+{%- assign value_chance_cycle_length =
+"purple:3,purple:1,purple:3,green:3,purple:3,purple:1,purple:3,orange:3,cyan:2,off,off,purple:3,orange:3,off,off,red:3"
+|
+split: "," -%}
+
+
+{%- assign value_chance_cycle_hits =
+"purple:3,purple:1,purple:3,green:3,purple:3,purple:1,purple:3,purple:3,cyan:2,off,off,purple:3,orange:3,off,off,red:3"
+|
+split: "," -%}
+
+
+{%- assign value_chance_95 =
+"yellow:1,yellow:2,yellow:3,orange:1,orange:2,orange:3,red:1,off,cyan:2,off,off,purple:3,orange:3,off,off,red:3" |
+split: "," -%}
+
+{%- assign value_chance_50 =
+"yellow:1,yellow:2,yellow:3,orange:1,off,off,off,off,cyan:2,off,off,purple:3,orange:3,off,off,red:3" |
+split: "," -%}
+
 {%- assign empty_row_step = "cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1" | split: ","
 -%}
 {%- assign empty_row_step_last_5 = "cyan:1,cyan:1,cyan:1,cyan:1,orange:2,off,off,off" | split: ","
@@ -67,6 +96,15 @@ split: "," -%}
 {%- when "extra_row_mutations_3" -%}{%- assign current_preset = extra_row_mutations_3 -%}
 {%- when "extra_row_mutations_4" -%}{%- assign current_preset = extra_row_mutations_4 -%}
 {%- when "extra_row_mutations_5" -%}{%- assign current_preset = extra_row_mutations_5 -%}
+
+
+{%- when "value_chance_last" -%}{%- assign current_preset = value_chance_last -%}
+{%- when "value_chance_not_last" -%}{%- assign current_preset = value_chance_not_last -%}
+{%- when "value_chance_cycle_hits" -%}{%- assign current_preset = value_chance_cycle_hits -%}
+{%- when "value_chance_cycle_length" -%}{%- assign current_preset = value_chance_cycle_length -%}
+{%- when "value_chance_95" -%}{%- assign current_preset = value_chance_95 -%}
+{%- when "value_chance_50" -%}{%- assign current_preset = value_chance_50 -%}
+
 {%- else -%}{%- assign current_preset = "off,off,off,off,off,off,off,off" | split: "," -%}
 {%- endcase -%}
 {%- assign all_colors = all_colors | concat: current_preset -%}

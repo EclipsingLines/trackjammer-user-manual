@@ -7,7 +7,7 @@ nav_order: 3
 
 # Pattern Mutations
 
-{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor,empty_row,empty_row,empty_row,empty_row,extra_row_mutations_1,save_slots" show_value_area=7 show_top=true page=1 subpage=2 %}
+{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor,empty_row,empty_row,empty_row,empty_row,extra_row_mutations_1,save_slots" show_value_area=6 show_top=true page=1 subpage=2 %}
 
 {% include generative_action_warning.html %}
 
@@ -51,7 +51,7 @@ Changes the [Velocity](../notes-page/notes-velocity.html) of the mutated step an
 
 Changes the [Note press duration](../notes-page/notes-gate.md) of the mutated step and it's subteps.
 
-{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select_beats,empty_row,empty_row,empty_row,empty_row,extra_row_mutations_2,save_slots" show_value_area=7 show_top=true page=1 subpage=2 %}
+{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select_beats,empty_row,empty_row,empty_row,empty_row,extra_row_mutations_2,save_slots" show_value_area=6 show_top=true page=1 subpage=2 %}
 
 ## Step Repeat
 

@@ -6,7 +6,7 @@ nav_order: 5
 ---
 # Step Chance
 
-{% include launchpad-grid.html presets="value_chance" show_top=true page=1 subpage=-1 %}
+{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor,steps_empty,steps_empty,value_chance,extra_row_empty,save_slots" show_top=true page=1 subpage=-1 %}
 
 {% include step-toggle-info.html %}
 
@@ -45,10 +45,14 @@ The **Top row** of the value area acts as a toggle button when in this **chance 
 If last is active and the last **active** step did **not trigger** (due to it's own chance settings) then this step will **not trigger**.
 If the last **active** step in the sequence **triggered** then this step **will trigger**.
 
+{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor,steps_empty,steps_empty,value_chance_last,extra_row_empty,save_slots" show_top=true page=1 subpage=-1 %}
+
 #### Not Last
 
 If last is active and the last **active** step did **not trigger** (due to it's own chance settings) then this step **will trigger**.
 If the last **active** step in the sequence **triggered** then this step will **not trigger**.
+
+{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor,steps_empty,steps_empty,value_chance_not_last,extra_row_empty,save_slots" show_top=true page=1 subpage=-1 %}
 
 ### Cycles
 
@@ -63,7 +67,7 @@ This is the middle option in the **Bottom row** of the value area and it has 2 b
 
 The **Top row** of the value area displays the **secondary chance sequence** and allows toggling steps ON and OFF
 
-{% include launchpad-grid.html presets="steps_4_floor_select,steps_4_floor,empty_row,empty_row" %}
+{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor,steps_empty,steps_empty,value_chance_cycle_length,extra_row_empty,save_slots" show_top=true page=1 subpage=-1 %}
 
 ### Probability
 
@@ -81,6 +85,8 @@ The **Top row** of the value area has a single row "value slider" with 8 differe
 - 3/4
 - 7/8
 - 19/20
+
+{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor,steps_empty,steps_empty,value_chance_50,extra_row_empty,save_slots" show_top=true page=1 subpage=-1 %}
 
 ## Next Steps
 
