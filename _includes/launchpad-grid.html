@@ -1,73 +1,68 @@
 {%- comment -%}
-Launchpad Grid Generator - Generates an 8x8 launchpad grid with customizable color presets.
+Launchpad Grid Generator - JavaScript Version
+Generates an 8x8 launchpad grid with customizable color presets using JavaScript.
 Parameters: presets (required), rows (optional), include_right_buttons (optional), show_top (optional)
 {%- endcomment -%}
 
 {%- assign show_top = include.show_top | default: false -%}
-{%- assign save_slots = "gray:2,blue:3,gray:2,gray:2,blue:3,gray:2,gray:2,gray:2" | split: "," -%}
-
-{%- assign steps_r_1 = "cyan:3,cyan:1,cyan:1,cyan:3,orange:3,cyan:1,cyan:3,cyan:1" | split: "," -%}
-{%- assign steps_r_2 = "cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,green:3,cyan:1" | split: "," -%}
-{%- assign steps_r_3 = "cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1" | split: "," -%}
-{%- assign value_chance =
-"green:3,green:3,green:3,green:3,green:3,green:3,green:3,green:3,cyan:2,off,off,purple:3,orange:3,off,off,red:3" | split: "," -%}
-{%- assign extra_row_empty = "off,off,off,off,off,off,cyan:3,red:1" | split: "," - %}
-{%- assign empty_row = "off,off,off,off,off,off,off,off" | split: "," - %}
-
-
-
-{%- assign preset_names = include.presets | split: "," -%}
 {%- assign max_rows = include.rows | default: 8 -%}
 {%- assign show_right_buttons = include.include_right_buttons | default: true -%}
-{%- assign all_colors = "" | split: "," -%}
+{%- assign preset_names = include.presets | default: "" -%}
+{%- assign unique_id = include.presets | slugify | append: "-" | append: "now" | date: "%s" -%}
 
-{%- for preset_name in preset_names -%}
-{%- assign preset_name = preset_name | strip -%}
-{%- case preset_name -%}
-{%- when "save_slots" -%}{%- assign current_preset = save_slots -%}
-{%- when "value_area" -%}{%- assign current_preset = value_area -%}
-{%- when "steps_r_1" -%}{%- assign current_preset = steps_r_1 -%}
-{%- when "steps_r_2" -%}{%- assign current_preset = steps_r_2 -%}
-{%- when "steps_r_3" -%}{%- assign current_preset = steps_r_3 -%}
-{%- when "value_chance" -%}{%- assign current_preset = value_chance -%}
-{%- when "extra_row_empty" -%}{%- assign current_preset = extra_row_empty -%}
-{%- when "empty_row" -%}{%- assign current_preset = empty_row -%}
-{%- else -%}{%- assign current_preset = "off,off,off,off,off,off,off,off" | split: "," -%}
-{%- endcase -%}
-{%- assign all_colors = all_colors | concat: current_preset -%}
-{%- endfor -%}
-
-{%- assign total_pads = all_colors.size -%}
-{%- assign calculated_rows = total_pads | divided_by: 8.0 | ceil -%}
-{%- if calculated_rows > max_rows -%}{%- assign rows_to_render = max_rows -%}
-{%- else -%}{%- assign rows_to_render = calculated_rows -%}{%- endif -%}
+{%- comment -%} Load the JavaScript file if not already loaded {%- endcomment -%}
+<script>
+    if (typeof window.LaunchpadGrid === 'undefined') {
+        var script = document.createElement('script');
+        script.src = '{{ "/assets/js/launchpad-grid.js" | relative_url }}';
+        script.onload = function () {
+            // Trigger initialization for all waiting grids
+            document.dispatchEvent(new CustomEvent('launchpadGridLoaded'));
+        };
+        document.head.appendChild(script);
+    }
+</script>
 
 <div class="launchpad-container">
     {%- if show_top -%}
     {% include launchpad-top-row.html %}
     {%- endif -%}
-    {%- for row_index in (0..rows_to_render) -%}
-    {%- assign row_num = row_index | plus: 0 -%}
-    {%- if row_num < rows_to_render -%} {%- for col_index in (0..7) -%} {%- assign pad_index=row_num | times: 8 | plus:
-        col_index -%} {%- if pad_index < all_colors.size -%} {%- assign color_entry=all_colors[pad_index] | strip -%}
-        {%- if color_entry contains ":" -%} {%- assign color_parts=color_entry | split: ":" -%} {%- assign
-        color_name=color_parts[0] | strip -%} {%- assign intensity=color_parts[1] | strip -%} {%- else -%} {%- assign
-        color_name=color_entry -%} {%- assign intensity="3" -%} {%- endif -%} {%- assign
-        pad_classes="launchpad-pad pad-" | append: color_name -%} {%- unless color_name=="off" -%} {%- assign
-        pad_classes=pad_classes | append: " intensity-" | append: intensity -%} {%- endunless -%} <div
-        class="{{ pad_classes }}">
+    <div id="launchpad-grid-{{ unique_id }}" data-presets="{{ preset_names }}" data-rows="{{ max_rows }}"
+        data-include-right-buttons="{{ show_right_buttons }}" class="launchpad-grid-js">
+        {%- comment -%} Fallback content while JavaScript loads {%- endcomment -%}
+        <div class="loading-message">Loading launchpad grid...</div>
+    </div>
 </div>
-{%- else -%}
-<div class="launchpad-pad pad-off"></div>
-{%- endif -%}
-{%- endfor -%}
-{%- if show_right_buttons -%}
-{%- if row_num == rows_to_render | minus: 1 -%}
-<div class="launchpad-button launchpad-right-button launchpad-stop-solo-mute"></div>
-{%- else -%}
-<div class="launchpad-button launchpad-right-button launchpad-arrow-button"></div>
-{%- endif -%}
-{%- endif -%}
-{%- endif -%}
-{%- endfor -%}
-</div>
+
+<script>
+    (function () {
+        var containerId = 'launchpad-grid-{{ unique_id }}';
+
+        function initGrid() {
+            if (typeof window.LaunchpadGrid !== 'undefined') {
+                var container = document.getElementById(containerId);
+                if (container) {
+                    var options = {
+                        presets: container.dataset.presets,
+                        rows: parseInt(container.dataset.rows) || 8,
+                        includeRightButtons: container.dataset.includeRightButtons !== 'false',
+                        showTop: false // Top row handled by Jekyll above
+                    };
+
+                    // Generate and insert the grid
+                    container.innerHTML = window.LaunchpadGrid.generate(options);
+                }
+            }
+        }
+
+        // Initialize immediately if LaunchpadGrid is already loaded
+        if (typeof window.LaunchpadGrid !== 'undefined') {
+            initGrid();
+        } else {
+            // Wait for the script to load
+            document.addEventListener('launchpadGridLoaded', initGrid);
+            // Fallback timeout
+            setTimeout(initGrid, 1000);
+        }
+    })();
+</script>
