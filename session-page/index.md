@@ -6,8 +6,10 @@ has_children: true
 permalink: /session-page/
 ---
 
-# Track Settings page
+# Session Page
 
 {% include launchpad-session.html inline=true %}
 
-The Track Settings page allows for setting track wide parameters like: speed, scale, root note and other settings.
+This page lets you save and load session to the hard drive.
+
+This page lets you duplicate and clear sessions.
