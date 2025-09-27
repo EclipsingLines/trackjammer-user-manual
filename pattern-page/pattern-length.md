@@ -7,7 +7,7 @@ nav_order: 1
 
 # Pattern Length
 
-{% include launchpad-grid.html presets="empty_row_step,empty_row_step_last_5,empty_row,empty_row" %}
+{% include launchpad-grid.html presets="empty_row_step,empty_row_step_last_5,empty_row,empty_row" show_top=true page=1 subpage=0 %}
 
 {% include generative_action_warning.html %}
 
