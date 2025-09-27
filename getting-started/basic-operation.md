@@ -98,12 +98,6 @@ Controls how many beats (active steps) the Euclidean algorithm places in the pat
 - **Range**: 0 to current pattern length
 - **Effect**: More beats = denser rhythm, fewer beats = sparser rhythm
 
-{: .generative }
-> Generative Action!
-> This action regenerates the track pattern using the new parameter values.
-> There's no undo in the current version.
-> Quick Save your sequence if you found something you might want to hear again before performing any **Generative Action**
-
 ## Next Steps
 
 Now that you understand basic operation:

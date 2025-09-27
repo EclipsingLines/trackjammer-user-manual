@@ -8,6 +8,6 @@ permalink: /pattern-page/
 
 # Pattern page
 
-{% include launchpad-drums.html %}
+{% include full-launchpad.html %}
 
 The pattern page allows for changing the pattern by adujsting: Steps, Length, Beats, Mutations, Chance and Substeps.

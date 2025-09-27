@@ -9,11 +9,16 @@ class LaunchpadGrid {
         // Define all preset patterns
         this.presets = {
             save_slots: ["gray:2", "blue:3", "gray:2", "gray:2", "blue:3", "gray:2", "gray:2", "gray:2"],
-            steps_r_1: ["cyan:3", "cyan:1", "cyan:1", "cyan:3", "orange:3", "cyan:1", "cyan:3", "cyan:1"],
+            steps_4_floor_select: ["cyan:1", "cyan:1", "cyan:1", "orange:2", "cyan:1", "cyan:1", "cyan:1", "cyan:3"],
+            steps_4_floor: ["cyan:1", "cyan:1", "cyan:1", "cyan:3", "cyan:1", "cyan:1", "cyan:1", "cyan:3"],
+            steps_r_1: ["cyan:3", "cyan:1", "cyan:1", "cyan:3", "orange:2", "cyan:1", "cyan:3", "cyan:1"],
             steps_r_2: ["cyan:1", "cyan:3", "cyan:1", "cyan:1", "cyan:3", "cyan:1", "green:3", "cyan:1"],
             steps_r_3: ["cyan:3", "cyan:1", "cyan:1", "cyan:3", "cyan:1", "cyan:1", "cyan:3", "cyan:1"],
             value_chance: ["green:3", "green:3", "green:3", "green:3", "green:3", "green:3", "green:3", "green:3",
                 "cyan:2", "off", "off", "purple:3", "orange:3", "off", "off", "red:3"],
+            empty_row_step: ["cyan:1", "cyan:1", "cyan:1", "cyan:1", "cyan:1", "cyan:1", "cyan:1", "cyan:1"],
+            empty_row_step_last_5: ["cyan:1", "cyan:1", "cyan:1", "cyan:1", "orange:2", "off", "off", "off"],
+            empty_row_step_last_8: ["cyan:1", "cyan:1", "cyan:1", "cyan:1", "cyan:1", "cyan:1", "cyan:1", "orange:2"],
             extra_row_empty: ["off", "off", "off", "off", "off", "off", "cyan:3", "red:1"],
             empty_row: ["off", "off", "off", "off", "off", "off", "off", "off"]
         };
