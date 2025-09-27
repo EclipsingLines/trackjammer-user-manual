@@ -41,7 +41,7 @@ Depending on the selected mutations, several things can happen at the same time.
 - The generative algorythm will calculate new weight tables for the current sequence based on the mutation settings.
 - Each step of the sequence will be adjusted according to the weight table and the selected **Mutation Targets**
 
-{% include launchpad-grid.html presets=""steps_4_floor,steps_4_floor,empty_row,empty_row,empty_row,empty_row,extra_row_empty,save_slots" show_value_area=10 show_top=true page=1 subpage=2 %}
+{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor,empty_row,empty_row,empty_row,empty_row,extra_row_empty,save_slots" show_value_area=10 show_top=true page=1 subpage=2 %}
 
 ## Velocity Mutation
 
