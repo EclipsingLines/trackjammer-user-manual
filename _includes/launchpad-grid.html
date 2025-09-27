@@ -1,4 +1,4 @@
-{% comment %}
+{%- comment -%}
 Launchpad Grid Generator
 ========================
 Generates an 8x8 launchpad grid with customizable color presets.
@@ -12,87 +12,76 @@ Usage:
 {% include launchpad-grid.html presets="save_slots" %}
 {% include launchpad-grid.html presets="value_area,save_slots" rows=3 %}
 {% include launchpad-grid.html presets="drums,keys" include_right_buttons=false %}
-{% endcomment -%}
+{%- endcomment -%}
 
-{% comment -%} === PRESET DEFINITIONS === {% endcomment -%}
-{% comment -%} 8 colors = 1 row {% endcomment -%}
-{% assign save_slots = "red:3,yellow:2,off,purple:3,cyan:3,off,yellow:3,off" | split: "," -%}
-
-{% comment -%} 16 colors = 2 rows {% endcomment -%}
-{% assign value_area = "red:2,off,blue:3,off,green:3,red:3,off,purple:2,red:2,off,blue:3,off,green:3,red:3,off,purple:2"
-| split: "," -%}
-
-{% comment -%} 32 colors = 4 rows {% endcomment -%}
-{% assign drums =
+{%- comment -%} === PRESET DEFINITIONS === {%- endcomment -%}
+{%- assign save_slots = "red:3,yellow:2,off,purple:3,cyan:3,off,yellow:3,off" | split: "," -%}
+{%- assign value_area =
+"red:2,off,blue:3,off,green:3,red:3,off,purple:2,red:2,off,blue:3,off,green:3,red:3,off,purple:2" | split: "," -%}
+{%- assign drums =
 "red:3,orange:3,yellow:3,green:3,cyan:3,blue:3,purple:3,magenta:3,red:2,orange:2,yellow:2,green:2,cyan:2,blue:2,purple:2,magenta:2,red:1,orange:1,yellow:1,green:1,cyan:1,blue:1,purple:1,magenta:1,off,red:3,off,green:3,off,blue:3,off,purple:3"
 | split: "," -%}
 
-{% comment -%} === PARAMETER PROCESSING === {% endcomment -%}
-{% assign preset_names = include.presets | split: "," -%}
-{% assign max_rows = include.rows | default: 8 -%}
-{% assign show_right_buttons = include.include_right_buttons | default: true -%}
+{%- comment -%} === PARAMETER PROCESSING === {%- endcomment -%}
+{%- assign preset_names = include.presets | split: "," -%}
+{%- assign max_rows = include.rows | default: 8 -%}
+{%- assign show_right_buttons = include.include_right_buttons | default: true -%}
 
-{% comment -%} === PRESET LOOKUP AND COLOR ARRAY BUILDING === {% endcomment -%}
-{% assign all_colors = "" | split: "," -%}
+{%- comment -%} === PRESET LOOKUP AND COLOR ARRAY BUILDING === {%- endcomment -%}
+{%- assign all_colors = "" | split: "," -%}
 
-{% for preset_name in preset_names -%}
-{% assign preset_name = preset_name | strip -%}
-{% assign current_preset = "" | split: "," -%}
+{%- for preset_name in preset_names -%}
+{%- assign preset_name = preset_name | strip -%}
+{%- assign current_preset = "" | split: "," -%}
 
-{% case preset_name -%}
-{% when "save_slots" -%}
-{% assign current_preset = save_slots -%}
-{% when "value_area" -%}
-{% assign current_preset = value_area -%}
-{% when "drums" -%}
-{% assign current_preset = drums -%}
-{% else -%}
-{% comment -%} Unknown preset - add error padding {% endcomment -%}
-{% assign current_preset = "off,off,off,off,off,off,off,off" | split: "," -%}
-{% endcase -%}
+{%- case preset_name -%}
+{%- when "save_slots" -%}
+{%- assign current_preset = save_slots -%}
+{%- when "value_area" -%}
+{%- assign current_preset = value_area -%}
+{%- when "drums" -%}
+{%- assign current_preset = drums -%}
+{%- else -%}
+{%- assign current_preset = "off,off,off,off,off,off,off,off" | split: "," -%}
+{%- endcase -%}
 
-{% comment -%} Concatenate colors from this preset {% endcomment -%}
-{% assign all_colors = all_colors | concat: current_preset -%}
-{% endfor -%}
+{%- assign all_colors = all_colors | concat: current_preset -%}
+{%- endfor -%}
 
-{% comment -%} === CALCULATE ACTUAL ROWS TO RENDER === {% endcomment -%}
-{% assign total_pads = all_colors.size -%}
-{% assign calculated_rows = total_pads | divided_by: 8.0 | ceil -%}
-{% if calculated_rows > max_rows -%}
-{% assign rows_to_render = max_rows -%}
-{% else -%}
-{% assign rows_to_render = calculated_rows -%}
-{% endif -%}
+{%- comment -%} === CALCULATE ACTUAL ROWS TO RENDER === {%- endcomment -%}
+{%- assign total_pads = all_colors.size -%}
+{%- assign calculated_rows = total_pads | divided_by: 8.0 | ceil -%}
+{%- if calculated_rows > max_rows -%}
+{%- assign rows_to_render = max_rows -%}
+{%- else -%}
+{%- assign rows_to_render = calculated_rows -%}
+{%- endif -%}
 
-{% comment -%} === GRID GENERATION === {% endcomment -%}
-{% for row_index in (0..rows_to_render) -%}
-{% assign row_num = row_index | plus: 0 -%}
-{% if row_num < rows_to_render -%} {% comment -%} Generate 8 pads for this row {% endcomment -%} {% for col_index in
-    (0..7) -%} {% assign pad_index=row_num | times: 8 | plus: col_index -%} {% if pad_index < all_colors.size -%} {%
-    assign color_entry=all_colors[pad_index] | strip -%} {% comment -%} Parse color:intensity format {% endcomment -%}
-    {% if color_entry contains ":" -%} {% assign color_parts=color_entry | split: ":" -%} {% assign
-    color_name=color_parts[0] | strip -%} {% assign intensity=color_parts[1] | strip -%} {% else -%} {% assign
-    color_name=color_entry -%} {% assign intensity="3" -%} {% endif -%} {% comment -%} Build CSS classes {% endcomment
-    -%} {% assign pad_classes="launchpad-pad pad-" | append: color_name -%} {% unless color_name=="off" -%} {% assign
-    pad_classes=pad_classes | append: " intensity-" | append: intensity -%} {% endunless -%} <div
-    class="{{ pad_classes }}">
+{%- comment -%} === GRID GENERATION === {%- endcomment -%}
+{%- capture grid_html -%}
+{%- for row_index in (0..rows_to_render) -%}
+{%- assign row_num = row_index | plus: 0 -%}
+{%- if row_num < rows_to_render -%} {%- for col_index in (0..7) -%} {%- assign pad_index=row_num | times: 8 | plus:
+    col_index -%} {%- if pad_index < all_colors.size -%} {%- assign color_entry=all_colors[pad_index] | strip -%} {%- if
+    color_entry contains ":" -%} {%- assign color_parts=color_entry | split: ":" -%} {%- assign
+    color_name=color_parts[0] | strip -%} {%- assign intensity=color_parts[1] | strip -%} {%- else -%} {%- assign
+    color_name=color_entry -%} {%- assign intensity="3" -%} {%- endif -%} {%- assign pad_classes="launchpad-pad pad-" |
+    append: color_name -%} {%- unless color_name=="off" -%} {%- assign pad_classes=pad_classes | append: " intensity-" |
+    append: intensity -%} {%- endunless -%} <div class="{{ pad_classes }}">
     </div>
-    {% else -%}
-    {% comment -%} Pad with default off state if we run out of colors {% endcomment -%}
+    {%- else -%}
     <div class="launchpad-pad pad-off"></div>
-    {% endif -%}
-    {% endfor -%}
-
-    {% comment -%} Add right-side button if enabled {% endcomment -%}
-    {% if show_right_buttons -%}
-    {% if row_num == rows_to_render | minus: 1 -%}
-    {% comment -%} Last row gets stop-solo-mute button {% endcomment -%}
+    {%- endif -%}
+    {%- endfor -%}
+    {%- if show_right_buttons -%}
+    {%- if row_num == rows_to_render | minus: 1 -%}
     <div class="launchpad-button launchpad-right-button launchpad-stop-solo-mute"></div>
-    {% else -%}
-    {% comment -%} Other rows get arrow buttons {% endcomment -%}
+    {%- else -%}
     <div class="launchpad-button launchpad-right-button launchpad-arrow-button"></div>
-    {% endif -%}
-    {% endif -%}
+    {%- endif -%}
+    {%- endif -%}
+    {%- endif -%}
+    {%- endfor -%}
+    {%- endcapture -%}
 
-    {% endif -%}
-    {% endfor -%}
+    {{ grid_html }}
