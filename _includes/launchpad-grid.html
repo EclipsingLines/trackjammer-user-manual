@@ -72,16 +72,18 @@ split: "," -%}
     {%- if row_num < rows_to_render -%} {%- for col_index in (0..7) -%} {%- assign pad_index=row_num | times: 8 | plus:
         col_index -%} {%- comment -%} Check if we should override with yellow pads for show_value_area {%- endcomment
         -%} {%- assign use_yellow_override=false -%} {%- if show_value_area>= 0 and show_value_area < 15 -%} {%- if
-            row_num==4 or row_num==5 -%} {%- assign max_yellow_pads=show_value_area | plus: 1 -%} {%- if col_index <
-            max_yellow_pads -%} {%- assign use_yellow_override=true -%} {%- endif -%} {%- endif -%} {%- endif -%} {%- if
-            use_yellow_override -%} {%- assign color_name="yellow" -%} {%- assign intensity="3" -%} {%- elsif pad_index
-            < all_colors.size -%} {%- assign color_entry=all_colors[pad_index] | strip -%} {%- if color_entry
-            contains ":" -%} {%- assign color_parts=color_entry | split: ":" -%} {%- assign color_name=color_parts[0] |
-            strip -%} {%- assign intensity=color_parts[1] | strip -%} {%- else -%} {%- assign color_name=color_entry -%}
-            {%- assign intensity="3" -%} {%- endif -%} {%- else -%} {%- assign color_name="off" -%} {%- assign
-            intensity="3" -%} {%- endif -%} {%- assign pad_classes="launchpad-pad pad-" | append: color_name -%} {%-
-            unless color_name=="off" -%} {%- assign pad_classes=pad_classes | append: " intensity-" | append: intensity
-            -%} {%- endunless -%} <div class="{{ pad_classes }}">
+            row_num==4 -%} {%- assign max_yellow_pads=show_value_area | plus: 1 -%} {%- if col_index < max_yellow_pads
+            -%} {%- assign use_yellow_override=true -%} {%- endif -%} {%- endif -%} {%- if row_num==5 -%} {%- assign
+            max_yellow_pads=show_value_area | minus: 8 -%} {%- if col_index < max_yellow_pads -%} {%- assign
+            use_yellow_override=true -%} {%- endif -%} {%- endif -%} {%- endif -%} {%- if use_yellow_override -%} {%-
+            assign color_name="yellow" -%} {%- assign intensity="3" -%} {%- elsif pad_index < all_colors.size -%} {%-
+            assign color_entry=all_colors[pad_index] | strip -%} {%- if color_entry contains ":" -%} {%- assign
+            color_parts=color_entry | split: ":" -%} {%- assign color_name=color_parts[0] | strip -%} {%- assign
+            intensity=color_parts[1] | strip -%} {%- else -%} {%- assign color_name=color_entry -%} {%- assign
+            intensity="3" -%} {%- endif -%} {%- else -%} {%- assign color_name="off" -%} {%- assign intensity="3" -%}
+            {%- endif -%} {%- assign pad_classes="launchpad-pad pad-" | append: color_name -%} {%- unless
+            color_name=="off" -%} {%- assign pad_classes=pad_classes | append: " intensity-" | append: intensity -%} {%-
+            endunless -%} <div class="{{ pad_classes }}">
 </div>
 {%- endfor -%}
 {%- if show_right_buttons -%}
