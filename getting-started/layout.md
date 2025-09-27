@@ -115,10 +115,11 @@ Allows editing the Step Chance when in the Pattern page.
 Allows editing the step Notes when in the Note page.
 Allows editing the MIDI control Subtrack settings.
 
+{% include launchpad-arrows.html %}
+
 {: .note-title }
 > Transposition and Rotation
 >
-> {% include launchpad-arrows.html %}
 > The Up and Down subpage buttons are also used to transpose tracks and steps by holding down a Track Button or step and tapping the Up or Down.
 > The Left and Right subpae buttons are also used to rotate (nudge) tracks backwards and forwards by holding down a Track Button and tapping Left or Right
 
