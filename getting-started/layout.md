@@ -3,33 +3,51 @@ layout: default
 title: UI Layout
 parent: Getting Started
 nav_order: 3
-description: "Configure MIDI devices and connections for the sequencer"
+description: "General UI Overview"
 ---
 ## Understanding the Default Interface
 
-![Interface Overview](docs/img/interface-overview-labeled.jpg)
-*Main interface elements labeled for reference*
+{% include full-launchpad.html %}
 
 ### Track Display Buttons (Right Side)
 
+{% include launchpad-track-arrow.html %}
+
 Seven track buttons (Track 1-7) are visible on the right side of the interface. Track 1 is selected by default and highlighted.
+
+{% include launchpad-stop-solo-mute.html %}
 
 The last button of the right side area is the Mute button and is used to mute track, subtracks and individual steps.
 
 ### Page Navigation (Top)
 
+{% include launchpad-top-row.html %}
+
 The top 8 buttons of the Launchpad are used to navigate the different "pages" and "subpages" of the app, its divided into 2 sections:
 
-#### Page buttons (4 Top Right Buttons)
+#### Pattern Page
 
-4 Page buttons allow to switch between the 6 different modes to use the app:
+{% include launchpad-drums.html %}
 
-Pattern Page {% include launchpad-drums.html %}
-Notes Page {% include launchpad-keys.html %}
-CC Subtracks Page {% include launchpad-user.html %}
-Track Settings Page {% include launchpad-session.html inline=true %}
-Sesssion Save/Load Page {% include launchpad-stop-solo-mute.html inline=true %}+{% include launchpad-session.html inline=true %}
-Global Settings {% include launchpad-stop-solo-mute.html inline=true %}+{% include launchpad-user.html inline=true %}
+#### Notes Page
+
+{% include launchpad-keys.html %}
+
+#### CC Subtracks Page
+
+{% include launchpad-user.html %}
+
+#### Track Settings Page
+
+{% include launchpad-session.html inline=true %}
+
+#### Sesssion Save/Load Page
+
+{% include launchpad-stop-solo-mute.html inline=true %}+{% include launchpad-session.html inline=true %}
+
+#### Global Settings
+
+{% include launchpad-stop-solo-mute.html inline=true %}+{% include launchpad-user.html inline=true %}
 
 {: .note-title}
 > Clear Session
@@ -39,29 +57,27 @@ Global Settings {% include launchpad-stop-solo-mute.html inline=true %}+{% inclu
 
 The 4 arrow buttons switch between different subpages in the **Pattern**, **Notes** and **CC Subtracks** pages:
 
-##### Pattern subpages
+#### Pattern Length / Velocity / Subtrack 1
 
-Pattern Length - {% include launchpad-up-arrow.html inline=true %}.
-Pattern Beats - {% include launchpad-down-arrow.html inline=true %}.
-Mutations - {% include launchpad-left-arrow.html inline=true %}.
-Substeps - {% include launchpad-right-arrow.html inline=true %}.
-Chance No Button.
+{% include launchpad-up-arrow.html inline=true %}
 
-##### Notes subpages
+#### Pattern Beats / Gate / Subtrack 2
 
-Velocity - {% include launchpad-up-arrow.html inline=true %}
-Gate - {% include launchpad-down-arrow.html inline=true %}
-Type - {% include launchpad-left-arrow.html inline=true %}
-Variation - {% include launchpad-right-arrow.html inline=true %}
-Note Selection - No Button
+{% include launchpad-down-arrow.html inline=true %}.
 
-##### CC Subtracks
+#### Mutations / Type / Subtrack 3
 
-Subtrack Selection - {% include launchpad-up-arrow.html inline=true %}OR{% include launchpad-down-arrow.html inline=true %}OR{% include launchpad-left-arrow.html inline=true %}OR{% include launchpad-right-arrow.html inline=true %}
-Subtrack Settings - No Button
+{% include launchpad-left-arrow.html inline=true %}.
 
-The selected subpage button is highlihgted to indicate the current selection.
+#### Substeps / Variation / Subtrack 4
 
+{% include launchpad-right-arrow.html inline=true %}.
+
+#### Chance / Note / Subtrack settings
+
+No button
+
+{: .note }
 Pressing on the currently selected subpage takes the user into the "No Button" subpage.
 
 {: .note-title }
@@ -71,8 +87,6 @@ Pressing on the currently selected subpage takes the user into the "No Button" s
 > The Left and Right subpae buttons are also used to rotate (nudge) tracks backwards and forwards by holding down a Track Button and tapping Left or Right
 
 ### Main Area (8x8 Grid)
-
-{% include full-launchpad.html %}
 
 The main area is composed of 4 sections:
 
