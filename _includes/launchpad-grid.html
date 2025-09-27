@@ -73,6 +73,12 @@ split: "," -%}
 
 
 {%- assign extra_row_empty = "off,off,off,off,off,off,cyan:3,red:1" | split: "," - %}
+
+{%- assign extra_row_note_type_1 = "yellow:3,purple:1,purple:1,purple:1,off,off,cyan:3,red:1" | split: "," - %}
+{%- assign extra_row_note_type_2 = "purple:1,yellow:3,purple:1,purple:1,off,off,cyan:3,red:1" | split: "," - %}
+{%- assign extra_row_note_type_3 = "purple:1,purple:1,yellow:3,purple:1,off,off,cyan:3,red:1" | split: "," - %}
+{%- assign extra_row_note_type_4 = "purple:1,purple:1,purple:1,yellow:3,off,off,cyan:3,red:1" | split: "," - %}
+
 {%- assign extra_row_mutations_1 = "yellow:3,purple:1,purple:1,purple:1,purple:1,off,cyan:3,red:1" | split: "," - %}
 {%- assign extra_row_mutations_2 = "purple:1,yellow:3,purple:1,purple:1,purple:1,off,cyan:3,red:1" | split: "," - %}
 {%- assign extra_row_mutations_3 = "purple:1,purple:1,yellow:3,purple:1,purple:1,off,cyan:3,red:1" | split: "," - %}
@@ -110,6 +116,12 @@ split: "," -%}
 {%- when "extra_row_mutations_3" -%}{%- assign current_preset = extra_row_mutations_3 -%}
 {%- when "extra_row_mutations_4" -%}{%- assign current_preset = extra_row_mutations_4 -%}
 {%- when "extra_row_mutations_5" -%}{%- assign current_preset = extra_row_mutations_5 -%}
+
+
+{%- when "extra_row_note_type_1" -%}{%- assign current_preset = extra_row_note_type_1 -%}
+{%- when "extra_row_note_type_2" -%}{%- assign current_preset = extra_row_note_type_2 -%}
+{%- when "extra_row_note_type_3" -%}{%- assign current_preset = extra_row_note_type_3 -%}
+{%- when "extra_row_note_type_4" -%}{%- assign current_preset = extra_row_note_type_4 -%}
 
 {%- when "substeps_default" -%}{%- assign current_preset = substeps_default -%}
 {%- when "substeps_triplet" -%}{%- assign current_preset = substeps_triplet -%}
