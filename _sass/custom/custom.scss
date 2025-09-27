@@ -136,23 +136,7 @@ $lp-link-visited: #9f7aea;      // Slightly muted for visited
     
 }
 
-// Adjust button and pad sizes to work with scaling
-.launchpad-button,
-.launchpad-pad {
-    width: calc(60px * var(--scale-factor, 1));
-    height: calc(60px * var(--scale-factor, 1));
-    margin: calc(4px * var(--scale-factor, 1));
-    font-size: calc(11px * var(--scale-factor, 1));
-}
 
-// Adjust font sizes for scaled buttons
-.launchpad-right-button {
-    font-size: calc(13px * var(--scale-factor, 1));
-}
-
-.launchpad-stop-solo-mute {
-    font-size: calc(9px * var(--scale-factor, 1));
-}
 
 // Row and column layouts
 .launchpad-row {
