@@ -10,6 +10,17 @@ Parameters: presets (required), rows (optional), include_right_buttons (optional
 {%- assign steps_r_2 = "cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,green:3,cyan:1" | split: "," -%}
 {%- assign steps_r_3 = "cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1" | split: "," -%}
 
+{%- assign track_params_none_r1 = "off,purple:3,off,purple:3,off,off,purple:3,off" | split: "," -%}
+
+{%- assign track_params_none_r1_1 = "off,orange:3,off,purple:3,off,off,purple:3,off" | split: "," -%}
+{%- assign track_params_none_r1_2 = "off,purple:3,off,orange:3,off,off,purple:3,off" | split: "," -%}
+{%- assign track_params_none_r1_3 = "off,purple:3,off,purple:3,off,off,orange:3,off" | split: "," -%}
+
+{%- assign track_params_none_r2 = "purple:3,purple:3,off,purple:3,off,off,purple:3,off" | split: "," -%}
+
+{%- assign track_params_none_r2_1 = "orange:3,orange:3,off,purple:3,off,off,purple:3,off" | split: "," -%}
+{%- assign track_params_none_r2_2 = "purple:3,purple:3,off,orange:3,off,off,purple:3,off" | split: "," -%}
+{%- assign track_params_none_r2_3 = "purple:3,purple:3,off,purple:3,off,off,orange:3,off" | split: "," -%}
 
 {%- assign substeps_default = "green:3,green:1,green:1,green:1,green:1,green:1,green:1,green:1" | split: "," -%}
 {%- assign substeps_triplet = "green:3,green:1,green:3,green:1,green:3,green:1,green:1,green:1" | split: "," -%}
@@ -116,6 +127,16 @@ split: "," -%}
 {%- when "extra_row_mutations_3" -%}{%- assign current_preset = extra_row_mutations_3 -%}
 {%- when "extra_row_mutations_4" -%}{%- assign current_preset = extra_row_mutations_4 -%}
 {%- when "extra_row_mutations_5" -%}{%- assign current_preset = extra_row_mutations_5 -%}
+
+
+{%- when "track_params_none_r1" -%}{%- assign current_preset = track_params_none_r1 -%}
+{%- when "track_params_none_r1_1" -%}{%- assign current_preset = track_params_none_r1_1 -%}
+{%- when "track_params_none_r1_2" -%}{%- assign current_preset = track_params_none_r1_2 -%}
+{%- when "track_params_none_r1_3" -%}{%- assign current_preset = track_params_none_r1_3 -%}
+{%- when "track_params_none_r2" -%}{%- assign current_preset = track_params_none_r2 -%}
+{%- when "track_params_none_r2_1" -%}{%- assign current_preset = track_params_none_r2_1 -%}
+{%- when "track_params_none_r2_2" -%}{%- assign current_preset = track_params_none_r2_2 -%}
+{%- when "track_params_none_r2_3" -%}{%- assign current_preset = track_params_none_r2_3 -%}
 
 
 {%- when "extra_row_note_type_1" -%}{%- assign current_preset = extra_row_note_type_1 -%}
