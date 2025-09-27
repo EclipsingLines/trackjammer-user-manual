@@ -68,7 +68,7 @@ The Global settings allows for changing app wide settings like: scrolling text o
 
 #### Subpage buttons (4 Top Left Buttons)
 
-{% include launchpad-up-arrow.html inline=true %}{% include launchpad-down-arrow.html inline=true %}{% include launchpad-left-arrow.html inline=true %}{% include launchpad-right-arrow.html inline=true %}
+{% include launchpad-arrows.html %}
 
 The 4 arrow buttons switch between different subpages in the **Pattern**, **Notes** and **CC Subtracks** pages:
 
@@ -118,9 +118,8 @@ Allows editing the MIDI control Subtrack settings.
 {: .note-title }
 > Transposition and Rotation
 >
-> {% include launchpad-up-arrow.html inline=true %}{% include launchpad-down-arrow.html inline=true %}
+> {% include launchpad-arrows.html %}
 > The Up and Down subpage buttons are also used to transpose tracks and steps by holding down a Track Button or step and tapping the Up or Down.
-> {% include launchpad-left-arrow.html inline=true %}{% include launchpad-right-arrow.html inline=true %}
 > The Left and Right subpae buttons are also used to rotate (nudge) tracks backwards and forwards by holding down a Track Button and tapping Left or Right
 
 ### Main Area (8x8 Grid)
