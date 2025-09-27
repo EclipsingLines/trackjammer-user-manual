@@ -1,5 +1,7 @@
 // _sass/custom/launchpad.scss
 
+$lp-top-selection: #400080;
+
 // Base button style for all Launchpad buttons
 .launchpad-button {
     width: 60px;
@@ -282,21 +284,21 @@
 h1 {
   font-size: 2.5rem !important;
   font-weight: 700 !important;
-  color: $grey-dk-300 !important;
+  color: $lp-top-selection !important;
   margin-bottom: 1rem !important;
 }
 
 h2 {
   font-size: 2rem !important;
   font-weight: 600 !important;
-  color: $grey-dk-250 !important;
+  color: $lp-top-selection !important;
   margin-top: 2rem !important;
 }
 
 h3 {
   font-size: 1.5rem !important;
   font-weight: 600 !important;
-  color: $grey-dk-200 !important;
+  color: $lp-top-selection !important;
 }
 
 // Better code block styling for dark mode
