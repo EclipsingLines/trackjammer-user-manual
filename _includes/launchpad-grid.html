@@ -53,6 +53,16 @@ split: "," -%}
 "yellow:1,yellow:2,yellow:3,orange:1,off,off,off,off,cyan:2,off,off,purple:3,orange:3,off,off,red:3" |
 split: "," -%}
 
+{%- assign keyboard_prhy_empty =
+"purple:2,yellow:3,yellow:3,off,yellow:1,yellow:3,yellow:3,purple:2,yellow:3,yellow:1,yellow:1,yellow:3,yellow:3,yellow:1,yellow:1,yellow:3"
+|
+split: "," -%}
+
+{%- assign keyboard_prhy_notes =
+"purple:2,orange:3,yellow:3,off,yellow:1,orange:3,yellow:3,purple:2,orange:3,yellow:1,yellow:1,yellow:3,yellow:3,yellow:1,yellow:1,yellow:3"
+|
+split: "," -%}
+
 {%- assign empty_row_step = "cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1" | split: ","
 -%}
 {%- assign empty_row_step_last_5 = "cyan:1,cyan:1,cyan:1,cyan:1,orange:2,off,off,off" | split: ","
@@ -103,6 +113,9 @@ split: "," -%}
 
 {%- when "substeps_default" -%}{%- assign current_preset = substeps_default -%}
 {%- when "substeps_triplet" -%}{%- assign current_preset = substeps_triplet -%}
+
+{%- when "keyboard_prhy_empty" -%}{%- assign current_preset = keyboard_prhy_empty -%}
+{%- when "keyboard_prhy_notes" -%}{%- assign current_preset = keyboard_prhy_notes -%}
 
 
 {%- when "value_chance_last" -%}{%- assign current_preset = value_chance_last -%}
