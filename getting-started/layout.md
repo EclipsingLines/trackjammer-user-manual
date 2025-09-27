@@ -144,6 +144,8 @@ While in the **Pattern Length** **Pattern Beats** and **Mutations** subpages the
 
 #### Value Area (Rows: 5, 6)
 
+{% include launchpad-grid.html presets="value_chance" %}
+
 The next two rows display the value for the current target step and allow for editing step values when a step is selected or track wide values when not.
 
 Different parameters use different display types, these are all covered in [Editing Steps](../sequencer/basic-editing.md).
@@ -154,6 +156,8 @@ Different parameters use different display types, these are all covered in [Edit
 > The Current Target Step is either the current step when no step is selected or the selected step
 
 #### Extra Area (Row 7)
+
+{% include launchpad-grid.html presets="extra_row_empty" %}
 
 The Extra Area contains additional configuration parameters for editing a step in certain modes.
 
@@ -177,6 +181,8 @@ The extra are also contains the **Duplicate** and **Clear** combination buttons,
 > It conserves the **target's** MIDI output configuration allowing you to instantly transfer a whole sequence from a device to another.
 
 #### Quick Save (Row 8)
+
+{% include launchpad-grid.html presets="save_slots" %}
 
 The Quick Save Area has 8 Quick Save slots that allow the user to quickly save and recall whole sequences.
 Each Slot saves the whole state of the app at the moment, including **Tracks**, **Subtracks**,**Steps** and **Mutations**

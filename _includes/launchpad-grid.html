@@ -8,6 +8,9 @@ Parameters: presets (required), rows (optional), include_right_buttons (optional
 {%- assign steps_r_1 = "cyan:3,cyan:1,cyan:1,cyan:3,orange:3,cyan:1,cyan:3,cyan:1" | split: "," -%}
 {%- assign steps_r_2 = "cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,green:3,cyan:1" | split: "," -%}
 {%- assign steps_r_3 = "cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1" | split: "," -%}
+{%- assign value_chance =
+"green:3,green:3,green:3,green:3,green:3,green:3,green:3,green:3,cyan:2,off,off,purple:3,orange:3,off,off,red:3" | split: "," -%}
+{%- assign extra_row_empty = "off,off,off,off,off,off,cyan:3,red:1" | split: "," - %}
 {%- assign empty_row = "off,off,off,off,off,off,off,off" | split: "," - %}
 
 
