@@ -59,6 +59,22 @@ $lp-link-visited: #9f7aea; // Slightly muted for visited
     font-size: 16px;
 }
 
+// Active arrow button styling - uses the purple color
+.launchpad-button-active.launchpad-arrow-up::after,
+.launchpad-button-active.launchpad-arrow-down::after,
+.launchpad-button-active.launchpad-arrow-left::after,
+.launchpad-button-active.launchpad-arrow-right::after {
+    color: $lp-top-color;
+}
+
+// Active control button styling - uses the purple color
+.launchpad-button-active.launchpad-session::after,
+.launchpad-button-active.launchpad-drums::after,
+.launchpad-button-active.launchpad-keys::after,
+.launchpad-button-active.launchpad-user::after {
+    color: $lp-top-color;
+}
+
 // Text buttons in top row
 .launchpad-session::after {
     content: "Session";

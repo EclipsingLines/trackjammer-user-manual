@@ -1,4 +1,14 @@
-<div class="launchpad-button launchpad-top-button launchpad-arrow-up"></div>
-<div class="launchpad-button launchpad-top-button launchpad-arrow-down"></div>
-<div class="launchpad-button launchpad-top-button launchpad-arrow-left"></div>
-<div class="launchpad-button launchpad-top-button launchpad-arrow-right"></div>
+{%- assign subpage = include.subpage | default: -1 -%}
+
+<div
+    class="launchpad-button launchpad-top-button launchpad-arrow-up{% if subpage == 0 %} launchpad-button-active{% endif %}">
+</div>
+<div
+    class="launchpad-button launchpad-top-button launchpad-arrow-down{% if subpage == 1 %} launchpad-button-active{% endif %}">
+</div>
+<div
+    class="launchpad-button launchpad-top-button launchpad-arrow-left{% if subpage == 2 %} launchpad-button-active{% endif %}">
+</div>
+<div
+    class="launchpad-button launchpad-top-button launchpad-arrow-right{% if subpage == 3 %} launchpad-button-active{% endif %}">
+</div>

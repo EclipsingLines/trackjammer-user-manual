@@ -7,7 +7,7 @@ nav_order: 3
 
 # Pattern Mutations
 
-{% include launchpad-grid.html presets="empty_row_step,empty_row_step_last_8,empty_row,empty_row" %}
+{% include launchpad-grid.html presets="empty_row_step,empty_row_step_last_8,empty_row,empty_row"  show_top=true page=1 subpage=2 %}
 
 {% include generative_action_warning.html %}
 

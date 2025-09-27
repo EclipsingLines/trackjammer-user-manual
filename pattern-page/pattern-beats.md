@@ -6,7 +6,7 @@ nav_order: 2
 ---
 # Pattern Beats Amount
 
-{% include launchpad-grid.html presets="empty_row_step,empty_row_step_last_8,empty_row,empty_row" %}
+{% include launchpad-grid.html presets="empty_row_step,empty_row_step,empty_row,empty_row" show_top=true page=1 subpage=1 %}
 
 {% include generative_action_warning.html %}
 

@@ -6,7 +6,7 @@ nav_order: 5
 ---
 # Step Chance
 
-{% include launchpad-grid.html presets="value_chance" %}
+{% include launchpad-grid.html presets="value_chance" show_top=true page=1 subpage=-1 %}
 
 {% include step-toggle-info.html %}
 

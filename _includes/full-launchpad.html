@@ -1,2 +1,5 @@
+{%- assign page = include.page | default: -1 -%}
+{%- assign subpage = include.subpage | default: -1 -%}
 {% include launchpad-grid.html
-presets="steps_r_1,steps_r_2,empty_row,empty_row,value_chance,extra_row_empty,save_slots" show_top=true %}
+presets="steps_r_1,steps_r_2,empty_row,empty_row,value_chance,extra_row_empty,save_slots" show_top=true page=page
+subpage=subpage %}

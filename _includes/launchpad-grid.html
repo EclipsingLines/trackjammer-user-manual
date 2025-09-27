@@ -32,6 +32,8 @@ split: "," -%}
 {%- assign preset_names = include.presets | split: "," -%}
 {%- assign max_rows = include.rows | default: 8 -%}
 {%- assign show_right_buttons = include.include_right_buttons | default: true -%}
+{%- assign page = include.page | default: -1 -%}
+{%- assign subpage = include.subpage | default: -1 -%}
 {%- assign all_colors = "" | split: "," -%}
 
 {%- for preset_name in preset_names -%}

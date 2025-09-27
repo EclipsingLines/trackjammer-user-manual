@@ -8,6 +8,8 @@ permalink: /pattern-page/
 
 # Pattern page
 
-{% include full-launchpad.html %}
+{% include full-launchpad.html page=1 %}
 
-The pattern page allows for changing the pattern by adujsting: Steps, Length, Beats, Mutations, Chance and Substeps.
+The pattern page allows for changing the pattern hits and their overall behaviour.
+
+In this page you have access to the following subpages:

@@ -21,7 +21,7 @@ In this subpage you can control the length of the currently selected track, adju
 - The timing algorythm will calculate the new playhead position based on the Pattern Length and Track Speed
 - The sequence will continue playing on the current track, from the new position using the new steps.
 
-{% include launchpad-grid.html presets="empty_row_step,empty_row_step_last_8,empty_row,empty_row" %}
+{% include launchpad-grid.html presets="empty_row_step,empty_row_step_last_8,empty_row,empty_row" show_top=true page=1 subpage=0 %}
 
 {: .note-title}
 > Keep Ratio

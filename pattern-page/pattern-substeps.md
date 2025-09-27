@@ -7,7 +7,7 @@ nav_order: 4
 
 # Subteps
 
-{% include launchpad-grid.html presets="empty_row_step,empty_row_step_last_8,empty_row,empty_row" %}
+{% include launchpad-grid.html presets="empty_row_step,empty_row_step_last_8,empty_row,empty_row" show_top=true page=1 subpage=3 %}
 
 {% include step-selection-only-info.html %}
 

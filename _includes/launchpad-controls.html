@@ -1,5 +1,7 @@
-<div class="launchpad-button launchpad-top-button launchpad-session"></div>
-<div class="launchpad-button launchpad-top-button launchpad-drums"></div>
-<div class="launchpad-button launchpad-top-button launchpad-keys"></div>
-<div class="launchpad-button launchpad-top-button launchpad-user"></div>
+{%- assign page = include.page | default: -1 -%}
+
+<div class="launchpad-button launchpad-top-button launchpad-session{% if page == 0 %} launchpad-button-active{% endif %}"></div>
+<div class="launchpad-button launchpad-top-button launchpad-drums{% if page == 1 %} launchpad-button-active{% endif %}"></div>
+<div class="launchpad-button launchpad-top-button launchpad-keys{% if page == 2 %} launchpad-button-active{% endif %}"></div>
+<div class="launchpad-button launchpad-top-button launchpad-user{% if page == 3 %} launchpad-button-active{% endif %}"></div>
 <div></div> <!-- Empty corner cell -->
