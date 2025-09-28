@@ -8,6 +8,8 @@ permalink: /global-settings/
 
 # Global Settings
 
+{% include launchpad-grid.html presets="null,null,null,null,null,null,extra_row_empty,save_slots" show_top_global=true page=0 %}
+
 The **Global Settings Page** allows you to customize core behaviors of your **Launchpad** controller to better suit your workflow.
 
 {% include launchpad-session.html inline=true %}

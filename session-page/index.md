@@ -8,7 +8,7 @@ permalink: /session-page/
 
 # The Session Page
 
-{% include launchpad-session.html inline=true %}
+{% include launchpad-grid.html presets="null,null,null,null,null,null,null,null" show_top_session=true page=0 %}
 
 The **Session Page** is where you manage your **Sessions**. From here, you can save, load, duplicate, and clear **Sessions**, allowing you to organize your work and manage different versions of your projects.
 

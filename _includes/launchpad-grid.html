@@ -4,6 +4,8 @@ Parameters: presets (required), rows (optional), include_right_buttons (optional
 {%- endcomment -%}
 
 {%- assign show_top = include.show_top | default: false -%}
+{%- assign show_top_session = include.show_top_session | default: false -%}
+{%- assign show_top_global = include.show_top_global | default: false -%}
 {%- assign save_slots = "gray:2,blue:3,gray:2,gray:2,blue:3,gray:2,gray:2,gray:2" | split: "," -%}
 
 {%- assign steps_r_1 = "cyan:3,cyan:1,cyan:1,cyan:3,orange:3,cyan:1,cyan:3,cyan:1" | split: "," -%}
@@ -171,6 +173,12 @@ split: "," -%}
 <div class="launchpad-container">
     {%- if show_top -%}
     {% include launchpad-top-row.html page=page subpage=subpage %}
+    {%- endif -%}
+    {%- if show_top_session -%}
+    {% include launchpad-top-row-session.html %}
+    {%- endif -%}
+    {%- if show_top_global -%}
+    {% include launchpad-top-row-global.html %}
     {%- endif -%}
     {%- for row_index in (0..rows_to_render) -%}
     {%- assign row_num = row_index | plus: 0 -%}

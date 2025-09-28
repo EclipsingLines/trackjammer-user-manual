@@ -8,7 +8,7 @@ permalink: /track-settings/
 
 # The Track Settings Page
 
-{% include launchpad-grid.html presets="track_params_none_r1,track_params_none_r2,track_params_none_r2,empty_row_step,empty_row_step,empty_row_step,extra_row_empty,save_slots" page=0 %}
+{% include launchpad-grid.html presets="track_params_none_r1,track_params_none_r2,track_params_none_r2,empty_row_step,empty_row_step,empty_row_step,extra_row_empty,save_slots" show_top=true page=0 %}
 
 The **Track Settings Page** allows you to set **Track**-wide **Parameters**. These settings have a direct effect on both the main **Track** and its **Sub-tracks**.
 
