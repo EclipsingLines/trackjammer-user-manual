@@ -104,6 +104,7 @@ split: "," -%}
 {%- assign show_right_buttons = include.include_right_buttons | default: true -%}
 {%- assign page = include.page | default: -1 -%}
 {%- assign subpage = include.subpage | default: -1 -%}
+{%- assign selected_pad_index = include.selected_pad_index | default: -1 -%}
 {%- assign all_colors = "" | split: "," -%}
 
 {%- for preset_name in preset_names -%}
@@ -196,7 +197,7 @@ split: "," -%}
             intensity="3" -%} {%- endif -%} {%- else -%} {%- assign color_name="off" -%} {%- assign intensity="3" -%}
             {%- endif -%} {%- assign pad_classes="launchpad-pad pad-" | append: color_name -%} {%- unless
             color_name=="off" -%} {%- assign pad_classes=pad_classes | append: " intensity-" | append: intensity -%} {%-
-            endunless -%} <div class="{{ pad_classes }}">
+            endunless -%} {%- if selected_pad_index == pad_index -%} {%- assign pad_classes=pad_classes | append: " pad-blink" -%} {%- endif -%} <div class="{{ pad_classes }}">
 </div>
 {%- endfor -%}
 {%- if show_right_buttons -%}
