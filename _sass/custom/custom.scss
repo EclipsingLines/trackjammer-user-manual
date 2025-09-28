@@ -283,8 +283,7 @@ $lp-link-visited: #9f7aea; // Slightly muted for visited
 
     50% {
         background: revert;
-        opacity: 0.3;
-        filter: brightness(0.6);
+        filter: revert;
     }
 
     100% {
@@ -437,17 +436,17 @@ $lp-link-visited: #9f7aea; // Slightly muted for visited
 
 @keyframes playhead-green {
     0% {
-        background-color: revert;
+        background: revert;
         filter: revert;
     }
 
     50% {
-        background-color: linear-gradient(145deg, #4caf50, #43a047) !important;
+        background: linear-gradient(145deg, #4caf50, #43a047) !important;
         filter: brightness(1.5) !important;
     }
 
     100% {
-        background-color: revert;
+        background: revert;
         filter: revert;
     }
 }
