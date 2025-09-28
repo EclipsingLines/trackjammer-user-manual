@@ -282,8 +282,8 @@ $lp-link-visited: #9f7aea; // Slightly muted for visited
     }
 
     50% {
-        background: revert;
-        filter: revert;
+        background: unset;
+        filter: unset;
     }
 
     100% {
@@ -436,8 +436,8 @@ $lp-link-visited: #9f7aea; // Slightly muted for visited
 
 @keyframes playhead-green {
     0% {
-        background: revert;
-        filter: revert;
+        background: unset;
+        filter: unset;
     }
 
     50% {
@@ -446,8 +446,8 @@ $lp-link-visited: #9f7aea; // Slightly muted for visited
     }
 
     100% {
-        background: revert;
-        filter: revert;
+        background: unset;
+        filter: unset;
     }
 }
 
