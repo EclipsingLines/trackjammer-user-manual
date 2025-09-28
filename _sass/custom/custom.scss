@@ -282,7 +282,6 @@ $lp-link-visited: #9f7aea; // Slightly muted for visited
     }
 
     50% {
-        background: inherit;
         opacity: 0.3;
         filter: brightness(0.6);
     }
@@ -437,7 +436,6 @@ $lp-link-visited: #9f7aea; // Slightly muted for visited
 
 @keyframes playhead-green {
     0% {
-        background: inherit;
         filter: inherit;
     }
 
@@ -447,7 +445,6 @@ $lp-link-visited: #9f7aea; // Slightly muted for visited
     }
 
     100% {
-        background: inherit;
         filter: inherit;
     }
 }
