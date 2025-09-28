@@ -1,105 +1,30 @@
 {%- comment -%}
+================================================================================
 Launchpad Grid Generator - Generates an 8x8 launchpad grid with customizable color presets.
-Parameters: presets (required), rows (optional), include_right_buttons (optional), show_top (optional)
+
+Parameters:
+- presets (required): Comma-separated list of preset names
+- rows (optional): Max number of rows to display (default: 8)
+- include_right_buttons (optional): Show right side buttons (default: true)
+- show_top (optional): Show top row controls (default: false)
+- show_top_session (optional): Show session top row (default: false)
+- show_top_global (optional): Show global top row (default: false)
+- page (optional): Current page number (default: -1)
+- subpage (optional): Current subpage number (default: -1)
+- selected_pad_index (optional): Index of selected pad (default: -1)
+- pattern_length (optional): Pattern length for playhead (default: 8)
+- run_playhead (optional): Enable playhead animation (default: false)
+- show_value_area (optional): Override display for value area (default: -1)
+================================================================================
+{%- endcomment -%}
+
+{%- comment -%}
+====== PARAMETER INITIALIZATION ======
 {%- endcomment -%}
 
 {%- assign show_top = include.show_top | default: false -%}
 {%- assign show_top_session = include.show_top_session | default: false -%}
 {%- assign show_top_global = include.show_top_global | default: false -%}
-{%- assign save_slots = "gray:2,blue:3,gray:2,gray:2,blue:3,gray:2,gray:2,gray:2" | split: "," -%}
-
-{%- assign steps_r_1 = "cyan:3,cyan:1,cyan:1,cyan:3,orange:3,cyan:1,cyan:3,cyan:1" | split: "," -%}
-{%- assign steps_r_2 = "cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,green:3,cyan:1" | split: "," -%}
-{%- assign steps_r_3 = "cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1" | split: "," -%}
-
-{%- assign track_params_none_r1 = "off,purple:3,off,purple:3,off,off,purple:3,off" | split: "," -%}
-
-{%- assign track_params_none_r1_1 = "off,orange:3,off,purple:3,off,off,purple:3,off" | split: "," -%}
-{%- assign track_params_none_r1_2 = "off,purple:3,off,orange:3,off,off,purple:3,off" | split: "," -%}
-{%- assign track_params_none_r1_3 = "off,purple:3,off,purple:3,off,off,orange:3,off" | split: "," -%}
-
-{%- assign track_params_none_r2 = "purple:3,purple:3,off,purple:3,off,off,purple:3,off" | split: "," -%}
-
-{%- assign track_params_none_r2_1 = "orange:3,orange:3,off,purple:3,off,off,purple:3,off" | split: "," -%}
-{%- assign track_params_none_r2_2 = "purple:3,purple:3,off,orange:3,off,off,purple:3,off" | split: "," -%}
-{%- assign track_params_none_r2_3 = "purple:3,purple:3,off,purple:3,off,off,orange:3,off" | split: "," -%}
-
-{%- assign substeps_default = "green:3,green:1,green:1,green:1,green:1,green:1,green:1,green:1" | split: "," -%}
-{%- assign substeps_triplet = "green:3,green:1,green:3,green:1,green:3,green:1,green:1,green:1" | split: "," -%}
-
-{%- assign steps_4_floor_select_beats ="cyan:3,cyan:1,cyan:1,orange:2,cyan:3,cyan:1,cyan:1,cyan:1" |
-split: "," -%}
-{%- assign steps_4_floor = "cyan:3,cyan:1,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:1" | split: ","
--%}
-{%- assign steps_4_floor_select ="cyan:3,cyan:1,cyan:1,cyan:1,gray:3,cyan:1,cyan:1,cyan:1" |
-split: "," -%}
-{%- assign value_chance =
-"green:3,green:3,green:3,green:3,green:3,green:3,green:3,green:3,cyan:2,off,off,purple:3,orange:3,off,off,red:3" |
-split: "," -%}
-
-{%- assign value_chance_last =
-"cyan:3,cyan:3,cyan:3,cyan:3,cyan:3,cyan:3,cyan:3,cyan:3,gray:2,off,off,purple:3,orange:3,off,off,red:3" |
-split: "," -%}
-
-{%- assign value_chance_not_last =
-"gray:3,gray:3,gray:3,gray:3,gray:3,gray:3,gray:3,gray:3,cyan:2,off,off,purple:3,orange:3,off,off,red:3" |
-split: "," -%}
-
-
-{%- assign value_chance_cycle_length =
-"purple:3,purple:1,purple:3,green:3,purple:3,purple:1,purple:3,orange:3,cyan:2,off,off,purple:3,orange:3,off,off,red:3"
-|
-split: "," -%}
-
-
-{%- assign value_chance_cycle_hits =
-"purple:3,purple:1,purple:3,green:3,purple:3,purple:1,purple:3,purple:3,cyan:2,off,off,purple:3,orange:3,off,off,red:3"
-|
-split: "," -%}
-
-
-{%- assign value_chance_95 =
-"yellow:1,yellow:2,yellow:3,orange:1,orange:2,orange:3,red:1,off,cyan:2,off,off,purple:3,orange:3,off,off,red:3" |
-split: "," -%}
-
-{%- assign value_chance_50 =
-"yellow:1,yellow:2,yellow:3,orange:1,off,off,off,off,cyan:2,off,off,purple:3,orange:3,off,off,red:3" |
-split: "," -%}
-
-{%- assign keyboard_prhy_empty =
-"purple:2,yellow:3,yellow:3,off,yellow:1,yellow:3,yellow:3,purple:2,yellow:3,yellow:1,yellow:1,yellow:3,yellow:3,yellow:1,yellow:1,yellow:3"
-|
-split: "," -%}
-
-{%- assign keyboard_prhy_notes =
-"purple:2,orange:3,yellow:3,off,yellow:1,orange:3,yellow:3,purple:2,orange:3,yellow:1,yellow:1,yellow:3,yellow:3,yellow:1,yellow:1,yellow:3"
-|
-split: "," -%}
-
-{%- assign empty_row_step = "cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1" | split: ","
--%}
-{%- assign empty_row_step_last_5 = "cyan:1,cyan:1,cyan:1,cyan:1,orange:2,off,off,off" | split: ","
--%}
-{%- assign empty_row_step_last_8 = "cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,orange:2" |
-split: "," -%}
-{%- assign empty_row = "off,off,off,off,off,off,off,off" | split: "," - %}
-
-
-{%- assign extra_row_empty = "off,off,off,off,off,off,cyan:3,red:1" | split: "," - %}
-
-{%- assign extra_row_note_type_1 = "yellow:3,purple:1,purple:1,purple:1,off,off,cyan:3,red:1" | split: "," - %}
-{%- assign extra_row_note_type_2 = "purple:1,yellow:3,purple:1,purple:1,off,off,cyan:3,red:1" | split: "," - %}
-{%- assign extra_row_note_type_3 = "purple:1,purple:1,yellow:3,purple:1,off,off,cyan:3,red:1" | split: "," - %}
-{%- assign extra_row_note_type_4 = "purple:1,purple:1,purple:1,yellow:3,off,off,cyan:3,red:1" | split: "," - %}
-
-{%- assign extra_row_mutations_1 = "yellow:3,purple:1,purple:1,purple:1,purple:1,off,cyan:3,red:1" | split: "," - %}
-{%- assign extra_row_mutations_2 = "purple:1,yellow:3,purple:1,purple:1,purple:1,off,cyan:3,red:1" | split: "," - %}
-{%- assign extra_row_mutations_3 = "purple:1,purple:1,yellow:3,purple:1,purple:1,off,cyan:3,red:1" | split: "," - %}
-{%- assign extra_row_mutations_4 = "purple:1,purple:1,purple:1,yellow:3,purple:1,off,cyan:3,red:1" | split: "," - %}
-{%- assign extra_row_mutations_5 = "purple:1,purple:1,purple:1,purple:1,yellow:3,off,cyan:3,red:1" | split: "," - %}
-
-
-{%- assign preset_names = include.presets | split: "," -%}
 {%- assign max_rows = include.rows | default: 8 -%}
 {%- assign show_right_buttons = include.include_right_buttons | default: true -%}
 {%- assign page = include.page | default: -1 -%}
@@ -107,106 +32,293 @@ split: "," -%}
 {%- assign selected_pad_index = include.selected_pad_index | default: -1 -%}
 {%- assign pattern_length = include.pattern_length | default: 8 -%}
 {%- assign run_playhead = include.run_playhead | default: false -%}
+{%- assign show_value_area = include.show_value_area | default: -1 -%}
+
+{%- comment -%}
+====== COLOR PRESET DEFINITIONS ======
+Each preset is a comma-separated list of colors with optional intensity (color:intensity)
+Format: "color1:intensity1,color2:intensity2,..."
+Colors: off, gray, purple, cyan, green, yellow, orange, red
+Intensities: 1 (dim), 2 (medium), 3 (bright)
+{%- endcomment -%}
+
+{%- comment -%} Save slots preset {%- endcomment -%}
+{%- assign save_slots = "gray:2,blue:3,gray:2,gray:2,blue:3,gray:2,gray:2,gray:2" | split: "," -%}
+
+{%- comment -%} Step patterns for rhythm {%- endcomment -%}
+{%- assign steps_r_1 = "cyan:3,cyan:1,cyan:1,cyan:3,orange:3,cyan:1,cyan:3,cyan:1" | split: "," -%}
+{%- assign steps_r_2 = "cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,green:3,cyan:1" | split: "," -%}
+{%- assign steps_r_3 = "cyan:3,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:3,cyan:1" | split: "," -%}
+
+{%- comment -%} Track parameter presets - Row 1 variations {%- endcomment -%}
+{%- assign track_params_none_r1 = "off,purple:3,off,purple:3,off,off,purple:3,off" | split: "," -%}
+{%- assign track_params_none_r1_1 = "off,orange:3,off,purple:3,off,off,purple:3,off" | split: "," -%}
+{%- assign track_params_none_r1_2 = "off,purple:3,off,orange:3,off,off,purple:3,off" | split: "," -%}
+{%- assign track_params_none_r1_3 = "off,purple:3,off,purple:3,off,off,orange:3,off" | split: "," -%}
+
+{%- comment -%} Track parameter presets - Row 2 variations {%- endcomment -%}
+{%- assign track_params_none_r2 = "purple:3,purple:3,off,purple:3,off,off,purple:3,off" | split: "," -%}
+{%- assign track_params_none_r2_1 = "orange:3,orange:3,off,purple:3,off,off,purple:3,off" | split: "," -%}
+{%- assign track_params_none_r2_2 = "purple:3,purple:3,off,orange:3,off,off,purple:3,off" | split: "," -%}
+{%- assign track_params_none_r2_3 = "purple:3,purple:3,off,purple:3,off,off,orange:3,off" | split: "," -%}
+
+{%- comment -%} Substep patterns {%- endcomment -%}
+{%- assign substeps_default = "green:3,green:1,green:1,green:1,green:1,green:1,green:1,green:1" | split: "," -%}
+{%- assign substeps_triplet = "green:3,green:1,green:3,green:1,green:3,green:1,green:1,green:1" | split: "," -%}
+
+{%- comment -%} 4-on-the-floor step patterns {%- endcomment -%}
+{%- assign steps_4_floor_select_beats = "cyan:3,cyan:1,cyan:1,orange:2,cyan:3,cyan:1,cyan:1,cyan:1" | split: "," -%}
+{%- assign steps_4_floor = "cyan:3,cyan:1,cyan:1,cyan:1,cyan:3,cyan:1,cyan:1,cyan:1" | split: "," -%}
+{%- assign steps_4_floor_select = "cyan:3,cyan:1,cyan:1,cyan:1,gray:3,cyan:1,cyan:1,cyan:1" | split: "," -%}
+
+{%- comment -%} Value/chance presets {%- endcomment -%}
+{%- assign value_chance =
+"green:3,green:3,green:3,green:3,green:3,green:3,green:3,green:3,cyan:2,off,off,purple:3,orange:3,off,off,red:3" |
+split: "," -%}
+{%- assign value_chance_last =
+"cyan:3,cyan:3,cyan:3,cyan:3,cyan:3,cyan:3,cyan:3,cyan:3,gray:2,off,off,purple:3,orange:3,off,off,red:3" |
+split: "," -%}
+{%- assign value_chance_not_last =
+"gray:3,gray:3,gray:3,gray:3,gray:3,gray:3,gray:3,gray:3,cyan:2,off,off,purple:3,orange:3,off,off,red:3" |
+split: "," -%}
+{%- assign value_chance_cycle_length =
+"purple:3,purple:1,purple:3,green:3,purple:3,purple:1,purple:3,orange:3,cyan:2,off,off,purple:3,orange:3,off,off,red:3"
+|
+split: "," -%}
+{%- assign value_chance_cycle_hits =
+"purple:3,purple:1,purple:3,green:3,purple:3,purple:1,purple:3,purple:3,cyan:2,off,off,purple:3,orange:3,off,off,red:3"
+|
+split: "," -%}
+{%- assign value_chance_95 =
+"yellow:1,yellow:2,yellow:3,orange:1,orange:2,orange:3,red:1,off,cyan:2,off,off,purple:3,orange:3,off,off,red:3" |
+split: "," -%}
+{%- assign value_chance_50 =
+"yellow:1,yellow:2,yellow:3,orange:1,off,off,off,off,cyan:2,off,off,purple:3,orange:3,off,off,red:3" |
+split: "," -%}
+
+{%- comment -%} Keyboard presets {%- endcomment -%}
+{%- assign keyboard_prhy_empty =
+"purple:2,yellow:3,yellow:3,off,yellow:1,yellow:3,yellow:3,purple:2,yellow:3,yellow:1,yellow:1,yellow:3,yellow:3,yellow:1,yellow:1,yellow:3"
+|
+split: "," -%}
+{%- assign keyboard_prhy_notes =
+"purple:2,orange:3,yellow:3,off,yellow:1,orange:3,yellow:3,purple:2,orange:3,yellow:1,yellow:1,yellow:3,yellow:3,yellow:1,yellow:1,yellow:3"
+|
+split: "," -%}
+
+{%- comment -%} Empty row presets {%- endcomment -%}
+{%- assign empty_row_step = "cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1" | split: "," -%}
+{%- assign empty_row_step_last_5 = "cyan:1,cyan:1,cyan:1,cyan:1,orange:2,off,off,off" | split: "," -%}
+{%- assign empty_row_step_last_8 = "cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,cyan:1,orange:2" | split: "," -%}
+{%- assign empty_row = "off,off,off,off,off,off,off,off" | split: "," -%}
+
+{%- comment -%} Extra row presets {%- endcomment -%}
+{%- assign extra_row_empty = "off,off,off,off,off,off,cyan:3,red:1" | split: "," -%}
+
+{%- comment -%} Extra row note type presets {%- endcomment -%}
+{%- assign extra_row_note_type_1 = "yellow:3,purple:1,purple:1,purple:1,off,off,cyan:3,red:1" | split: "," -%}
+{%- assign extra_row_note_type_2 = "purple:1,yellow:3,purple:1,purple:1,off,off,cyan:3,red:1" | split: "," -%}
+{%- assign extra_row_note_type_3 = "purple:1,purple:1,yellow:3,purple:1,off,off,cyan:3,red:1" | split: "," -%}
+{%- assign extra_row_note_type_4 = "purple:1,purple:1,purple:1,yellow:3,off,off,cyan:3,red:1" | split: "," -%}
+
+{%- comment -%} Extra row mutation presets {%- endcomment -%}
+{%- assign extra_row_mutations_1 = "yellow:3,purple:1,purple:1,purple:1,purple:1,off,cyan:3,red:1" | split: "," -%}
+{%- assign extra_row_mutations_2 = "purple:1,yellow:3,purple:1,purple:1,purple:1,off,cyan:3,red:1" | split: "," -%}
+{%- assign extra_row_mutations_3 = "purple:1,purple:1,yellow:3,purple:1,purple:1,off,cyan:3,red:1" | split: "," -%}
+{%- assign extra_row_mutations_4 = "purple:1,purple:1,purple:1,yellow:3,purple:1,off,cyan:3,red:1" | split: "," -%}
+{%- assign extra_row_mutations_5 = "purple:1,purple:1,purple:1,purple:1,yellow:3,off,cyan:3,red:1" | split: "," -%}
+
+{%- comment -%}
+====== PRESET PROCESSING ======
+Build the complete color array from the requested presets
+{%- endcomment -%}
+
+{%- assign preset_names = include.presets | split: "," -%}
 {%- assign all_colors = "" | split: "," -%}
 
 {%- for preset_name in preset_names -%}
 {%- assign preset_name = preset_name | strip -%}
-{%- assign show_value_area = include.show_value_area | default: -1 -%}
+
+{%- comment -%} Map preset name to actual preset variable {%- endcomment -%}
 {%- case preset_name -%}
-{%- when "save_slots" -%}{%- assign current_preset = save_slots -%}
-{%- when "value_area" -%}{%- assign current_preset = value_area -%}
-{%- when "steps_r_1" -%}{%- assign current_preset = steps_r_1 -%}
-{%- when "steps_r_2" -%}{%- assign current_preset = steps_r_2 -%}
-{%- when "steps_r_3" -%}{%- assign current_preset = steps_r_3 -%}
-{%- when "steps_4_floor_select" -%}{%- assign current_preset = steps_4_floor_select -%}
-{%- when "steps_4_floor_select_beats" -%}{%- assign current_preset = steps_4_floor_select_beats -%}
-{%- when "steps_4_floor" -%}{%- assign current_preset = steps_4_floor -%}
-{%- when "empty_row_step" -%}{%- assign current_preset = empty_row_step -%}
-{%- when "empty_row_step_last_5" -%}{%- assign current_preset = empty_row_step_last_5 -%}
-{%- when "empty_row_step_last_8" -%}{%- assign current_preset = empty_row_step_last_8 -%}
-{%- when "value_chance" -%}{%- assign current_preset = value_chance -%}
-{%- when "extra_row_empty" -%}{%- assign current_preset = extra_row_empty -%}
-{%- when "empty_row" -%}{%- assign current_preset = empty_row -%}
-{%- when "extra_row_mutations_1" -%}{%- assign current_preset = extra_row_mutations_1 -%}
-{%- when "extra_row_mutations_2" -%}{%- assign current_preset = extra_row_mutations_2 -%}
-{%- when "extra_row_mutations_3" -%}{%- assign current_preset = extra_row_mutations_3 -%}
-{%- when "extra_row_mutations_4" -%}{%- assign current_preset = extra_row_mutations_4 -%}
-{%- when "extra_row_mutations_5" -%}{%- assign current_preset = extra_row_mutations_5 -%}
+{%- when "save_slots" -%}
+{%- assign current_preset = save_slots -%}
+{%- when "value_area" -%}
+{%- assign current_preset = value_area -%}
 
+{%- comment -%} Step patterns {%- endcomment -%}
+{%- when "steps_r_1" -%}
+{%- assign current_preset = steps_r_1 -%}
+{%- when "steps_r_2" -%}
+{%- assign current_preset = steps_r_2 -%}
+{%- when "steps_r_3" -%}
+{%- assign current_preset = steps_r_3 -%}
+{%- when "steps_4_floor_select" -%}
+{%- assign current_preset = steps_4_floor_select -%}
+{%- when "steps_4_floor_select_beats" -%}
+{%- assign current_preset = steps_4_floor_select_beats -%}
+{%- when "steps_4_floor" -%}
+{%- assign current_preset = steps_4_floor -%}
 
-{%- when "track_params_none_r1" -%}{%- assign current_preset = track_params_none_r1 -%}
-{%- when "track_params_none_r1_1" -%}{%- assign current_preset = track_params_none_r1_1 -%}
-{%- when "track_params_none_r1_2" -%}{%- assign current_preset = track_params_none_r1_2 -%}
-{%- when "track_params_none_r1_3" -%}{%- assign current_preset = track_params_none_r1_3 -%}
-{%- when "track_params_none_r2" -%}{%- assign current_preset = track_params_none_r2 -%}
-{%- when "track_params_none_r2_1" -%}{%- assign current_preset = track_params_none_r2_1 -%}
-{%- when "track_params_none_r2_2" -%}{%- assign current_preset = track_params_none_r2_2 -%}
-{%- when "track_params_none_r2_3" -%}{%- assign current_preset = track_params_none_r2_3 -%}
+{%- comment -%} Empty rows {%- endcomment -%}
+{%- when "empty_row_step" -%}
+{%- assign current_preset = empty_row_step -%}
+{%- when "empty_row_step_last_5" -%}
+{%- assign current_preset = empty_row_step_last_5 -%}
+{%- when "empty_row_step_last_8" -%}
+{%- assign current_preset = empty_row_step_last_8 -%}
+{%- when "empty_row" -%}
+{%- assign current_preset = empty_row -%}
 
+{%- comment -%} Value/chance patterns {%- endcomment -%}
+{%- when "value_chance" -%}
+{%- assign current_preset = value_chance -%}
+{%- when "value_chance_last" -%}
+{%- assign current_preset = value_chance_last -%}
+{%- when "value_chance_not_last" -%}
+{%- assign current_preset = value_chance_not_last -%}
+{%- when "value_chance_cycle_hits" -%}
+{%- assign current_preset = value_chance_cycle_hits -%}
+{%- when "value_chance_cycle_length" -%}
+{%- assign current_preset = value_chance_cycle_length -%}
+{%- when "value_chance_95" -%}
+{%- assign current_preset = value_chance_95 -%}
+{%- when "value_chance_50" -%}
+{%- assign current_preset = value_chance_50 -%}
 
-{%- when "extra_row_note_type_1" -%}{%- assign current_preset = extra_row_note_type_1 -%}
-{%- when "extra_row_note_type_2" -%}{%- assign current_preset = extra_row_note_type_2 -%}
-{%- when "extra_row_note_type_3" -%}{%- assign current_preset = extra_row_note_type_3 -%}
-{%- when "extra_row_note_type_4" -%}{%- assign current_preset = extra_row_note_type_4 -%}
+{%- comment -%} Track parameters {%- endcomment -%}
+{%- when "track_params_none_r1" -%}
+{%- assign current_preset = track_params_none_r1 -%}
+{%- when "track_params_none_r1_1" -%}
+{%- assign current_preset = track_params_none_r1_1 -%}
+{%- when "track_params_none_r1_2" -%}
+{%- assign current_preset = track_params_none_r1_2 -%}
+{%- when "track_params_none_r1_3" -%}
+{%- assign current_preset = track_params_none_r1_3 -%}
+{%- when "track_params_none_r2" -%}
+{%- assign current_preset = track_params_none_r2 -%}
+{%- when "track_params_none_r2_1" -%}
+{%- assign current_preset = track_params_none_r2_1 -%}
+{%- when "track_params_none_r2_2" -%}
+{%- assign current_preset = track_params_none_r2_2 -%}
+{%- when "track_params_none_r2_3" -%}
+{%- assign current_preset = track_params_none_r2_3 -%}
 
-{%- when "substeps_default" -%}{%- assign current_preset = substeps_default -%}
-{%- when "substeps_triplet" -%}{%- assign current_preset = substeps_triplet -%}
+{%- comment -%} Extra rows {%- endcomment -%}
+{%- when "extra_row_empty" -%}
+{%- assign current_preset = extra_row_empty -%}
+{%- when "extra_row_mutations_1" -%}
+{%- assign current_preset = extra_row_mutations_1 -%}
+{%- when "extra_row_mutations_2" -%}
+{%- assign current_preset = extra_row_mutations_2 -%}
+{%- when "extra_row_mutations_3" -%}
+{%- assign current_preset = extra_row_mutations_3 -%}
+{%- when "extra_row_mutations_4" -%}
+{%- assign current_preset = extra_row_mutations_4 -%}
+{%- when "extra_row_mutations_5" -%}
+{%- assign current_preset = extra_row_mutations_5 -%}
 
-{%- when "keyboard_prhy_empty" -%}{%- assign current_preset = keyboard_prhy_empty -%}
-{%- when "keyboard_prhy_notes" -%}{%- assign current_preset = keyboard_prhy_notes -%}
+{%- comment -%} Note types {%- endcomment -%}
+{%- when "extra_row_note_type_1" -%}
+{%- assign current_preset = extra_row_note_type_1 -%}
+{%- when "extra_row_note_type_2" -%}
+{%- assign current_preset = extra_row_note_type_2 -%}
+{%- when "extra_row_note_type_3" -%}
+{%- assign current_preset = extra_row_note_type_3 -%}
+{%- when "extra_row_note_type_4" -%}
+{%- assign current_preset = extra_row_note_type_4 -%}
 
+{%- comment -%} Substeps {%- endcomment -%}
+{%- when "substeps_default" -%}
+{%- assign current_preset = substeps_default -%}
+{%- when "substeps_triplet" -%}
+{%- assign current_preset = substeps_triplet -%}
 
-{%- when "value_chance_last" -%}{%- assign current_preset = value_chance_last -%}
-{%- when "value_chance_not_last" -%}{%- assign current_preset = value_chance_not_last -%}
-{%- when "value_chance_cycle_hits" -%}{%- assign current_preset = value_chance_cycle_hits -%}
-{%- when "value_chance_cycle_length" -%}{%- assign current_preset = value_chance_cycle_length -%}
-{%- when "value_chance_95" -%}{%- assign current_preset = value_chance_95 -%}
-{%- when "value_chance_50" -%}{%- assign current_preset = value_chance_50 -%}
+{%- comment -%} Keyboard layouts {%- endcomment -%}
+{%- when "keyboard_prhy_empty" -%}
+{%- assign current_preset = keyboard_prhy_empty -%}
+{%- when "keyboard_prhy_notes" -%}
+{%- assign current_preset = keyboard_prhy_notes -%}
 
-{%- else -%}{%- assign current_preset = "off,off,off,off,off,off,off,off" | split: "," -%}
+{%- comment -%} Default case: all off {%- endcomment -%}
+{%- else -%}
+{%- assign current_preset = "off,off,off,off,off,off,off,off" | split: "," -%}
 {%- endcase -%}
+
+{%- comment -%} Add this preset's colors to the complete array {%- endcomment -%}
 {%- assign all_colors = all_colors | concat: current_preset -%}
 {%- endfor -%}
 
+{%- comment -%}
+====== CALCULATE GRID DIMENSIONS ======
+{%- endcomment -%}
+
 {%- assign total_pads = all_colors.size -%}
 {%- assign calculated_rows = total_pads | divided_by: 8.0 | ceil -%}
-{%- if calculated_rows > max_rows -%}{%- assign rows_to_render = max_rows -%}
-{%- else -%}{%- assign rows_to_render = calculated_rows -%}{%- endif -%}
+
+{%- if calculated_rows > max_rows -%}
+{%- assign rows_to_render = max_rows -%}
+{%- else -%}
+{%- assign rows_to_render = calculated_rows -%}
+{%- endif -%}
+
+{%- comment -%}
+====== BUILD CONTAINER CLASSES ======
+{%- endcomment -%}
 
 {%- assign container_classes = "launchpad-container" -%}
+
 {%- if run_playhead == true -%}
 {%- assign container_classes = container_classes | append: " playhead-" | append: pattern_length -%}
 {%- endif -%}
+
+{%- comment -%}
+====== RENDER THE GRID ======
+{%- endcomment -%}
+
 <div class="{{ container_classes }}">
+    {%- comment -%} Optional top control rows {%- endcomment -%}
     {%- if show_top -%}
     {% include launchpad-top-row.html page=page subpage=subpage %}
     {%- endif -%}
+
     {%- if show_top_session -%}
     {% include launchpad-top-row-session.html %}
     {%- endif -%}
+
     {%- if show_top_global -%}
     {% include launchpad-top-row-global.html %}
     {%- endif -%}
+
+    {%- comment -%} Main grid rows {%- endcomment -%}
     {%- for row_index in (0..rows_to_render) -%}
     {%- assign row_num = row_index | plus: 0 -%}
-    {%- if row_num < rows_to_render -%} {%- for col_index in (0..7) -%} {%- assign pad_index=row_num | times: 8 | plus:
-        col_index -%} {%- comment -%} Check if we should override with yellow pads for show_value_area {%- endcomment
-        -%} {%- assign use_yellow_override=false -%} {%- if show_value_area>= 0 and show_value_area < 15 -%} {%- if
-            row_num==4 -%} {%- assign max_yellow_pads=show_value_area | plus: 1 -%} {%- if col_index < max_yellow_pads
-            -%} {%- assign use_yellow_override=true -%} {%- endif -%} {%- endif -%} {%- if row_num==5 -%} {%- assign
+
+    {%- if row_num < rows_to_render -%} {%- comment -%} Generate 8 pads for this row {%- endcomment -%} {%- for
+        col_index in (0..7) -%} {%- assign pad_index=row_num | times: 8 | plus: col_index -%} {%- comment -%} Check for
+        value area override When show_value_area is between 0-15, rows 4-5 show yellow pads {%- endcomment -%} {%-
+        assign use_yellow_override=false -%} {%- if show_value_area>= 0 and show_value_area < 15 -%} {%- if row_num==4
+            -%} {%- assign max_yellow_pads=show_value_area | plus: 1 -%} {%- if col_index < max_yellow_pads -%} {%-
+            assign use_yellow_override=true -%} {%- endif -%} {%- endif -%} {%- if row_num==5 -%} {%- assign
             max_yellow_pads=show_value_area | minus: 8 -%} {%- if col_index < max_yellow_pads -%} {%- assign
-            use_yellow_override=true -%} {%- endif -%} {%- endif -%} {%- endif -%} {%- if use_yellow_override -%} {%-
-            assign color_name="yellow" -%} {%- assign intensity="3" -%} {%- elsif pad_index < all_colors.size -%} {%-
-            assign color_entry=all_colors[pad_index] | strip -%} {%- if color_entry contains ":" -%} {%- assign
+            use_yellow_override=true -%} {%- endif -%} {%- endif -%} {%- endif -%} {%- comment -%} Determine pad color
+            and intensity {%- endcomment -%} {%- if use_yellow_override -%} {%- assign color_name="yellow" -%} {%-
+            assign intensity="3" -%} {%- elsif pad_index < all_colors.size -%} {%- assign
+            color_entry=all_colors[pad_index] | strip -%} {%- if color_entry contains ":" -%} {%- assign
             color_parts=color_entry | split: ":" -%} {%- assign color_name=color_parts[0] | strip -%} {%- assign
             intensity=color_parts[1] | strip -%} {%- else -%} {%- assign color_name=color_entry -%} {%- assign
             intensity="3" -%} {%- endif -%} {%- else -%} {%- assign color_name="off" -%} {%- assign intensity="3" -%}
-            {%- endif -%} {%- assign pad_classes="launchpad-pad pad-" | append: color_name -%} {%- unless
-            color_name=="off" -%} {%- assign pad_classes=pad_classes | append: " intensity-" | append: intensity -%} {%-
-            endunless -%} {%- if selected_pad_index==pad_index -%} {%- assign pad_classes=pad_classes |
-             append: " pad-blink" -%} {%- endif -%} {%- if run_playhead == true and pad_index < pattern_length -%} {%- assign pad_classes=pad_classes | append: " pad-playhead" -%} {%- endif -%} <div class="{{ pad_classes }}">
+            {%- endif -%} {%- comment -%} Build pad CSS classes {%- endcomment -%} {%- assign
+            pad_classes="launchpad-pad pad-" | append: color_name -%} {%- unless color_name=="off" -%} {%- assign
+            pad_classes=pad_classes | append: " intensity-" | append: intensity -%} {%- endunless -%} {%- if
+            selected_pad_index==pad_index -%} {%- assign pad_classes=pad_classes | append: " pad-blink" -%} {%- endif
+            -%} {%- if run_playhead==true and pad_index < pattern_length -%} {%- assign pad_classes=pad_classes |
+            append: " pad-playhead" -%} {%- endif -%} {%- comment -%} Render the pad {%- endcomment -%} <div
+            class="{{ pad_classes }}">
 </div>
 {%- endfor -%}
+
+{%- comment -%} Optional right button for this row {%- endcomment -%}
 {%- if show_right_buttons -%}
 {%- if row_num == rows_to_render | minus: 1 -%}
 <div class="launchpad-button launchpad-right-button launchpad-stop-solo-mute"></div>
@@ -214,6 +326,7 @@ split: "," -%}
 <div class="launchpad-button launchpad-right-button launchpad-arrow-button"></div>
 {%- endif -%}
 {%- endif -%}
+
 {%- endif -%}
 {%- endfor -%}
 </div>
