@@ -105,6 +105,8 @@ split: "," -%}
 {%- assign page = include.page | default: -1 -%}
 {%- assign subpage = include.subpage | default: -1 -%}
 {%- assign selected_pad_index = include.selected_pad_index | default: -1 -%}
+{%- assign pattern_length = include.pattern_length | default: 8 -%}
+{%- assign run_playhead = include.run_playhead | default: false -%}
 {%- assign all_colors = "" | split: "," -%}
 
 {%- for preset_name in preset_names -%}
@@ -171,7 +173,11 @@ split: "," -%}
 {%- if calculated_rows > max_rows -%}{%- assign rows_to_render = max_rows -%}
 {%- else -%}{%- assign rows_to_render = calculated_rows -%}{%- endif -%}
 
-<div class="launchpad-container">
+{%- assign container_classes = "launchpad-container" -%}
+{%- if run_playhead == true -%}
+{%- assign container_classes = container_classes | append: " playhead-" | append: pattern_length -%}
+{%- endif -%}
+<div class="{{ container_classes }}">
     {%- if show_top -%}
     {% include launchpad-top-row.html page=page subpage=subpage %}
     {%- endif -%}
@@ -197,7 +203,8 @@ split: "," -%}
             intensity="3" -%} {%- endif -%} {%- else -%} {%- assign color_name="off" -%} {%- assign intensity="3" -%}
             {%- endif -%} {%- assign pad_classes="launchpad-pad pad-" | append: color_name -%} {%- unless
             color_name=="off" -%} {%- assign pad_classes=pad_classes | append: " intensity-" | append: intensity -%} {%-
-            endunless -%} {%- if selected_pad_index == pad_index -%} {%- assign pad_classes=pad_classes | append: " pad-blink" -%} {%- endif -%} <div class="{{ pad_classes }}">
+            endunless -%} {%- if selected_pad_index==pad_index -%} {%- assign pad_classes=pad_classes |
+             append: " pad-blink" -%} {%- endif -%} {%- if run_playhead == true and pad_index < pattern_length -%} {%- assign pad_classes=pad_classes | append: " pad-playhead" -%} {%- endif -%} <div class="{{ pad_classes }}">
 </div>
 {%- endfor -%}
 {%- if show_right_buttons -%}

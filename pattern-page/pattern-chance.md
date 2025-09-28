@@ -6,7 +6,7 @@ nav_order: 5
 ---
 # Step Chance
 
-{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor,steps_empty,steps_empty,value_chance,extra_row_empty,save_slots" show_top=true page=1 subpage=-1 selected_pad_index=12 %}
+{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor,steps_empty,steps_empty,value_chance,extra_row_empty,save_slots" show_top=true page=1 subpage=-1 selected_pad_index=12 run_playhead=true pattern_length=16 %}
 
 {% include step-toggle-info.html %}
 
