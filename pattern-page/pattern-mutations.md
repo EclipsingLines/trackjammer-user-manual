@@ -26,6 +26,16 @@ On this subpage, you can use procedural tools to modify, or "mutate," the curren
 
 Tapping an option in the **Extra Area** selects which **Parameters** of the **Steps** will be affected.
 
+### Mutation Complement
+
+The 6th pad in the **Extra Area** activates the mutation complement.
+
+{% include launchpad-grid.html presets="steps_4_floor,steps_4_floor,empty_row,empty_row,empty_row,empty_row,extra_row_mutations_5_complement,save_slots" show_value_area=6 show_top=true page=1 subpage=2 %}
+
+When mutation complement if **OFF** (red pad, default behaviour) the mutation algorythm witll try to mutate the **strong beats** of the sequence more than the **weak beats**.
+
+When mutation complement if **ON** (green pad) the mutation algorythm witll try to mutate the **weak beats** of the sequence more than the **strong beats**.
+
 ## Mutation Types
 
 ### Velocity Mutation

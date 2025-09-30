@@ -122,11 +122,13 @@ split: "," -%}
 {%- assign extra_row_note_type_4 = "purple:1,purple:1,purple:1,yellow:3,off,off,cyan:3,red:1" | split: "," -%}
 
 {%- comment -%} Extra row mutation presets {%- endcomment -%}
-{%- assign extra_row_mutations_1 = "yellow:3,purple:1,purple:1,purple:1,purple:1,off,cyan:3,red:1" | split: "," -%}
-{%- assign extra_row_mutations_2 = "purple:1,yellow:3,purple:1,purple:1,purple:1,off,cyan:3,red:1" | split: "," -%}
-{%- assign extra_row_mutations_3 = "purple:1,purple:1,yellow:3,purple:1,purple:1,off,cyan:3,red:1" | split: "," -%}
-{%- assign extra_row_mutations_4 = "purple:1,purple:1,purple:1,yellow:3,purple:1,off,cyan:3,red:1" | split: "," -%}
-{%- assign extra_row_mutations_5 = "purple:1,purple:1,purple:1,purple:1,yellow:3,off,cyan:3,red:1" | split: "," -%}
+{%- assign extra_row_mutations_1 = "yellow:3,purple:1,purple:1,purple:1,purple:1,red:2,cyan:3,red:1" | split: "," -%}
+{%- assign extra_row_mutations_2 = "purple:1,yellow:3,purple:1,purple:1,purple:1,red:2,cyan:3,red:1" | split: "," -%}
+{%- assign extra_row_mutations_3 = "purple:1,purple:1,yellow:3,purple:1,purple:1,red:2,cyan:3,red:1" | split: "," -%}
+{%- assign extra_row_mutations_4 = "purple:1,purple:1,purple:1,yellow:3,purple:1,red:2,cyan:3,red:1" | split: "," -%}
+{%- assign extra_row_mutations_5 = "purple:1,purple:1,purple:1,purple:1,yellow:3,red:2,cyan:3,red:1" | split: "," -%}
+{%- assign extra_row_mutations_5_complement = "purple:1,purple:1,purple:1,purple:1,yellow:3,green:2,cyan:3,red:1" |
+split: "," -%}
 
 {%- comment -%}
 ====== PRESET PROCESSING ======
@@ -217,6 +219,8 @@ Build the complete color array from the requested presets
 {%- assign current_preset = extra_row_mutations_4 -%}
 {%- when "extra_row_mutations_5" -%}
 {%- assign current_preset = extra_row_mutations_5 -%}
+{%- when "extra_row_mutations_5_complement" -%}
+{%- assign current_preset = extra_row_mutations_5_complement -%}
 
 {%- comment -%} Note types {%- endcomment -%}
 {%- when "extra_row_note_type_1" -%}
@@ -312,9 +316,7 @@ Build the complete color array from the requested presets
             pad_classes="launchpad-pad pad-" | append: color_name -%} {%- unless color_name=="off" -%} {%- assign
             pad_classes=pad_classes | append: " intensity-" | append: intensity -%} {%- endunless -%} {%- if
             selected_pad_index==pad_index -%} {%- assign pad_classes=pad_classes | append: " pad-blink" -%} {%- endif
-            -%} {%- if run_playhead==true and pad_index < pattern_length -%} {%- assign pad_classes=pad_classes |
-            append: " pad-playhead" -%} {%- endif -%} {%- comment -%} Render the pad {%- endcomment -%} <div
-            class="{{ pad_classes }}">
+            -%} {%- comment -%} Render the pad {%- endcomment -%} <div class="{{ pad_classes }}">
 </div>
 {%- endfor -%}
 
