@@ -39,11 +39,11 @@ The **Global Settings Page** allows you to customize core behaviors of your **La
 - **Default Behavior**: The sequencer will **Not try** to save or load the internal state on the output synth.
 - **Function**: This setting changes the **Quick Save** function to send a patch dump request to the output device, if the device responds with a patch, it will be saved along with the rest of the sequencer. When using **Quick Load** the sequencer will try to restore the saved patch.
 
-{. :note }
+{: .note }
 >
 > Not all devices support patch dump request, check with your manufacturer.
 
-{. :note }
+{: .note }
 >
 > Loading a patch while the sequence is running may cause some small audio hiccups.
 > This is due to the internal changes resetting audio sources, audio phases, LFOs and other parameters and it's **not** and issue with the sequencer.
@@ -53,6 +53,6 @@ The **Global Settings Page** allows you to customize core behaviors of your **La
 - **Default Behavior**: The **MIDI Recorder** will only record **sequencer events**.
 - **Function**: This setting will enable recording **External MIDI** events along with the internal ones. This allows for recording a **whole performance** including filter sweeps, effects activations and mixer controls.
 
-{. :note }
+{: .note }
 >
 > External events are saved into the midi channel 16 of the recorder. In later version these might be saved into a separate .mid file

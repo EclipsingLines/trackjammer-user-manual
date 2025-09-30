@@ -7,23 +7,25 @@ nav_order: 5
 
 # Step Variations
 
-**Please note: This feature is currently under development and is not yet available in the current version of TrackJammer.**
-
-**Step Variations** will allow you to change how a **Step** is played based on its **Step Type**.
+**Step Variations** allows you to change how a **Step** is played based on its **Step Type**.
 
 ## Planned Features
 
 ### Monophonic
 
-**Step Variations** will have no effect on monophonic **Steps**.
+**Step Variations** have no effect on monophonic **Steps**.
 
 ### Arpeggio
 
-This will allow you to change the arpeggio **Pattern** for the **Step**.
+This allows you to change the arpeggio **Pattern** for the **Step**.
+
+Select from **16 different** arpeggio patterns.
 
 ### Chord / Strum
 
-This will allow you to change the chord voicing for the **Step**.
+This allows you to change the chord voicing for the **Step**.
+
+Select from **16 different** chord patterns.
 
 ## Next Steps
 

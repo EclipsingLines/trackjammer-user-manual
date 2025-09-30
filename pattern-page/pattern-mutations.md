@@ -59,7 +59,6 @@ Adds [**Substeps**](pattern-substeps.html) to the mutated **Steps**, creating ro
 ### Step Timing
 
 Offsets the mutated **Step** forwards or backwards in the sequence.
-**Please note: This feature is not functional in the current version.**
 
 {% include launchpad-grid.html presets="steps_4_floor,steps_4_floor_select_beats,empty_row,empty_row,empty_row,empty_row,extra_row_mutations_4,save_slots" show_value_area=7 show_top=true page=1 subpage=2 %}
 
