@@ -3,7 +3,7 @@ product_name: "TrackJammer MIDI Sequencer"
 title: "TrackJammer MIDI Sequencer"
 description: Ready to unlock the creative potential of your Launchpad?
 theme: just-the-docs
-
+favicon_ico: "/favicon.ico"
 # Color scheme supports "light" (default) and "dark"
 color_scheme: dark
 
