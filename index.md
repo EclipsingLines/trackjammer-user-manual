@@ -10,7 +10,7 @@ permalink: /
 
 Welcome to the official user manual for **TrackJammer**, a powerful algorithmic step sequencer designed for electronic music production. This sequencer combines the mathematical elegance of Euclidean rhythms with a carefully curated set of stochastic generation tools, all controlled by the intuitive Novation **Launchpad**.
 
-{% include full-launchpad.html %}
+{% include launchpad-grid.html presets="logo_full" show_top=true %}
 
 ## What is TrackJammer?
 

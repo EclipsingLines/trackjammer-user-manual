@@ -33,7 +33,7 @@ plugins:
 nav_sort: case_insensitive
 
 # Footer content
-footer_content: "Copyright &copy; 2025 Track Jammer. Distributed by an <a href=\"https://github.com/eclipsinglines/trackjammer-user-manual/tree/main/LICENSE\">MIT license.</a>"
+footer_content: "Copyright &copy; 2025 TrackJammer. Distributed by an <a href=\"https://github.com/eclipsinglines/trackjammer-user-manual/tree/main/LICENSE\">MIT license.</a>"
 
 # External links
 aux_links:

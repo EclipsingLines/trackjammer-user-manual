@@ -130,6 +130,11 @@ split: "," -%}
 {%- assign extra_row_mutations_5_complement = "purple:1,purple:1,purple:1,purple:1,yellow:3,green:2,cyan:3,red:1" |
 split: "," -%}
 
+{%- comment -%} Logo Preset {%- endcomment -%}
+{%- assign logo_full =
+"purple:3,purple:3,purple:3,purple:3,purple:3,off,off,off,off,off,purple:3,off,off,off,off,off,off,off,purple:3,off,off,off,off,off,off,off,purple:3,cyan:3,cyan:3,cyan:3,cyan:3,cyan:3,off,off,purple:3,off,off,cyan:3,off,off,off,off,off,off,off,cyan:3,off,off,off,off,off,cyan:3,off,cyan:3,off,off,off,off,off,cyan:3,cyan:3,cyan:3,off,off"
+| split: "," -%}
+
 {%- comment -%}
 ====== PRESET PROCESSING ======
 Build the complete color array from the requested presets
@@ -143,6 +148,8 @@ Build the complete color array from the requested presets
 
 {%- comment -%} Map preset name to actual preset variable {%- endcomment -%}
 {%- case preset_name -%}
+{%- when "logo_full" -%}
+{%- assign current_preset = logo_full -%}
 {%- when "save_slots" -%}
 {%- assign current_preset = save_slots -%}
 {%- when "value_area" -%}
