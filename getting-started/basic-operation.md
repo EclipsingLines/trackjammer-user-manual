@@ -1,103 +1,51 @@
 ---
 layout: default
-title: Basic Operation
-parent: Getting Started
-nav_order: 5
+title: "Basic operation"
+parent: "Getting started"
+nav_order: 4
+description: "The handful of gestures that everything else is built on."
 ---
 
-# Basic Operation
+# Basic operation
 
-This guide covers the fundamental controls and workflow of **TrackJammer**, from managing your **Session** to editing a **Pattern**.
+These gestures are used on every page. Pad numbers are the ones shown in the [pad map]({% link interface/pad-map.md %}).
 
-![Basic Controls Interface](docs/img/basic-controls-interface.jpg)
-*The essential controls for daily operation.*
+## Transport
 
-## Transport Controls
+Playback follows the clock source. With the Circuit Tracks as master, press Play on the Circuit. With TrackJammer as master (see [Global > Clock]({% link global/clock.md %})), the app plays on its own clock.
 
-The current version of **TrackJammer** does not provide its own transport controls or clock signals. Instead, it relies on the connected **MIDI Device**. For the purposes of this guide, we will assume this is a Novation Circuit Tracks.
+## Select a track
 
-- **Press Play, Continue, or Stop** on your output device to start or stop the sequence.
-- **Change the tempo** on your output device to speed up or slow down your sequence.
+Tap a track pad in the right column. Track 1 is pad 89, track 8 is pad 19. The selected track is the one the grid edits.
 
-## Track Selection
+## Mute, clear and copy a track
 
-**TrackJammer** provides seven independent **Tracks**, each with its own **Pattern**, scale, and MIDI settings.
+| Gesture | Result |
+|---|---|
+| Hold {% include pad.html name="shift" %} and tap a track | Mute or unmute that track |
+| Hold {% include pad.html name="clear" %} and tap a track | Reset every step of that track (its settings stay) |
+| Select a track, then hold {% include pad.html name="dup" %} and tap another track | Copy the selected track's steps and most of its settings onto the tapped track. Speed and MIDI channel are not copied |
 
-![Track Selection Interface](docs/img/track-selection.jpg)
-***Track** selection, showing the active **Track** highlighted and various **Track** states.*
+With sticky shift on (Global > Settings, option 2, step pad 83), a tap on SHIFT stays on until you tap it again.
 
-### Switching Tracks
+{% include launchpad-grid.html top="newnav" top_lit="shift" track_sel=3 presets="steps_empty,steps_empty,steps_empty,steps_empty,empty_row,empty_row,empty_row,empty_row" hint="1@95,2@69" alt="Launchpad: SHIFT in the top row and track 3 in the right column, to mute it." caption="Hold SHIFT (1), then tap track 3 (2)." %}
 
-- **On the Launchpad**: Press the corresponding **Track** pad on the right edge of the **Grid**.
-- **Visual Feedback**: The selected **Track** is highlighted in a different color.
+## Toggle a step
 
-When you select a **Track**, the entire interface updates to show that **Track's** settings, including its **Pattern**, **Parameters**, and musical configuration.
+On Beats > Steps, a tap on a step pad turns the step on or off. The steps are the four rows of the step area.
 
-### Track States
+{% include launchpad-grid.html top="none" right="none" presets="steps_4_floor,empty_row,empty_row,empty_row,empty_row,empty_row,options_row,slots_row" hint="1@82" alt="Launchpad step area with four steps on the floor, and step 2 to be tapped." caption="Tap a step (1) to turn it on or off." %}
 
-Each **Track** can be in one of several states:
+## Select a step and set a value
 
-- **Active**: The **Track** is playing and sending MIDI data.
-- **Muted**: The **Track** is running but not sending MIDI data.
-- **Solo**: Only this **Track** is audible.
-- **Selected**: The **Track** is currently being edited.
+Press and hold a step (about a fifth of a second) to select it. Then tap a value pad. What the value pads set depends on the page.
 
-## Pattern Editing Basics
+{% include launchpad-grid.html top="none" right="none" presets="steps_euclid_5_8,steps_empty,steps_empty,steps_empty,empty_row,empty_row,options_row,slots_row" pads="85=gray:3:Sel:The selected step;45=white:3:Set:Tap a value pad to set the value" hint="1@85,2@45" alt="Launchpad: step 5 selected in the step area, and a value pad highlighted in the value area." caption="Hold a step to select it (1), then tap a value pad (2)." %}
 
-Every **Track** contains a **Pattern** made up of individual **Steps**.
+## Undo and redo
 
-### Understanding Steps
+Hold {% include pad.html name="shift" %} and tap {% include pad.html name="clear" %} to undo the last edit. Hold SHIFT and tap {% include pad.html name="dup" %} to redo. The screen names the action it undid or redid. [Held pads and undo]({% link interface/held-pads-and-undo.md %}) lists where undo is not available.
 
-A **Pattern** consists of up to 32 **Steps** (the default is 16). Each **Step** can be:
+## Regeneration and your edits
 
-- **Active**: Triggers a note when the sequencer reaches this position.
-- **Inactive**: Skipped during playback.
-- **Current**: The **Step** currently being played.
-
-### Adding and Removing Steps
-
-- **On the Launchpad**: Press any pad in the main 8x8 **Grid** to toggle that **Step**. A long press on a pad selects that **Step**.
-- **Visual Feedback**: Active **Steps** are brightly colored, inactive **Steps** are dim, and selected **Steps** blink.
-
-![Step Editing](docs/img/step-editing-example.jpg)
-*An example of adding **Steps** to create a new **Pattern**.*
-
-### Pattern Length
-
-You can change the number of **Steps** in a **Pattern**:
-
-- **Default**: 16 **Steps** (four beats in 4/4 time).
-- **Range**: 1-32 **Steps**.
-- **On the Launchpad**: While on the **Pattern Length** subpage, tap on the **Step** area to adjust the **Pattern** length.
-
-When you change the **Pattern** length, the sequencer automatically adjusts the loop point.
-
-{: .note-title}
-> Keep Ratio
-> Depending on the current **Keep Ratio** **Track** setting, the sequence will either adapt the number of beats to maintain the current rhythm or keep the number of beats intact.
-> For example, adjusting a 16-**Step** "four on the floor" **Pattern** (16 Length, 4 Beats) to 32 **Steps** with **Keep Ratio ON** will create a 32-**Step** sequence with 8 beats, preserving the feel. With **Keep Ratio OFF**, it will create a 32-**Step** sequence with 4 beats, halving the rhythm's speed.
-
-{: .generative }
-> Generative Action!
-> This action regenerates the **Track** **Pattern** using the new **Parameter** values. There is no undo in the current version. Be sure to save your sequence if you create something you want to keep before performing a **Generative Action**.
-
-### Beats Parameter
-
-This controls how many beats (active **Steps**) the Euclidean algorithm places in the **Pattern**.
-
-- **Range**: 0 to the current **Pattern** length.
-- **Effect**: More beats create a denser rhythm; fewer beats create a sparser one.
-
-## Next Steps
-
-Now that you understand the basic operations:
-
-1. **[Set up MIDI routing](../midi-setup.html)** to connect your synthesizers.
-2. **[Learn the Launchpad interface](../launchpad/pad-layout.html)** to master hardware control.
-3. **[Explore Euclidean rhythms](../euclidean/introduction.html)** to understand the mathematical foundation.
-
-These basic operations are the foundation for all of **TrackJammer's** advanced features. Once you are comfortable with them, you will be ready to explore more sophisticated capabilities.
-
----
-
-*Ready to connect your MIDI gear? Continue to the [**MIDI Setup** guide](../midi-setup.html).*
+Changing a setting that regenerates the pattern, such as the length or the beat count, rewrites the unlocked steps. With the Global option "edits survive regen" on (the default), a hand edit locks its step, so your edits stay. Steps you lock yourself are always kept. Turn the option off in [Global settings]({% link global/settings.md %}) if you want every regeneration to start from scratch.

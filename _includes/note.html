@@ -1,0 +1,5 @@
+{%- comment -%} Callout. Params: text (markdown, required), title (default "Note"). {%- endcomment -%}
+<div class="lp-callout lp-callout-note" role="note">
+<p class="lp-callout-title">{{ include.title | default: "Note" | escape }}</p>
+{{ include.text | markdownify }}
+</div>

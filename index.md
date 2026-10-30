@@ -1,51 +1,48 @@
 ---
 layout: default
-title: "TrackJammer - User Manual"
+title: "Home"
 nav_order: 1
-description: "A powerful Euclidean rhythm sequencer with Launchpad integration"
-permalink: /
+description: "User manual for TrackJammer, a generative MIDI sequencer for the Novation Launchpad Mini MK3."
+permalink: "/"
 ---
 
-# TrackJammer User Manual
+# TrackJammer
 
-Welcome to the official user manual for **TrackJammer**, a powerful algorithmic step sequencer designed for electronic music production. This sequencer combines the mathematical elegance of Euclidean rhythms with a carefully curated set of stochastic generation tools, all controlled by the intuitive Novation **Launchpad**.
+TrackJammer is a generative MIDI sequencer. A Novation Launchpad Mini MK3 is its control surface: the pads show the sequencer, and you edit and play it from the grid. Eight tracks send Euclidean and generative patterns over MIDI to a Novation Circuit Tracks (the default device) or a Circuit Rhythm.
 
-{% include launchpad-grid.html presets="logo_full" show_top=true %}
+## What you need
 
-## What is TrackJammer?
+| Item | Notes |
+|---|---|
+| Launchpad Mini MK3 | The only Launchpad model this version supports. |
+| Novation Circuit Tracks | The default sound source. A Circuit Rhythm preset is also included. |
+| A computer | Runs TrackJammer. Its window mirrors the pads and holds the settings and the guide. |
 
-**TrackJammer** is an advanced, **Pattern**-based sequencer that generates complex rhythms using Euclidean algorithms. Unlike traditional step sequencers that require you to program each **Step** individually, **TrackJammer** uses mathematical principles to create musically interesting **Patterns** automatically, while still giving you complete control over the details.
+## Start here
 
-Built in the Godot game engine, it offers rock-solid timing, extensive MIDI capabilities, and seamless integration with the Novation **Launchpad**. Whether you're creating driving techno beats, complex polyrhythms, or experimental ambient textures, **TrackJammer** is designed to enhance your creative workflow.
+1. [Installation]({% link getting-started/installation.md %}): unpack the program and keep its data folder.
+2. [MIDI setup]({% link getting-started/midi-setup.md %}): connect the Launchpad and the Circuit Tracks.
+3. [First launch]({% link getting-started/first-launch.md %}): what happens when the app starts.
+4. [Basic operation]({% link getting-started/basic-operation.md %}): the gestures everything else uses.
 
-## Key Features
+## Modes at a glance
 
-- **Euclidean Rhythm Generation**: Generate mathematically perfect rhythmic **Patterns**. Specify the number of beats and **Pattern** length, and the sequencer does the rest.
-- **Novation Launchpad Integration**: Full integration provides immediate, tactile control over your **Patterns**. The 8x8 **Grid** becomes your canvas for real-time editing.
-- **7-Track Polyphonic Sequencing**: Seven independent **Tracks**, each with its own **MIDI Channel**, scale, and rhythm **Parameters**.
-- **Generative Algorithms**: Advanced generative features let the sequencer suggest musical ideas while you maintain full creative control.
-- **Advanced MIDI Control**: Comprehensive MIDI implementation with CC/NRPN automation, **Sub-tracks**, and slew rate automation.
-- **Recording & Project Management**: A built-in MIDI recorder captures your performances in real-time, and the project management system lets you save and recall your work.
+| Mode | Reached with | Use it for |
+|---|---|---|
+| EDIT (pad 96) | Tap 96 | Editing steps and parameters in four sub-modes: Track, Beats, Keys and CC |
+| PERF (pad 97) | Tap 97 | Live performance: FX, density, randomize and mutate, tempo and mute scenes |
+| SESS (pad 98) | Tap 98 | Clip launcher: patterns, scenes and the song |
+| Global | SHIFT (95) + SESS (98) | Settings, chords, key, clock, projects and LFO |
 
-## Quick Navigation
+The automaton view (SHIFT + EDIT) is drawn over the grid. It is a view, not a mode.
 
-### New Users Start Here
+## The manual
 
-1. [**Getting Started**](getting-started/): An introduction to installation, setup, and basic operation.
-2. [**The Pattern Page**](pattern-page/): Learn how to control the generative aspects of your sequence.
-3. [**The Notes Page**](notes-page/): Edit the individual **Steps** of your **Pattern**.
-
-### Essential Concepts
-
-- [**Track Settings**](track-settings/): Set **Track**-wide **Parameters** like scale, speed, and **MIDI Channel**.
-- [**Global Settings**](global-settings/): Customize the core behaviors of your **Launchpad**.
-- [**MIDI Control**](midi-control/): Go beyond basic **Pattern** generation with sophisticated MIDI automation.
-- [**Recording & Export**](recording/): Capture, preserve, and share your musical creations.
-
-## Getting Help
-
-If you encounter issues or have questions, please check the [**Troubleshooting Guide**](troubleshooting.html).
-
----
-
-*Ready to create your first pattern? Start with the [**Getting Started Guide**](getting-started/).*
+- [Getting started]({% link getting-started/index.md %})
+- [Interface]({% link interface/index.md %}): the pad map, modes and pages, held pads and undo
+- [Track]({% link track/index.md %}), [Beats]({% link beats/index.md %}), [Keys]({% link keys/index.md %}) and [CC]({% link cc/index.md %}): the EDIT sub-modes
+- [Perform]({% link perform/index.md %}), [Session]({% link session/index.md %}), [Global]({% link global/index.md %}) and [Automaton]({% link automaton/index.md %})
+- [Modulation]({% link modulation/index.md %}) and [Harmony]({% link harmony/index.md %})
+- [Companion window]({% link companion/index.md %})
+- [Recording and files]({% link recording-and-files/index.md %})
+- [Migration]({% link migration.md %}) for users of the earlier version, and [Troubleshooting]({% link troubleshooting.md %})

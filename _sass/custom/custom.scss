@@ -1,497 +1,341 @@
-// _sass/custom/launchpad.scss
+// _sass/custom/custom.scss
+// Site styling: heading colours, Launchpad diagram components (launchpad-grid.html and wrappers), pad chips, callouts.
+
+// ---------------------------------------------------------------------------
+// Headings. All colours below have at least 4.5:1 contrast on the dark scheme background (#27262b).
+// ---------------------------------------------------------------------------
+$lp-h1-color: #d6bcfa;
+$lp-h2-color: #c4b5fd;
+$lp-h3-color: #b4a0fb;
+$lp-h4-color: #a78bfa;
 
-// Purple color hierarchy for headings
-$lp-top-color: #b794f6; // h1 - brightest purple
-$lp-h2-color: #9f7aea; // h2 - slightly darker purple
-$lp-h3-color: #805ad5; // h3 - medium purple
-$lp-h4-color: #6b46c1; // h4 - deeper purple (still readable)
-
-// Link colors in purple theme
-$lp-link-color: #a78bfa; // Lighter purple for links
-$lp-link-hover: #c4b5fd; // Even lighter on hover
-$lp-link-visited: #9f7aea; // Slightly muted for visited
-
-
-// Base button style for all Launchpad buttons
-.launchpad-button {
-    width: 60px;
-    height: 60px;
-    background-color: #1a1a1a;
-    border: 1px solid #333;
-    color: white;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.5px;
-    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
-    border-radius: 2px;
-    margin: 4px;
-    cursor: pointer;
-    position: relative;
-    user-select: none;
-}
-
-// Top row buttons (common properties)
-.launchpad-top-button {
-    font-weight: bold;
-}
-
-// Arrow buttons in top row
-.launchpad-arrow-up::after {
-    content: "▲";
-    font-size: 16px;
-}
-
-.launchpad-arrow-down::after {
-    content: "▼";
-    font-size: 16px;
-}
-
-.launchpad-arrow-left::after {
-    content: "◄";
-    font-size: 16px;
-}
-
-.launchpad-arrow-right::after {
-    content: "►";
-    font-size: 16px;
-}
-
-// Active arrow button styling - uses the purple color
-.launchpad-button-active.launchpad-arrow-up::after,
-.launchpad-button-active.launchpad-arrow-down::after,
-.launchpad-button-active.launchpad-arrow-left::after,
-.launchpad-button-active.launchpad-arrow-right::after {
-    color: $lp-top-color;
-}
-
-// Active control button styling - uses the purple color
-.launchpad-button-active.launchpad-session::after,
-.launchpad-button-active.launchpad-drums::after,
-.launchpad-button-active.launchpad-keys::after,
-.launchpad-button-active.launchpad-user::after {
-    color: $lp-top-color;
-}
-
-// Text buttons in top row
-.launchpad-session::after {
-    content: "Session";
-}
-
-.launchpad-drums::after {
-    content: "Drums";
-}
-
-.launchpad-keys::after {
-    content: "Keys";
-}
-
-.launchpad-user::after {
-    content: "User";
-}
-
-// Right column buttons
-.launchpad-right-button {
-    font-size: 13px;
-    font-weight: bold;
-}
-
-// ">" symbol for first 7 buttons in right column
-.launchpad-arrow-button::after {
-    content: ">";
-    font-size: 16px;
-}
-
-// Stop Solo Mute button (last button in right column)
-.launchpad-stop-solo-mute {
-    display: flex;
-    flex-direction: column;
-    font-size: 9px;
-    line-height: 1.2;
-    text-align: center;
-}
-
-// When stop-solo-mute is used inline, preserve inline-flex display
-.launchpad-button-inline.launchpad-stop-solo-mute {
-    display: inline-flex;
-    flex-direction: column;
-}
-
-.launchpad-stop-solo-mute::after {
-    content: "Stop\ASolo\AMute";
-    white-space: pre;
-}
-
-// Hover effect for all buttons
-.launchpad-button:hover {
-    background-color: #252525;
-}
-
-// Active/pressed effect
-.launchpad-button:active {
-    background-color: #111;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-
-// Pad styles
-.launchpad-pad {
-    width: 60px;
-    height: 60px;
-    border-radius: 2px;
-    margin: 4px;
-    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.1s ease;
-}
-
-// Intensity levels - to be combined with color classes
-.intensity-0 {
-    opacity: 0.2;
-    filter: brightness(0.6);
-}
-
-.intensity-1 {
-    opacity: 0.5;
-    filter: brightness(0.85);
-}
-
-.intensity-2 {
-    opacity: 0.75;
-    filter: brightness(1);
-}
-
-.intensity-3 {
-    opacity: 1;
-    filter: brightness(1.2);
-}
-
-// Color classes
-.pad-red {
-    background: linear-gradient(145deg, #ff5252, #f53d3d);
-    //box-shadow: inset 0 0 15px rgba(255, 0, 0, 0.5);
-}
-
-.pad-orange {
-    background: linear-gradient(145deg, #ff9800, #f57c00);
-    //box-shadow: inset 0 0 15px rgba(255, 152, 0, 0.5);
-}
-
-.pad-yellow {
-    background: linear-gradient(145deg, #ffeb3b, #fdd835);
-    //box-shadow: inset 0 0 15px rgba(255, 235, 59, 0.5);
-}
-
-.pad-green {
-    background: linear-gradient(145deg, #4caf50, #43a047);
-    //box-shadow: inset 0 0 15px rgba(76, 175, 80, 0.5);
-}
-
-.pad-cyan {
-    background: linear-gradient(145deg, #00bcd4, #00acc1);
-    //box-shadow: inset 0 0 15px rgba(0, 188, 212, 0.5);
-}
-
-.pad-blue {
-    background: linear-gradient(145deg, #2196f3, #1e88e5);
-    //box-shadow: inset 0 0 15px rgba(33, 150, 243, 0.5);
-}
-
-.pad-purple {
-    background: linear-gradient(145deg, #d667ea, #862b9f);
-    //box-shadow: inset 0 0 15px rgba(156, 39, 176, 0.5);
-}
-
-.pad-magenta {
-    background: linear-gradient(145deg, #e91e63, #d81b60);
-    //box-shadow: inset 0 0 15px rgba(233, 30, 99, 0.5);
-}
-
-.pad-pink {
-    background: linear-gradient(145deg, #ff80ab, #ff4081);
-    //box-shadow: inset 0 0 15px rgba(255, 128, 171, 0.5);
-}
-
-.pad-gray {
-    background: linear-gradient(145deg, #9e9e9e, #757575);
-    //box-shadow: inset 0 0 15px rgba(158, 158, 158, 0.5);
-}
-
-// Off/inactive state
-.pad-off {
-    background: linear-gradient(145deg, #333333, #222222);
-    //box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
-}
-
-// Active/pressed effect
-.launchpad-pad:active {
-    transform: scale(0.95);
-    filter: brightness(1.5);
-}
-
-// Glow effect when active
-.launchpad-pad::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
-    opacity: 0.5;
-    pointer-events: none;
-}
-
-// Illuminate effect - can be added dynamically
-.pad-illuminate {
-    animation: illuminate 0.3s forwards;
-}
-
-@keyframes illuminate {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.05);
-        filter: brightness(1.3);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-// Blinking animation for selected pad at 120 BPM (0.5s cycle)
-.pad-blink {
-    animation: blink 0.5s infinite;
-}
-
-@keyframes blink {
-    0% {
-        background: whitesmoke;
-        opacity: 1;
-        filter: brightness(1.2);
-    }
-
-    50% {
-        background: unset;
-        filter: unset;
-    }
-
-    100% {
-        background: whitesmoke;
-        opacity: 1;
-        filter: brightness(1.2);
-    }
-}
-
-@keyframes playhead-green {
-    0% {
-        background: unset;
-        filter: unset;
-    }
-
-    50% {
-        background: linear-gradient(145deg, #4caf50, #43a047) !important;
-        filter: brightness(1.5) !important;
-    }
-
-    100% {
-        background: unset;
-        filter: unset;
-    }
-}
-
-// Container for entire launchpad - Alternative approach
-.launchpad-container {
-    --scale-factor: 1;
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    gap: calc(4px * var(--scale-factor));
-    width: fit-content;
-    max-width: 100vw;
-    background-color: #000;
-    padding: calc(10px * var(--scale-factor));
-    border-radius: 6px;
-    margin: 20px auto;
-    transform: scale(var(--scale-factor));
-    transform-origin: top center;
-    box-sizing: border-box;
-}
-
-// Responsive adjustments for tablets
-@media (max-width: 768px) {
-    .launchpad-container {
-        --scale-factor: 0.8;
-        margin: 15px auto;
-    }
-
-    .launchpad-button,
-    .launchpad-pad {
-        width: 50px;
-        height: 50px;
-        margin: 3px;
-        font-size: 10px;
-    }
-
-    .launchpad-arrow-up::after,
-    .launchpad-arrow-down::after,
-    .launchpad-arrow-left::after,
-    .launchpad-arrow-right::after,
-    .launchpad-arrow-button::after {
-        font-size: 14px;
-    }
-
-    .launchpad-stop-solo-mute {
-        font-size: 8px;
-    }
-}
-
-// Responsive adjustments for phones
-@media (max-width: 480px) {
-    .launchpad-container {
-        --scale-factor: 0.6;
-        margin: 10px auto;
-        padding: calc(8px * var(--scale-factor));
-    }
-
-    .launchpad-button,
-    .launchpad-pad {
-        width: 40px;
-        height: 40px;
-        margin: 2px;
-        font-size: 9px;
-        letter-spacing: 0.3px;
-    }
-
-    .launchpad-arrow-up::after,
-    .launchpad-arrow-down::after,
-    .launchpad-arrow-left::after,
-    .launchpad-arrow-right::after,
-    .launchpad-arrow-button::after {
-        font-size: 12px;
-    }
-
-    .launchpad-stop-solo-mute {
-        font-size: 7px;
-        line-height: 1.1;
-    }
-
-    .launchpad-right-button {
-        font-size: 11px;
-    }
-}
-
-// Extra small devices (very small phones)
-@media (max-width: 360px) {
-    .launchpad-container {
-        --scale-factor: 0.5;
-        margin: 8px auto;
-        padding: calc(6px * var(--scale-factor));
-    }
-
-    .launchpad-button,
-    .launchpad-pad {
-        width: 35px;
-        height: 35px;
-        margin: 2px;
-        font-size: 8px;
-        letter-spacing: 0.2px;
-    }
-
-    .launchpad-arrow-up::after,
-    .launchpad-arrow-down::after,
-    .launchpad-arrow-left::after,
-    .launchpad-arrow-right::after,
-    .launchpad-arrow-button::after {
-        font-size: 11px;
-    }
-
-    .launchpad-stop-solo-mute {
-        font-size: 6px;
-        line-height: 1;
-    }
-
-    .launchpad-right-button {
-        font-size: 10px;
-    }
-}
-
-// Landscape orientation for phones
-@media (max-width: 812px) and (orientation: landscape) {
-    .launchpad-container {
-        --scale-factor: 0.5;
-        margin: 5px auto;
-    }
-
-    .launchpad-button,
-    .launchpad-pad {
-        width: 35px;
-        height: 35px;
-        margin: 2px;
-    }
-}
-
-
-
-// Row and column layouts
-.launchpad-row {
-    display: flex;
-}
-
-.launchpad-column {
-    display: flex;
-    flex-direction: column;
-}
-
-
-// Improved font sizing and weights for headings
 h1 {
-    font-size: 2.5rem !important;
-    font-weight: 700 !important;
-    color: $lp-top-color !important;
-    margin-bottom: 1rem !important;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $lp-h1-color;
+    margin-bottom: 1rem;
 }
 
 h2 {
-    font-size: 2rem !important;
-    font-weight: 600 !important;
-    color: $lp-h2-color !important;
-    margin-top: 2rem !important;
+    font-size: 2rem;
+    font-weight: 600;
+    color: $lp-h2-color;
+    margin-top: 2rem;
 }
 
 h3 {
-    font-size: 1.5rem !important;
-    font-weight: 600 !important;
-    color: $lp-h3-color !important;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $lp-h3-color;
 }
 
 h4 {
-    font-size: 1.5rem !important;
-    font-weight: 600 !important;
-    color: $lp-h4-color !important;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: $lp-h4-color;
 }
 
-// Better code block styling for dark mode
+@media (max-width: 520px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.3rem; }
+    h4 { font-size: 1.1rem; }
+}
+
 pre.highlight {
-    background-color: #0f172a !important;
-    border: 1px solid #334155 !important;
+    background-color: #0f172a;
+    border: 1px solid #334155;
 }
 
-// Improve link visibility
-a {
-    color: $link-color !important;
-    text-decoration: underline;
+// ---------------------------------------------------------------------------
+// Colour table: (name light dark text-colour-on-the-pad).
+// Names match the app's palette (launch_pad_palette.gd) plus cream, hotpink and white.
+// ---------------------------------------------------------------------------
+$lp-colors: (
+    ("red" #ff5252 #f53d3d #111),
+    ("orange" #ff9800 #f57c00 #111),
+    ("yellow" #ffeb3b #fdd835 #111),
+    ("green" #4caf50 #43a047 #111),
+    ("cyan" #00bcd4 #00acc1 #111),
+    ("blue" #2196f3 #1e88e5 #111),
+    ("purple" #d667ea #a43bbd #111),
+    ("magenta" #e91e63 #d81b60 #fff),
+    ("pink" #ff80ab #ff4081 #111),
+    ("gray" #9e9e9e #757575 #111),
+    ("cream" #ffe09e #e8c47c #111),
+    ("hotpink" #ff40b3 #e6329f #111),
+    ("white" #ffffff #e0e0e0 #111),
+    ("off" #333333 #222222 #bbb)
+);
+
+.lp-figure {
+    margin: 1.25rem 0;
 }
 
-a:hover {
-    color: #bae6fd !important;
+// ---------------------------------------------------------------------------
+// The grid: scales with the column (no transform: layout shrinks too).
+// ---------------------------------------------------------------------------
+.launchpad-container {
+    --lp-font: clamp(6px, 1.5vw, 11px);
+    display: grid;
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+    gap: clamp(2px, 0.8vw, 6px);
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+    padding: clamp(5px, 1.6vw, 12px);
+    background: #000;
+    border-radius: 8px;
+    box-sizing: border-box;
 }
+
+@supports (container-type: inline-size) {
+    .launchpad-container {
+        container-type: inline-size;
+        --lp-font: clamp(6px, 1.9cqw, 11px);
+    }
+}
+
+.lp-corner {
+    aspect-ratio: 1 / 1;
+}
+
+.launchpad-pad {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    min-width: 0;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.35);
+    font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.1s ease, filter 0.1s ease;
+    // soft highlight
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 70%);
+        opacity: 0.5;
+        pointer-events: none;
+    }
+}
+
+@each $name, $light, $dark, $text in $lp-colors {
+    .pad-#{$name} {
+        background: linear-gradient(145deg, $light, $dark);
+        --lp-text: #{$text};
+    }
+}
+
+// Brightness levels 0-3 (app brightness 0.05-0.15 / 0.2-0.4 / 0.45-0.8 / 0.9-1.0)
+.intensity-0 { opacity: 0.2; filter: brightness(0.6); }
+.intensity-1 { opacity: 0.5; filter: brightness(0.85); }
+.intensity-2 { opacity: 0.75; filter: brightness(1); }
+.intensity-3 { opacity: 1; filter: brightness(1.15); }
+.intensity-0, .intensity-1 { --lp-text: #fff; }
+
+.lp-label {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+    padding: 0 1px;
+    font-size: var(--lp-font);
+    font-weight: 700;
+    line-height: 1.05;
+    text-align: center;
+    color: var(--lp-text, #fff);
+    overflow-wrap: anywhere;
+    pointer-events: none;
+}
+
+.lp-cc {
+    display: none;
+    position: absolute;
+    right: 3px;
+    bottom: 1px;
+    z-index: 1;
+    font-size: calc(var(--lp-font) * 0.8);
+    font-weight: 600;
+    color: var(--lp-text, #fff);
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.show-cc .lp-cc {
+    display: block;
+}
+
+// interactive pads (those with a label or description)
+.lp-info {
+    cursor: pointer;
+    &:hover { filter: brightness(1.3); }
+    &:focus-visible {
+        outline: 3px solid #fbbf24;
+        outline-offset: -3px;
+    }
+}
+
+.lp-selected {
+    outline: 2px solid #fff;
+    outline-offset: -2px;
+    z-index: 2;
+}
+
+// Pad states
+.pad-held {
+    filter: brightness(1.5);
+    box-shadow: inset 0 0 0 2px #fff;
+}
+
+.launchpad-container .pad-playhead {
+    background: linear-gradient(145deg, #4caf50, #43a047);
+    --lp-text: #111;
+}
+
+.launchpad-container .pad-playhead.intensity-0 {
+    opacity: 0.55;
+}
+
+.pad-blink::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    z-index: 0;
+    pointer-events: none;
+    animation: lp-flash 1s steps(1) infinite;
+}
+
+@keyframes lp-flash {
+    0%   { opacity: 0.9; }
+    50%  { opacity: 0; }
+}
+
+// Press hint: numbered, ringed pads. Without JavaScript the ring pulses by itself;
+// with JavaScript (.lp-js) launchpad.js pulses the pads in press order instead.
+.pad-hint {
+    outline: 2px solid #fff;
+    outline-offset: -2px;
+}
+
+.launchpad-container:not(.lp-js) .pad-hint {
+    animation: lp-ring 1.2s ease-in-out infinite;
+}
+
+@keyframes lp-ring {
+    50% { outline-color: #fbbf24; }
+}
+
+.pad-hint.lp-pulse {
+    outline-color: #fbbf24;
+    transform: scale(1.1);
+    filter: brightness(1.6);
+    z-index: 3;
+}
+
+.lp-hint {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    z-index: 2;
+    min-width: 1.5em;
+    height: 1.5em;
+    padding: 0 2px;
+    box-sizing: border-box;
+    border-radius: 999px;
+    background: #fff;
+    color: #111;
+    font-size: calc(var(--lp-font) * 1.05);
+    font-weight: 800;
+    line-height: 1.5em;
+    text-align: center;
+    pointer-events: none;
+}
+
+// Caption, readout and the animation toggle
+.lp-caption {
+    max-width: 620px;
+    margin: 0.5rem auto 0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.lp-readout {
+    display: block;
+    min-height: 1.4em;
+    margin-top: 0.3rem;
+    font-weight: 600;
+    &[hidden] { display: none; }
+}
+
+.lp-toggle {
+    margin-left: 0.5rem;
+    padding: 0 0.5rem;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    background: transparent;
+    color: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .launchpad-pad,
+    .pad-hint {
+        animation: none !important;
+        transition: none !important;
+    }
+    .pad-blink::before {
+        animation: none !important;
+        opacity: 0.45;
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Inline pad chips (pad.html)
+// ---------------------------------------------------------------------------
+.lp-chip {
+    display: inline-block;
+    padding: 0 0.45em;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 700;
+    line-height: 1.6;
+    white-space: nowrap;
+    color: #111;
+}
+
+@each $name, $light, $dark, $text in $lp-colors {
+    .lp-chip-#{$name} {
+        background: $light;
+        color: $text;
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Callouts (note.html, tip.html, warning.html, hardware-unverified.html)
+// ---------------------------------------------------------------------------
+.lp-callout {
+    margin: 1rem 0;
+    padding: 0.6rem 1rem;
+    border-left: 4px solid #60a5fa;
+    border-radius: 4px;
+    background: rgba(96, 165, 250, 0.12);
+
+    p:last-child { margin-bottom: 0; }
+}
+
+.lp-callout-title {
+    margin: 0 0 0.25rem;
+    font-weight: 700;
+}
+
+.lp-callout-tip { border-left-color: #4ade80; background: rgba(74, 222, 128, 0.12); }
+.lp-callout-warning { border-left-color: #f87171; background: rgba(248, 113, 113, 0.14); }
+.lp-callout-unverified { border-left-color: #fbbf24; background: rgba(251, 191, 36, 0.12); }

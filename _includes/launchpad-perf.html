@@ -1,0 +1,60 @@
+{%- comment -%}
+The PERF grid (SHIFT-free, momentary pads; hold them). Layout from app/perf_grid.gd:
+ 81-88 FX row 1: stutter 1/16, 1/32, triplet | beat repeat 1, 2, 4 | 88 motion-record arm
+ 71-78 FX row 2: reverse, half, double | roll, scramble
+ 61-68 density fader (0 15 30 50 60 75 90 100; 64 = 50 = as written)
+ 51-58 randomize 25/50/75/100 % then mutate 25/50/75/100 %
+ 41-48 tempo: tap, nudge -/+, ramp -4/+4 bars, -16/+16 bars, hold (clock master only)
+ 31-38 mute scenes 1-8        21-28 options (27 DUP, 28 CLR held)     11-18 quick slots
+Params: density (0-7, the pad where the fader is now, default 3), scenes (8 chars: . empty f filled q queued a applied),
+slots (8 chars: . empty f filled), rec (off|armed), track_sel, hint, pads, blink, held (pad numbers drawn as held),
+alt, caption, numbers.
+Levels are rounded from the app's 0-1 brightness: 0.05-0.15 = 0, 0.2-0.4 = 1, 0.45-0.8 = 2, 0.9-1 = 3.
+{%- endcomment -%}
+{%- assign pf_density = include.density | default: 3 | plus: 0 -%}
+{%- assign pf_dvals = "0,15,30,50,60,75,90,100" | split: "," -%}
+{%- assign pf_scenes = include.scenes | default: "........" -%}
+{%- assign pf_slots = include.slots | default: "........" -%}
+
+{%- if include.rec == "armed" -%}{%- assign pf_rec = "red:3:REC:Motion recording armed" -%}{%- else -%}{%- assign pf_rec = "red:0:REC:Motion recording arm (tap to arm)" -%}{%- endif -%}
+{%- assign pf_row1 = "yellow:2:S16:Stutter 1/16 (hold),yellow:2:S32:Stutter 1/32 (hold),yellow:2:S3:Stutter triplet (hold),off,yellow:2:R1:Beat repeat 1 step (hold),yellow:2:R2:Beat repeat 2 steps (hold),yellow:2:R4:Beat repeat 4 steps (hold)," | append: pf_rec -%}
+{%- assign pf_row2 = "blue:2:Rev:Reverse (hold),blue:2:1/2:Half time (hold),blue:2:x2:Double time (hold),off,pink:2:Roll:Roll (hold),pink:2:Scr:Scramble (hold),off,off" -%}
+
+{%- assign pf_row3 = "" -%}
+{%- for pf_v in pf_dvals -%}
+  {%- assign pf_i = forloop.index0 -%}
+  {%- if pf_i == pf_density -%}{%- assign pf_t = "green:3:" | append: pf_v | append: ":Density " | append: pf_v | append: " (current)" -%}
+  {%- elsif pf_i < 3 -%}{%- assign pf_t = "cyan:1:" | append: pf_v | append: ":Density " | append: pf_v | append: " (thins the pattern)" -%}
+  {%- elsif pf_i == 3 -%}{%- assign pf_t = "gray:2:50:Density 50 (as written)" -%}
+  {%- else -%}{%- assign pf_t = "orange:1:" | append: pf_v | append: ":Density " | append: pf_v | append: " (fills rests)" -%}{%- endif -%}
+  {%- if forloop.first -%}{%- assign pf_row3 = pf_t -%}{%- else -%}{%- assign pf_row3 = pf_row3 | append: "," | append: pf_t -%}{%- endif -%}
+{%- endfor -%}
+
+{%- assign pf_row4 = "green:1:25%:Randomize 25% (hold; SHIFT + release keeps),green:2:50%:Randomize 50% (hold; SHIFT + release keeps),green:2:75%:Randomize 75% (hold; SHIFT + release keeps),green:3:100%:Randomize 100% (hold; SHIFT + release keeps),purple:1:25%:Mutate 25% (hold; SHIFT + release keeps),purple:2:50%:Mutate 50% (hold; SHIFT + release keeps),purple:2:75%:Mutate 75% (hold; SHIFT + release keeps),purple:3:100%:Mutate 100% (hold; SHIFT + release keeps)" -%}
+{%- assign pf_row5 = "magenta:3:Tap:Tap tempo (only while TrackJammer is the clock master),cyan:3:N-:Nudge tempo down (clock master only),cyan:3:N+:Nudge tempo up (clock master only),blue:2:-4b:Ramp tempo down 10 BPM over 4 bars,red:2:+4b:Ramp tempo up 10 BPM over 4 bars,blue:2:-16b:Ramp tempo down 10 BPM over 16 bars,red:2:+16b:Ramp tempo up 10 BPM over 16 bars,gray:2:Hold:Hold the tempo" -%}
+
+{%- assign pf_row6 = "" -%}
+{%- for pf_i in (0..7) -%}
+  {%- assign pf_n = pf_i | plus: 1 -%}
+  {%- assign pf_c = pf_scenes | slice: pf_i, 1 -%}
+  {%- case pf_c -%}
+    {%- when "f" -%}{%- assign pf_t = "blue:2:Sc" | append: pf_n | append: ":Mute scene " | append: pf_n | append: " (tap recalls at the next bar; SHIFT + tap stores)" -%}
+    {%- when "q" -%}{%- assign pf_t = "orange:3:Sc" | append: pf_n | append: ":Mute scene " | append: pf_n | append: " (queued for the next bar)" -%}
+    {%- when "a" -%}{%- assign pf_t = "green:3:Sc" | append: pf_n | append: ":Mute scene " | append: pf_n | append: " (applied last)" -%}
+    {%- else -%}{%- assign pf_t = "gray:0:Sc" | append: pf_n | append: ":Mute scene " | append: pf_n | append: " (empty; SHIFT + tap stores)" -%}
+  {%- endcase -%}
+  {%- if forloop.first -%}{%- assign pf_row6 = pf_t -%}{%- else -%}{%- assign pf_row6 = pf_row6 | append: "," | append: pf_t -%}{%- endif -%}
+{%- endfor -%}
+
+{%- assign pf_row7 = "off,off,off,off,off,cream:0:Lock:Lock (held pad),cyan:1:Dup:Duplicate (held pad),red:1:Clr:Clear (held pad)" -%}
+
+{%- assign pf_row8 = "" -%}
+{%- for pf_i in (0..7) -%}
+  {%- assign pf_n = pf_i | plus: 1 -%}
+  {%- assign pf_c = pf_slots | slice: pf_i, 1 -%}
+  {%- if pf_c == "f" -%}{%- assign pf_t = "blue:3:Q" | append: pf_n | append: ":Quick slot " | append: pf_n | append: " (tap loads; SHIFT + tap saves)" -%}
+  {%- else -%}{%- assign pf_t = "gray:0:Q" | append: pf_n | append: ":Quick slot " | append: pf_n | append: " (empty)" -%}{%- endif -%}
+  {%- if forloop.first -%}{%- assign pf_row8 = pf_t -%}{%- else -%}{%- assign pf_row8 = pf_row8 | append: "," | append: pf_t -%}{%- endif -%}
+{%- endfor -%}
+
+{% include launchpad-grid.html top="newnav" top_lit="perf" right="track" track_sel=include.track_sel row1=pf_row1 row2=pf_row2 row3=pf_row3 row4=pf_row4 row5=pf_row5 row6=pf_row6 row7=pf_row7 row8=pf_row8 pads=include.pads hint=include.hint blink=include.blink held=include.held alt=include.alt caption=include.caption numbers=include.numbers %}

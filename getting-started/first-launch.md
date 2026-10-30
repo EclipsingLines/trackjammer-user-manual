@@ -1,87 +1,34 @@
 ---
 layout: default
-title: First Launch
-parent: Getting Started
-nav_order: 4
+title: "First launch"
+parent: "Getting started"
+nav_order: 3
+description: "What you see the first time you start the app."
 ---
 
-# First Launch
+# First launch
 
-This guide explains what to expect when you launch **TrackJammer** for the first time and helps you get oriented with the interface.
+Start TrackJammer with the Launchpad and the Circuit Tracks connected. This is what happens:
 
-![First Launch Interface](docs/img/first-launch-interface.jpg)
-*The **TrackJammer** interface on first startup with default settings.*
+1. The app opens the Launchpad and Circuit Tracks ports. A port that is not there yet is tried again every 3 seconds.
+2. The Launchpad switches to programmer mode and the grid lights.
+3. Press Play on the Circuit Tracks. Its start message starts the sequencer.
 
-## What Happens on First Launch
+If the Circuit Tracks is not connected, the app runs its own clock instead. As soon as the Launchpad connects, the tracks play. When the Circuit Tracks connects later, its clock takes over.
 
-When you start **TrackJammer** for the first time, it automatically performs the following actions:
+## The default project
 
-### Automatic Configuration
+The project has eight tracks. With the Circuit Tracks preset, each track sends on these MIDI channels (1 to 16):
 
-The application attempts to detect and configure your **MIDI Devices**. If you have a **Novation Launchpad** connected, it will try to establish communication immediately. You will see status messages in the application indicating the connection state.
+| Track | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|---|
+| Name on screen | Synth 1 | Synth 2 | Drum 1 | Drum 2 | Drum 3 | Drum 4 | Midi CC | Track 8 |
+| Channel | 1 | 2 | 10 | 10 | 10 | 10 | 16 | 15 |
 
-### Default Project Loading
+Track selection is on the right column of the Launchpad: track 1 is pad 89 at the top, track 8 is pad 19 at the bottom.
 
-**TrackJammer** loads a default **Session** with basic **Patterns** already configured across all seven **Tracks**. This gives you something to listen to right away and demonstrates the core functionality without any setup.
+## The grid
 
-### Interface Initialization
+{% include launchpad-grid.html top="newnav" top_lit="edit" sub_mode="beats" track_sel=1 presets="steps_euclid_3_8,steps_euclid_5_8,steps_empty,steps_empty,empty_row,empty_row,options_row,slots_row" playhead=16 playhead_ms=250 alt="Launchpad: the step grid with the playhead lit across the first 16 steps, track 1 selected in the right column." caption="Illustration: the step area with the playhead running. The screen you see depends on the page you are on." %}
 
-The main interface displays the **Track** overview, **Pattern** **Grid**, and transport controls. All elements start in their default states, ready for you to use.
-
-## Launchpad Integration
-
-If you have a **Novation Launchpad** connected, it becomes active immediately.
-
-![Launchpad First Launch](docs/img/launchpad-first-launch.jpg)
-***Launchpad** display showing the initial **Pattern** and **Track** selection.*
-
-### Visual Feedback
-
-- **Track buttons** on the right edge show which **Track** is selected.
-- The **Step** **Grid** displays the current **Pattern** with colored LEDs.
-- **Transport controls** are mapped to specific pads.
-- **Parameter** areas show current values through LED brightness.
-
-### Immediate Control
-
-You can start interacting with the **Launchpad** right away:
-
-- Press the **Track buttons** to switch between **Tracks**.
-- Tap the **Step** pads to toggle **Steps** on or off.
-
-## Common Questions
-
-### Why don't I hear any sound?
-
-**TrackJammer** generates MIDI data, not audio. To hear sound, you need:
-
-- A connected MIDI synthesizer, sampler, or **DAW**.
-- Proper MIDI routing from **TrackJammer** to your sound source.
-- Check the [**MIDI Setup Guide**](../midi-setup.html) for detailed configuration instructions.
-
-### Why isn't the Launchpad responding?
-
-- Ensure the **Launchpad** is connected via USB.
-- Check that it is not being used by other software (like Ableton Live).
-- Try disconnecting and reconnecting the USB cable.
-- Verify the **Launchpad** appears in your system's **MIDI Device** list.
-
-### Why does the interface look different than I expected?
-
-- The interface adapts to different screen sizes and resolutions.
-- Some elements may be arranged differently on smaller screens.
-- All functionality remains accessible through the menus and controls.
-
-## Next Steps
-
-Now that you're familiar with the basic interface, you can:
-
-1. **[Set up your MIDI connections](../midi-setup.html)** to configure your synthesizers and controllers.
-2. **[Learn the basic operation](basic-operation.html)** to master the essential controls and workflow.
-3. **[Explore the Launchpad interface](../launchpad/pad-layout.html)** to understand the hardware control layout.
-
-**TrackJammer** is designed to be immediately usable, but understanding the MIDI setup and basic operation will unlock its full potential.
-
----
-
-*Ready to connect your gear? Continue to the [**MIDI Setup** guide](../midi-setup.html).*
+Next, read [Basic operation]({% link getting-started/basic-operation.md %}) and the [pad map]({% link interface/pad-map.md %}).

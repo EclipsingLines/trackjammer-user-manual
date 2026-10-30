@@ -1,0 +1,53 @@
+{%- comment -%}
+The SESS clip launcher. The whole 8x8 grid is patterns: column = track (hue per track: red, orange, yellow, green,
+cyan, blue, purple, pink), row = pattern (81-88 = pattern 1 of tracks 1-8 ... 11-18 = pattern 8).
+The right column is the 8 scenes. UP = DUP, DOWN = CLR, RIGHT = song start/stop.
+Params:
+  patterns  8 comma-separated strings of 8 chars, pattern 1 first. Each char is one track:
+            . empty   f filled   p playing (active pattern)   q queued (blinks)
+            Example (patterns 1-3 only, the rest empty): "p.p.....,f.f.p...,........" (missing rows stay empty)
+  scenes    8 chars, scene 1 first: . empty  f filled  c last launched  q queued  s song entry  a morph A  b morph B
+  song      off (default) | ready | playing : the RIGHT arrow (song start/stop)
+  hint, pads, blink, held, alt, caption, numbers
+{%- endcomment -%}
+{%- assign cl_rows = include.patterns | default: "" | remove: " " | split: "," -%}
+{%- assign cl_hues = "red,orange,yellow,green,cyan,blue,purple,pink" | split: "," -%}
+{%- assign cl_blink = "" -%}
+{%- for cl_r in (0..7) -%}
+  {%- assign cl_line = cl_rows[cl_r] | default: "........" -%}
+  {%- assign cl_out = "" -%}
+  {%- for cl_c in (0..7) -%}
+    {%- assign cl_ch = cl_line | slice: cl_c, 1 -%}
+    {%- assign cl_hue = cl_hues[cl_c] -%}
+    {%- assign cl_pn = cl_r | plus: 1 -%}
+    {%- assign cl_tn = cl_c | plus: 1 -%}
+    {%- case cl_ch -%}
+      {%- when "f" -%}{%- assign cl_t = cl_hue | append: ":1::Track " | append: cl_tn | append: " pattern " | append: cl_pn | append: " (filled)" -%}
+      {%- when "p" -%}{%- assign cl_t = cl_hue | append: ":3::Track " | append: cl_tn | append: " pattern " | append: cl_pn | append: " (playing)" -%}
+      {%- when "q" -%}
+        {%- assign cl_t = cl_hue | append: ":3::Track " | append: cl_tn | append: " pattern " | append: cl_pn | append: " (queued)" -%}
+        {%- assign cl_cc = 8 | minus: cl_r | times: 10 | plus: cl_c | plus: 1 -%}
+        {%- assign cl_blink = cl_blink | append: "," | append: cl_cc -%}
+      {%- else -%}{%- assign cl_t = "gray:0::Track " | append: cl_tn | append: " pattern " | append: cl_pn | append: " (empty)" -%}
+    {%- endcase -%}
+    {%- if cl_c == 0 -%}{%- assign cl_out = cl_t -%}{%- else -%}{%- assign cl_out = cl_out | append: "," | append: cl_t -%}{%- endif -%}
+  {%- endfor -%}
+  {%- case cl_r -%}
+    {%- when 0 -%}{%- assign cl_row1 = cl_out -%}
+    {%- when 1 -%}{%- assign cl_row2 = cl_out -%}
+    {%- when 2 -%}{%- assign cl_row3 = cl_out -%}
+    {%- when 3 -%}{%- assign cl_row4 = cl_out -%}
+    {%- when 4 -%}{%- assign cl_row5 = cl_out -%}
+    {%- when 5 -%}{%- assign cl_row6 = cl_out -%}
+    {%- when 6 -%}{%- assign cl_row7 = cl_out -%}
+    {%- when 7 -%}{%- assign cl_row8 = cl_out -%}
+  {%- endcase -%}
+{%- endfor -%}
+{%- case include.song -%}
+  {%- when "playing" -%}{%- assign cl_song = "94=green:3:Song:RIGHT. The song is playing; tap to stop" -%}
+  {%- when "ready" -%}{%- assign cl_song = "94=gray:3:Song:RIGHT. Start the song" -%}
+  {%- else -%}{%- assign cl_song = "94=off:3:Song:RIGHT. Start or stop the song (dark when no song entries exist)" -%}
+{%- endcase -%}
+{%- assign cl_pads = include.pads | append: ";" | append: cl_song | append: ";91=cyan:1:DUP:UP. Hold it, then tap a pattern to duplicate it;92=red:1:CLR:DOWN. Hold it, then tap a pattern or scene to clear it" -%}
+{%- assign cl_blinks = include.blink | append: cl_blink -%}
+{% include launchpad-grid.html top="newnav" top_lit="sess" right="scene" scenes=include.scenes row1=cl_row1 row2=cl_row2 row3=cl_row3 row4=cl_row4 row5=cl_row5 row6=cl_row6 row7=cl_row7 row8=cl_row8 pads=cl_pads hint=include.hint blink=cl_blinks held=include.held alt=include.alt caption=include.caption numbers=include.numbers %}

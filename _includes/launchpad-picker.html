@@ -1,0 +1,49 @@
+{%- comment -%}
+The hold-EDIT picker. Hold EDIT (96): the options row (21-24) shows the four sub-modes, the first value row
+(41-48) the pages of the highlighted sub-mode, the second value row (31-38) the eight bookmarks.
+Params: sub_mode (track|beats|keys|cc, default track), page (1-8, the current page), bookmarks (comma list of up to 8
+entries, "beats:3" = Beats page 3, "-" = empty), track_sel, hint, pads, blink, held, alt, caption, numbers.
+Pad colours of the bookmarks (:2) and the dim pads (:1) are estimates of the app levels.
+{%- endcomment -%}
+{%- assign pk_sub = include.sub_mode | default: "track" -%}
+{%- assign pk_page = include.page | default: 1 | plus: 0 -%}
+{%- case pk_sub -%}
+  {%- when "beats" -%}{%- assign pk_pages = "Steps,Length,Beats,Accent,Repeat,Conditions,Drum map" | split: "," -%}{%- assign pk_color = "cyan" -%}
+  {%- when "keys" -%}{%- assign pk_pages = "Notes,Velocity,Gate,Type,Voicing,Source,Harmony,Voice" | split: "," -%}{%- assign pk_color = "yellow" -%}
+  {%- when "cc" -%}{%- assign pk_pages = "Settings,CC 1,CC 2,CC 3,CC 4" | split: "," -%}{%- assign pk_color = "green" -%}
+  {%- else -%}{%- assign pk_pages = "Params,Feel,Playback,Voices,Evolution,Rules,Rack" | split: "," -%}{%- assign pk_color = "purple" -%}
+{%- endcase -%}
+{%- assign pk_names = "track,beats,keys,cc" | split: "," -%}
+{%- assign pk_colors = "purple,cyan,yellow,green" | split: "," -%}
+{%- assign pk_labels = "Track,Beats,Keys,CC" | split: "," -%}
+{%- assign pk_s = "" -%}
+{%- for pk_n in pk_names -%}
+  {%- assign pk_cc = forloop.index0 | plus: 21 -%}
+  {%- if pk_n == pk_sub -%}{%- assign pk_lv = 3 -%}{%- else -%}{%- assign pk_lv = 1 -%}{%- endif -%}
+  {%- assign pk_s = pk_s | append: ";" | append: pk_cc | append: "=" | append: pk_colors[forloop.index0] | append: ":" | append: pk_lv | append: ":" | append: pk_labels[forloop.index0] | append: ":Sub-mode " | append: pk_labels[forloop.index0] -%}
+{%- endfor -%}
+{%- for pk_p in pk_pages -%}
+  {%- assign pk_cc = forloop.index0 | plus: 41 -%}
+  {%- if forloop.index == pk_page -%}{%- assign pk_lv = 3 -%}{%- else -%}{%- assign pk_lv = 1 -%}{%- endif -%}
+  {%- assign pk_s = pk_s | append: ";" | append: pk_cc | append: "=" | append: pk_color | append: ":" | append: pk_lv | append: ":" | append: forloop.index | append: ":Page " | append: forloop.index | append: ", " | append: pk_p -%}
+{%- endfor -%}
+{%- if include.bookmarks -%}
+  {%- assign pk_bms = include.bookmarks | remove: " " | split: "," -%}
+  {%- for pk_b in pk_bms -%}
+    {%- assign pk_cc = forloop.index0 | plus: 31 -%}
+    {%- if pk_b != "-" and pk_b != "" -%}
+      {%- assign pk_bp = pk_b | split: ":" -%}
+      {%- assign pk_bcol = "purple" -%}
+      {%- case pk_bp[0] -%}
+        {%- when "beats" -%}{%- assign pk_bcol = "cyan" -%}
+        {%- when "keys" -%}{%- assign pk_bcol = "yellow" -%}
+        {%- when "cc" -%}{%- assign pk_bcol = "green" -%}
+      {%- endcase -%}
+      {%- assign pk_s = pk_s | append: ";" | append: pk_cc | append: "=" | append: pk_bcol | append: ":2:B" | append: forloop.index | append: ":Bookmark " | append: forloop.index | append: ", " | append: pk_bp[0] | append: " page " | append: pk_bp[1] -%}
+    {%- else -%}
+      {%- assign pk_s = pk_s | append: ";" | append: pk_cc | append: "=off:3:B" | append: forloop.index | append: ":Bookmark " | append: forloop.index | append: " (empty)" -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+{%- assign pk_pads = include.pads | append: pk_s -%}
+{% include launchpad-grid.html top="newnav" top_lit="edit" sub_mode=pk_sub right="track" track_sel=include.track_sel pads=pk_pads hint=include.hint blink=include.blink held=include.held alt=include.alt caption=include.caption numbers=include.numbers %}

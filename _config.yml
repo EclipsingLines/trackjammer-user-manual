@@ -1,14 +1,14 @@
 # Product configuration
-product_name: "TrackJammer MIDI Sequencer"
 title: "TrackJammer MIDI Sequencer"
-description: Ready to unlock the creative potential of your Launchpad?
+description: User manual for TrackJammer, a generative MIDI sequencer for the Novation Launchpad Mini MK3.
 theme: just-the-docs
 favicon_ico: "/favicon.ico"
 # Color scheme supports "light" (default) and "dark"
 color_scheme: dark
 
 
-url: https://eclipsinglines.github.io/trackjammer-user-manual/
+url: https://eclipsinglines.github.io
+baseurl: /trackjammer-user-manual
 
 # Enable back to top link
 back_to_top: true
@@ -33,7 +33,7 @@ plugins:
 nav_sort: case_insensitive
 
 # Footer content
-footer_content: "Copyright &copy; 2025 TrackJammer. Distributed by an <a href=\"https://github.com/eclipsinglines/trackjammer-user-manual/tree/main/LICENSE\">MIT license.</a>"
+footer_content: "Copyright &copy; 2025-2026 TrackJammer. Distributed by an <a href=\"https://github.com/eclipsinglines/trackjammer-user-manual/blob/main/LICENSE\">MIT license.</a>"
 
 # External links
 aux_links:
@@ -47,4 +47,15 @@ callouts:
   note:
     title: Note
     color: blue
+
+# Not part of the published site
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - .github/
+  - .gitignore
+  - vendor/
+  - node_modules/
 
