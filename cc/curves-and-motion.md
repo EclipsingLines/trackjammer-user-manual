@@ -28,15 +28,17 @@ The step area previews the curve as yellow levels. Grey steps are locked or hand
 | Seed | 24 | New seed for the random walk |
 | SE | 25 | Switches the bottom value row between start and end |
 
-Shapes on pads 41 to 48: none, linear, exponential, logarithmic, S-curve, triangle, sine, random walk.
+Shapes on pads 41 to 48: none, linear, exponential, logarithmic, S-curve, triangle, sine, random walk. Linear, exponential, logarithmic and S-curve run from the start level to the end level. Triangle and sine go from the start level up to the end level and back. Random walk starts at the start level and wanders between the two.
 
-The bottom value row (pads 31 to 38) gives eight levels from 0 up to the lane's maximum, 127 or 16383 on an NRPN lane. Option 25 chooses whether those levels set the start or the end. Set both. Defaults are shape none, start 0 and end 127.
+The bottom value row (pads 31 to 38) gives eight levels from 0 up to the lane's maximum: 0, 18, 36, 54, 73, 91, 109 and 127, or the same spread up to 16383 on an NRPN lane. Option 25 chooses whether those levels set the start or the end. Set both. Defaults are shape none, start 0 and end 127.
 
-{% include warning.html text="Setting the shape to none removes the steps the curve wrote. Locked and hand-edited steps keep their values." %}
+The curve covers the whole lane, or only the loop if you have set one. Every step it writes is switched on.
+
+{% include warning.html text="Setting the shape to none removes the steps the curve wrote and resets the start to 0, the end to 127 and the random-walk seed. Locked and hand-edited steps keep their values." %}
 
 ## Gotchas
 
-- Regenerating the lane (Euclidean or linear) clears its hand edits, including the steps a curve wrote.
+- Changing the lane's Beats field regenerates the lane and clears all its steps, including hand edits and the steps a curve wrote. The curve settings stay; press Go (option 23) to write the curve again.
 - Random walk gives a different result for each seed. Option 24 re-rolls it.
 - Curve settings and lane steps are saved with the lane and are part of the track's pattern.
 
@@ -53,8 +55,8 @@ Arm motion recording in any of three places:
 While the arm is on and the transport runs, an incoming CC that matches an enabled lane (same channel and CC number) writes that value at the lane's current step.
 
 - One value per step. The last move wins.
-- The step is switched on and marked as edited, so a later curve keeps it.
-- There is no mapping table. A lane records only the knob moves whose channel and CC number match the lane. For example, a lane on channel 1 with CC 80 records the knob that sends CC 80 on channel 1.
+- The step is switched on and marked as a hand edit, so a later curve keeps it.
+- There is no mapping table. A lane records only the knob moves whose channel and CC number match the lane, and only CC lanes that are switched on (NRPN lanes are not recorded). For example, a lane on channel 1 with CC 80 records the knob that sends CC 80 on channel 1. The channel is the lane's own channel, or the track's when MIDI share is on.
 - A pass runs from the first recorded value until you disarm or the transport stops. Each pass is one undo step named Motion rec. Undo is refused while a pass is open.
 - Disarming in the middle of a pass commits it. Stopping the transport ends the pass but leaves the arm on.
 - The arm is not saved with the project.

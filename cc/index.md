@@ -25,7 +25,8 @@ The picker is the hold-EDIT view. The CC sub-mode itself is pad 24 in the picker
 
 ## Notes
 
-- A lane uses the track's length, speed and rotation. Each lane has its own Euclidean or linear pattern, its own steps and its own curve.
+- A lane uses the track's length, speed and rotation. Each lane has its own Euclidean pattern, its own steps and its own curve.
+- A new lane is on, follows the track's MIDI channel and has no steps yet (Beats 0), so it sends nothing until you add some. SHIFT + UP, DOWN, LEFT or RIGHT on any CC page switches lane 1, 2, 3 or 4 on or off.
 - Lane settings and steps are part of the track's pattern, so they switch with the pattern. See [Patterns and launching]({% link session/patterns-and-launching.md %}).
 - The Mod Matrix can route a source to a CC lane. See [LFOs and matrix]({% link modulation/lfos-and-matrix.md %}).
 

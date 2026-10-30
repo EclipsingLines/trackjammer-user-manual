@@ -23,10 +23,10 @@ Tap a track pad in the right column. Track 1 is pad 89, track 8 is pad 19. The s
 | Gesture | Result |
 |---|---|
 | Hold {% include pad.html name="shift" %} and tap a track | Mute or unmute that track |
-| Hold {% include pad.html name="clear" %} and tap a track | Clear the track |
-| Hold {% include pad.html name="dup" %} and tap a track | Copy the track |
+| Hold {% include pad.html name="clear" %} and tap a track | Reset every step of that track (its settings stay) |
+| Select a track, then hold {% include pad.html name="dup" %} and tap another track | Copy the selected track's steps and most of its settings onto the tapped track. Speed and MIDI channel are not copied |
 
-With sticky shift on (Global settings option 83), a tap on SHIFT stays on until you tap it again.
+With sticky shift on (Global > Settings, option 2, step pad 83), a tap on SHIFT stays on until you tap it again.
 
 {% include launchpad-grid.html top="newnav" top_lit="shift" track_sel=3 presets="steps_empty,steps_empty,steps_empty,steps_empty,empty_row,empty_row,empty_row,empty_row" hint="1@95,2@69" alt="Launchpad: SHIFT in the top row and track 3 in the right column, to mute it." caption="Hold SHIFT (1), then tap track 3 (2)." %}
 
@@ -38,7 +38,7 @@ On Beats > Steps, a tap on a step pad turns the step on or off. The steps are th
 
 ## Select a step and set a value
 
-Press and hold a step to select it. Then tap a value pad. What the value pads set depends on the page.
+Press and hold a step (about a fifth of a second) to select it. Then tap a value pad. What the value pads set depends on the page.
 
 {% include launchpad-grid.html top="none" right="none" presets="steps_euclid_5_8,steps_empty,steps_empty,steps_empty,empty_row,empty_row,options_row,slots_row" pads="85=gray:3:Sel:The selected step;45=white:3:Set:Tap a value pad to set the value" hint="1@85,2@45" alt="Launchpad: step 5 selected in the step area, and a value pad highlighted in the value area." caption="Hold a step to select it (1), then tap a value pad (2)." %}
 
@@ -48,4 +48,4 @@ Hold {% include pad.html name="shift" %} and tap {% include pad.html name="clear
 
 ## Regeneration and your edits
 
-Changing a setting that regenerates the pattern, such as the length or the beat count, rewrites the unlocked steps. With the Global option "edits survive regen" on (the default), a hand edit locks its step, so your edits and locked steps stay. Turn the option off in [Global settings]({% link global/settings.md %}) if you want every regeneration to start from scratch.
+Changing a setting that regenerates the pattern, such as the length or the beat count, rewrites the unlocked steps. With the Global option "edits survive regen" on (the default), a hand edit locks its step, so your edits stay. Steps you lock yourself are always kept. Turn the option off in [Global settings]({% link global/settings.md %}) if you want every regeneration to start from scratch.

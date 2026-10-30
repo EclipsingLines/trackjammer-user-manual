@@ -19,7 +19,7 @@ The Key page sets the global root and scale that tracks can follow, the home pag
 | 82 | Root | Value pads 31-38 are the white keys C to C. Value pads 42, 43, 45, 46 and 47 are C#, D#, F#, G# and A#. Pads 41, 44 and 48 do nothing. The root keeps its octave |
 | 87, 88 | Scale | Value pads 41 No scale, 42 Chromatic, 43 Major, 44 Natural minor, 45 Dorian, 46 Phrygian, 47 Lydian, 48 Mixolydian, 31 Locrian, 32 Harmonic minor, 33 Melodic minor, 34 Pentatonic major, 35 Pentatonic minor, 36 Blues, 37 Whole tone, 38 Diminished |
 | 75, 76 | Home page | Value pads 41-44 pick the EDIT sub-mode (Track, Beats, Keys, CC). Value pads 31-38 pick its page 1-8. Default: Beats, Steps |
-| 63, 64 | CT channel | Value pads 41-48 are channels 1-8 and 31-38 are channels 9-16. The default follows the device preset (channel 1 on the Circuit Tracks) |
+| 63, 64 | CT channel | Value pads 41-48 are channels 1-8 and 31-38 are channels 9-16. The default follows the device preset's first track channel |
 
 ## Options
 

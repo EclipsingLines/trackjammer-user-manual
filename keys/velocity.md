@@ -38,13 +38,13 @@ Keys > Velocity (page 2). Hold EDIT, tap 23 (Keys), tap 42.
 
 | Item | Setting |
 |---|---|
-| Default | 64 (half) for generated steps |
+| Default | 64 (half) for generated steps and for a step you turn on by tapping it |
 | Range | 16 to 127 |
 
 ## Notes to know
 
 - Accent (Beats > Accent, velocity type) changes velocity across steps. See [Accent]({% link beats/accent.md %}).
-- A hand edit locks the step while Global > Settings "Edits survive regen" is on, which is the default. See [Settings]({% link global/settings.md %}).
+- A value you set here is protected from being regenerated while Global > Settings "Edits survive regen" is on, which is the default. See [Settings]({% link global/settings.md %}).
 - With no step held or selected, pad taps change the step under the playhead.
 
 ## Related

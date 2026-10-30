@@ -7,9 +7,11 @@ description: "The cellular automaton view."
 
 # Automaton
 
-The automaton view turns the main grid into a cellular automaton. On each step, the live cells in the playhead column trigger their tracks. It is a view, not a mode. While it is open, the whole main grid is the automaton.
+The automaton view turns the main grid into a cellular automaton: an 8 by 8 board of live and dead cells that changes by simple rules, generation after generation. A playhead sweeps across the columns, and the live cells it passes trigger notes. It is a view, not a mode. While it is open, the whole main grid is the automaton.
 
-{% include hardware-unverified.html text="The automaton has not been tried on hardware. The NOTES row mode, where each row sends a chord, comes from the spec and was not traced in the code." %}
+The automaton starts switched off. To hear it, open the view, press UP to fill the grid with random cells, and press SHIFT + UP to switch it on.
+
+{% include hardware-unverified.html text="The automaton has not been tried on a Launchpad with a synth. The descriptions here come from the app code." %}
 
 ## Open and leave
 
@@ -33,9 +35,9 @@ Two row modes:
 | Mode | Rows | Use |
 |---|---|---|
 | TRACKS (default) | Top row is track 1, bottom row is track 8 | Each live cell in a row triggers that track |
-| NOTES | Each row is a scale degree of the selected notes track, lowest at the bottom | Each row plays a note of that track's scale |
+| NOTES | Each row is one of the first eight scale degrees of one track, lowest at the bottom. Tap a track on the track column to choose it. | All live cells in the playhead column sound together as a chord on that track |
 
-The playhead column moves one column per step and wraps every eight steps. It is lit while the automaton is on.
+The playhead column moves one column per step and wraps every eight steps. It is lit while the automaton is on. The grid wraps around at its edges. The automaton counts steps of the bar master (a sixteenth note when the clock is the bar master), so it stays in time with the clock.
 
 ## Arrows
 
@@ -44,7 +46,7 @@ The playhead column moves one column per step and wraps every eight steps. It is
 | UP (91) | Randomize, with a new seed and about 35 percent alive | Turn the automaton on or off |
 | DOWN (92) | Clear the grid | Switch rows between TRACKS and NOTES |
 | LEFT (93) | Next rule: Conway, HighLife, Seeds, Wolfram 1-D | Previous rule |
-| RIGHT (94) | Next rate: 1, 2, 4, 8 or 16 steps | Previous rate |
+| RIGHT (94) | Next rate: one new generation every 1, 2, 4, 8 or 16 steps. The default is 8, once per pass over the columns. | Previous rate |
 
 {% include launchpad-top-newnav.html lit="up,down,left,right" hint="1@91,2@93" alt="Launchpad top row: the four arrows, UP and LEFT" caption="UP (1) randomizes the grid. LEFT (2) picks the next rule." %}
 
@@ -52,8 +54,10 @@ The Wolfram 1-D rule is always rule 30. Its number cannot be changed on the pads
 
 ## Output
 
-- On each step, the live cells in the playhead column trigger their tracks through the track's normal output. The notes use the track's channel, velocity and gate.
-- The automaton runs only while the view is open and the automaton is on. Closing the view stops it.
+- In TRACKS mode, a live cell in the playhead column triggers its row's track on that step. It plays the first note, velocity and gate of that track's current step, and the track's channel and echo and voice settings. A muted track stays silent. If the step has no notes, the track's root note plays.
+- In NOTES mode, the live cells of the playhead column play together as a chord on the chosen track.
+- Notes go through the global key and the Circuit Tracks transpose like sequenced steps.
+- The automaton runs only while the view is open and the automaton is on (SHIFT + UP). Closing the view stops it. The grid, rule, rate and on/off state are saved with the project.
 
 ## Gotchas
 

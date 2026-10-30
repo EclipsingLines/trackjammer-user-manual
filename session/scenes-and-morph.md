@@ -16,17 +16,17 @@ A scene is one pattern per track: a snapshot of which pattern each of the eight 
 
 | Gesture | Result |
 |---|---|
-| Tap a scene pad (89 = scene 1 down to 19 = scene 8) | Queues the scene. Each track launches at its own point. Tap the queued scene again to cancel |
+| Tap a scene pad (89 = scene 1 down to 19 = scene 8) | Queues the scene. Each track launches at its own point. Tap the queued scene again to cancel. An empty scene says so and does nothing |
 | SHIFT + tap | Stores each track's active pattern as that scene |
-| Hold DOWN + tap | Empties the scene. Its patterns stay in the pattern bank |
+| Hold DOWN (92) + tap | Empties the scene. Its patterns stay in the pattern bank |
 
-Scene colours: empty is dark, stored is blue, the last recalled is green, queued blinks orange, the scene the song is on is cyan. With SHIFT held, empty scenes show red (ready to store) and stored ones purple.
+Scene colours: empty is dark, stored is blue, the last recalled is green, queued blinks orange, the scene the song is on is cyan. While SHIFT is held, the column changes colour to mark the store targets.
 
 ## Quick slots outside SESS
 
 Pads 11-18 outside SESS are the same eight scenes, but they act at once and are not quantized.
 
-- Tap: recall the scene immediately.
+- Tap: recall the scene immediately (an empty scene does nothing).
 - SHIFT + tap: store the current patterns into that scene.
 - CLEAR + tap: empty the scene.
 
@@ -36,14 +36,14 @@ Snapshot chaining still recalls these scenes. Use the SESS scene column when you
 
 A morph blends between two stored scenes while the sequence plays. It never writes into the patterns.
 
-1. Hold scene A.
-2. While holding it, tap scene B. Both must be stored and must differ.
+1. Press and hold scene A until it counts as held. A quick roll across two scenes is not a morph.
+2. While holding it, tap scene B. Both must be stored and must differ, otherwise you get "Morph needs two different stored scenes".
 3. The bottom row (11-18) becomes an eight-step crossfader: pad 11 is all A, pad 18 is all B. Tapping a step moves the blend there. Tapping the crossfader launches nothing.
 4. To end it, tap scene A or B, or hold A and tap B again. The morph lands on the nearer scene. Tapping any other scene ends the morph and launches that scene.
 
-Arming a morph recalls scene A first, so at position 0 the sound is scene A.
+Arming a morph recalls scene A first and clears any launches still queued, so at position 0 the sound is scene A.
 
-- Blended smoothly: velocity, gate, plain chance, CC and NRPN lane values, swing and humanize.
+- Blended smoothly: velocity, gate, plain chance, CC and NRPN lane values, density depth, swing and humanize.
 - Switched at the midpoint: step triggers, notes, PREVIOUS and TIMES chances, and the groove template.
 - Not morphed: length, sub-steps, step types, accents and mutations.
 - A track with no pattern in either scene, or the same pattern in both, does not morph.
@@ -52,9 +52,9 @@ Arming a morph recalls scene A first, so at position 0 the sound is scene A.
 
 ## Program change per scene
 
-A scene can send a MIDI program change on each track when it is applied, to recall a patch on the synth. Set it on the companion [Arranger panel]({% link companion/index.md %}): eight values per scene, -1 for none, 0-127 for the program.
+A scene can send a MIDI program change on each track when it is applied, to recall a patch on the synth. Set it in the "Scene details" part of the companion [Arranger panel]({% link companion/index.md %}) for a stored scene: eight values, -1 for none, 0-127 for the program.
 
-- The program change goes out on the same tick as the pattern switch, before the boundary step's notes.
-- It is a plain program change with no bank select.
+- The program change goes out on the track's MIDI channel on the same tick as the pattern switch, before the boundary step's notes.
+- It is a plain program change with no bank select. Quick-slot recall outside SESS sends it too.
 
 {% include hardware-unverified.html text="Whether the Circuit Tracks picks the patch from a plain program change, and whether drum tracks ignore it, has not been checked on hardware." %}

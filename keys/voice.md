@@ -8,7 +8,7 @@ description: "Voice settings of the Keys sub-mode."
 
 # Voice
 
-Voice shapes the notes of a chord or an arpeggio after the pattern has been applied: how the chord is inverted and spread, whether successive chords move smoothly, and how the arpeggio runs.
+Voice shapes chords and arpeggios after the pattern has been applied. Inversion, spread and voice leading shape chord steps: how the chord is inverted and spread, and whether successive chords move smoothly. Arp octaves, seed and arp over progression shape arp steps.
 
 ## Where
 
@@ -30,11 +30,11 @@ Keys > Voice (page 8). Hold EDIT, tap 23 (Keys), tap 48. The step pad picks a se
 ## What each setting does
 
 - **Inversion:** moves the lowest note up an octave, once for each step. 0 leaves the chord as it is.
-- **Spread:** Close, Open, Drop 2 and Drop 3 are the four ways the chord's notes are spread across the octaves.
-- **Voice leading:** chooses the inversion and the octave that sit closest to the previous chord on this track. The memory resets when the transport starts.
+- **Spread:** Close leaves the chord as it is. Open raises every second note an octave. Drop 2 lowers the second note from the top an octave. Drop 3 lowers the third note from the top an octave and needs a chord of four notes or more. Open and Drop 2 need three notes or more.
+- **Voice leading:** chooses the inversion and the octave that sit closest to the previous chord on this track, so successive chords move as little as possible. The memory resets when the transport starts.
 - **Arp octaves:** how many octaves the arpeggio spans. It applies to every arp pattern.
-- **Arp seed:** Free gives a new random order each time the arp plays. A number gives the same random order every time.
-- **Arp over progression:** an arp step plays the chord currently in the chord lane, instead of its own notes.
+- **Arp seed:** only matters for the Random arp pattern (see [Voicing]({% link keys/voicing.md %})). Free gives a new random order each time. A number gives the same random order every time.
+- **Arp over progression:** an arp step plays the chord currently in the chord lane, instead of its own notes. It needs the chord lane on. A step locked with the LOCK pad keeps its own notes.
 
 ## Options and defaults
 
@@ -51,8 +51,8 @@ At these defaults the voicing stage does nothing. Set one of the settings to hea
 
 ## Notes to know
 
-- Inversion, spread and voice leading can be locked per step. See [Parameter locks]({% link modulation/parameter-locks.md %}).
-- The voicing settings act on chords and arpeggios. A Mono step is not changed by them.
+- Inversion, spread and voice leading can be locked per step. Hold a step and tap a value pad. See [Parameter locks]({% link modulation/parameter-locks.md %}).
+- Inversion, spread and voice leading only change chords of two or more notes, so they act on Chord steps. Mono, Arp and Strum steps play one note at a time and are not changed by them.
 - The chord comes from the chord lane. See [Global > Chords]({% link global/chords.md %}).
 
 ## Related

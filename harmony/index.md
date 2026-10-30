@@ -24,10 +24,10 @@ To open the Global pages, hold SHIFT and tap SESS. RIGHT moves to Chords, and RI
 
 ## Circuit Tracks transpose
 
-An incoming note-on on the listening channel sets a transpose for the tracks that follow it. The transpose is the played note minus a reference, which is C4 for key C and moves with the key's root. The transpose stays in place until another note arrives or Global > Key option 21 resets it. The transpose is snapped into the effective scale of each following track.
+An incoming note-on on the listening channel sets a transpose for the tracks that follow it. The transpose is the played note minus a reference, which is C4 for key C and moves with the key's root. The transpose stays in place until another note arrives or Global > Key option 21 resets it. Each following track then snaps the result down to the nearest note of its own scale.
 
-- Global > Key option 22 turns listening on or off.
-- The channel is set on Global > Key. Off ignores the channel. The default is the Circuit Tracks synth 1 channel. Channels 1 to 16 are also available.
+- Global > Key option 22 turns listening on or off. Only notes on the Circuit input port are heard.
+- The channel is set on Global > Key. Option 23 goes back to the default, which is the Circuit Tracks synth 1 channel (1). Channels 1 to 16 are also available.
 - Only tracks with Follow transpose on are affected. See [Keys > Harmony]({% link keys/harmony.md %}).
 - The companion screen shows TRANSPOSE with the offset while it is set.
 
@@ -44,13 +44,13 @@ The stages below run in this order when a step plays. Nothing is written into th
 7. The voicing tools on [Voice]({% link keys/voice.md %}).
 8. The harmonizer voices.
 
-An arp runs last, on the result of these stages. Locked steps follow the global key, but skip the chord lane and the transpose.
+An arp runs last, on the result of these stages. A step locked with the LOCK pad follows the global key, but skips the chord lane and the transpose.
 
 ## Defaults and older projects
 
 - New projects turn Follow global key on for every track.
 - Projects saved before this change load with Follow global key off, so they sound the same as before.
-- Drum tracks never follow the global key.
+- Tracks whose own scale is No Scale (drum tracks by default) never follow the global key.
 - The companion status line shows the key, the chord that is playing, and the transpose, for example `KEY C Phrygian  CHORD V 7th  TRANSPOSE +5`.
 
 ## Related

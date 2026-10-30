@@ -8,9 +8,9 @@ description: "Switch steps on and off, select and lock them."
 
 # Steps
 
-Steps is the first Beats page and the one you land on after the Beats sub-mode. The step area shows the steps of the cycle. Tap a step to turn it on or off. Press and hold a step to select it, then the value row sets its chance.
+Steps is the first Beats page, and the home page that a tap on EDIT jumps to by default. The step area shows the steps of the cycle. Tap a step to turn it on or off. Press and hold a step to select it, then the value row sets its chance.
 
-Hold EDIT and tap pad 41 in the picker, or go there with the arrows from Beats.
+Hold EDIT and tap pad 41 in the picker, or press LEFT until you reach it.
 
 {% include launchpad-grid.html top="newnav" top_lit="edit" sub_mode="beats" presets="steps_4_floor_select,steps_4_floor,steps_empty,steps_empty,empty_row,empty_row,options_row,slots_row" row5="cyan:3:12.5:Chance 12.5 percent,cyan:3:25:Chance 25 percent,cyan:3:33:Chance 33 percent,cyan:3:50:Chance 50 percent,cyan:1:66:Chance 66 percent,cyan:1:75:Chance 75 percent,cyan:1:87.5:Chance 87.5 percent,cyan:1:95:Chance 95 percent" row6="yellow:2:Last:Last or not last,off:::,off:::,yellow:2:Cyc:Cycle pattern,yellow:2:Len:Cycle length,off:::,off:::,green:3:95%:Chance on or off" hint="1@85,2@44" alt="Launchpad Beats Steps page: step 5 is selected; the top value row shows chance levels with 50 percent lit, and the bottom value row holds the chance type pads" caption="Select step 5 (1), then tap 50 on the value row (2) to give it a 50 percent chance." %}
 
@@ -34,7 +34,7 @@ Chance sets how often a step fires. A step with no chance set always fires. Each
 | Last or not last | Pad 31 | The step fires only if the previous step fired (Last), or only if it did not (Not last). Tap pad 31 again to swap. |
 | Cycles | Pad 34 for the pattern, pad 35 for the length | The step fires only on the cycles marked in its pattern. Pad 34 shows the pattern on the top row; tap a pad to switch that cycle on or off. Pad 35 sets the pattern length on the top row, from 1 to 8 cycles. |
 
-Pad 38 turns the probability chance on at 95 percent, or back off.
+Pad 38 turns the chance on at 95 percent, or off again.
 
 A step fires only when its chance and its trig condition (see [Conditions]({% link beats/conditions.md %})) both allow it.
 
@@ -44,7 +44,7 @@ A step fires only when its chance and its trig condition (see [Conditions]({% li
 - Hold CLEAR (28) and tap a step to reset that one step, including its edits and its lock.
 - Hold LOOP (25) and tap two steps to set a loop. See [Playback]({% link track/playback.md %}).
 
-{% include warning.html text="A hand edit locks the whole step automatically while Global > Settings, option 7 ('Edits survive regen') is on. A locked step leaves the Euclidean beat spread, so other generated beats can move when the pattern is regenerated." title="Hand edits lock steps" %}
+{% include warning.html text="A hand edit locks the whole step automatically while Global > Settings, option 7 ('Edits survive regen', step pad 75) is on. A locked step leaves the Euclidean beat spread, so other generated beats can move when the pattern is regenerated." title="Hand edits lock steps" %}
 
 ## See also
 

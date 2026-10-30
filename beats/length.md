@@ -10,7 +10,7 @@ description: "Pattern length and cycle length."
 
 Length sets how many steps are in one cycle of the selected track, from 1 to 32. The track loops through them and then starts again.
 
-Hold EDIT and tap pad 42 in the picker, or press RIGHT or LEFT from Steps to reach this page.
+Hold EDIT and tap pad 42 in the picker, or press RIGHT from Steps.
 
 {% include launchpad-grid.html top="newnav" top_lit="edit" sub_mode="beats" presets="steps_empty,steps_empty,steps_empty,steps_empty,empty_row,empty_row,options_row,slots_row" pads="21=green:3:Keep:Keep ratio on or off;81=purple:3:1:Length 1 step;58=purple:3:32:Length 32 steps" hint="1@21" alt="Launchpad Beats Length page: pad 21 toggles keep ratio; the step area sets the length, from pad 81 for one step to pad 58 for 32" caption="Pad 21 (1) switches Keep ratio on or off." %}
 
@@ -20,7 +20,7 @@ Tap a step in the step area. The pad you tap becomes the last step of the cycle:
 
 Changing the length regenerates the generated beats for the new length. The beat count stays, or changes in proportion if Keep ratio is on.
 
-{% include warning.html text="Changing the length regenerates the generated beats. Hand edits and locked steps are kept only while Global > Settings, option 7 ('Edits survive regen') is on, which is the default. Use SHIFT + CLEAR to undo a length change." %}
+{% include warning.html text="Changing the length regenerates the generated beats. Locked steps are always kept. Hand edits lock their step automatically only while Global > Settings, option 7 ('Edits survive regen', step pad 75) is on, which is the default. Use SHIFT + CLEAR to undo a length change." %}
 
 ## Keep ratio
 

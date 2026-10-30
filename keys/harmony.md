@@ -14,7 +14,7 @@ The Harmony page sets how one track follows the global harmony: the global key, 
 
 Keys > Harmony (page 7). Hold EDIT, tap 23 (Keys), tap 47. The step pad picks a setting. The top value row, 41 to 48, sets its value.
 
-{% include launchpad-grid.html top="newnav" top_lit="edit" sub_mode="keys" presets="steps_empty,steps_empty,steps_empty,steps_empty,empty_row,empty_row,empty_row,slots_row" row1="off,orange:3:Glob:Follow global key,off,off,off,purple:2:Chrd:Chord follow,off,off" row2="off,off,purple:2:CT:Follow Circuit transpose,off,off,off,purple:2:Hrm1:Harmonizer voice 1,off" row3="off,off,off,off,purple:2:Hrm2:Harmonizer voice 2,off,off,off" row5="purple:2:Off,orange:3:On,off,off,off,off,off,off" hint="1@82,2@42" alt="Launchpad Keys Harmony page: the global key setting is picked with its On value lit; other settings are on the step rows" caption="Pick Follow global key on step 82 (1), then tap On on the top value row (2). Other settings sit on the step pads marked on the grid." %}
+{% include launchpad-grid.html top="newnav" top_lit="edit" sub_mode="keys" presets="steps_empty,steps_empty,steps_empty,steps_empty,empty_row,empty_row,empty_row,slots_row" row1="off,orange:3:Glob:Follow global key,off,off,off,purple:2:Chrd:Chord follow,off,off" row2="off,off,purple:2:CT:Follow Circuit transpose,off,off,off,off,purple:2:Hrm1:Harmonizer voice 1" row3="off,off,off,off,purple:2:Hrm2:Harmonizer voice 2,off,off,off" row5="purple:2:Off,orange:3:On,off,off,off,off,off,off" hint="1@82,2@42" alt="Launchpad Keys Harmony page: the global key setting is picked with its On value lit; other settings are on the step rows" caption="Pick Follow global key on step 82 (1), then tap On on the top value row (2). Other settings sit on the step pads marked on the grid." %}
 
 ## Settings
 
@@ -28,10 +28,10 @@ Keys > Harmony (page 7). Hold EDIT, tap 23 (Keys), tap 47. The step pad picks a 
 
 ## What each setting does
 
-- **Follow global key:** the track plays in the root and scale set on [Global > Key]({% link global/key.md %}). Drum tracks never follow. New projects turn it on for every track. Projects saved before this setting existed load with it off.
-- **Chord follow:** adjusts the notes to the chord currently playing in the [Global > Chords]({% link global/chords.md %}) lane. Scale fits the notes to the track's scale on the chord root. Snap moves each note to the nearest chord tone. Transpose shifts each note by the distance of the chord root from the tonic. Chord follow does nothing while the chord lane is off.
-- **Follow transpose:** the Circuit Tracks transpose applies to this track. It is on for melodic tracks and off for drum tracks by default. See [Global > Key]({% link global/key.md %}) for the listening channel.
-- **Harmonizer:** adds one or two voices above each note, in the track's scale. 3rd, 5th and 6th are 2, 4 and 5 scale steps up (4, 7 and 9 semitones on No Scale or chromatic tracks). Oct up and Oct down are exact octaves. A voice that repeats a note already in the chord is dropped.
+- **Follow global key:** the track plays in the root and scale set on [Global > Key]({% link global/key.md %}). A track whose own scale is No Scale, which is the case for drum tracks, never follows. Nothing follows while the global scale is No Scale. New projects turn it on for every track. Projects saved before this setting existed load with it off.
+- **Chord follow:** adjusts the notes to the chord currently playing in the [Global > Chords]({% link global/chords.md %}) lane. Scale moves each note to the nearest note of the scale built on the chord's root. Snap moves each note to the nearest chord tone. Transpose shifts each note up by the chord's scale degree, so a V chord moves the part up to the fifth. When a note is equally close to two targets, the lower one wins. Chord follow does nothing while the chord lane is off or empty.
+- **Follow transpose:** a note played on the Circuit Tracks (on the listening channel) transposes this track. After the shift, a note that falls outside the track's scale moves down to the nearest scale note. It is on for melodic tracks and off for drum tracks by default. See [Global > Key]({% link global/key.md %}) for the listening channel.
+- **Harmonizer:** adds up to two extra notes with every note played, in the track's scale. 3rd, 5th and 6th are 2, 4 and 5 scale steps above the note (4, 7 and 9 semitones on No Scale or chromatic tracks). Oct up and Oct down are exact octaves above and below. A voice that repeats a note already in the chord is dropped.
 
 ## Options and defaults
 
@@ -45,7 +45,7 @@ Keys > Harmony (page 7). Hold EDIT, tap 23 (Keys), tap 47. The step pad picks a 
 ## Notes to know
 
 - Nothing is written into the steps. Turning a setting off brings back the stored notes.
-- Locked steps still follow the global key, but skip the chord lane and the Circuit Tracks transpose.
+- A step locked with the LOCK pad still follows the global key, but skips the chord lane and the Circuit Tracks transpose.
 - Harmonizer voices can be locked per step. Chord follow and follow transpose cannot. See [Parameter locks]({% link modulation/parameter-locks.md %}).
 - On a track that follows the global key, the Notes keyboard shows the global key. See [Notes]({% link keys/notes.md %}).
 - The order of the stages is on the [Harmony]({% link harmony/index.md %}) page.

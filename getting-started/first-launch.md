@@ -14,7 +14,7 @@ Start TrackJammer with the Launchpad and the Circuit Tracks connected. This is w
 2. The Launchpad switches to programmer mode and the grid lights.
 3. Press Play on the Circuit Tracks. Its start message starts the sequencer.
 
-If the Circuit Tracks is not connected, the app runs its own clock instead. As soon as the Launchpad connects, the tracks play.
+If the Circuit Tracks is not connected, the app runs its own clock instead. As soon as the Launchpad connects, the tracks play. When the Circuit Tracks connects later, its clock takes over.
 
 ## The default project
 
@@ -22,6 +22,7 @@ The project has eight tracks. With the Circuit Tracks preset, each track sends o
 
 | Track | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|---|
+| Name on screen | Synth 1 | Synth 2 | Drum 1 | Drum 2 | Drum 3 | Drum 4 | Midi CC | Track 8 |
 | Channel | 1 | 2 | 10 | 10 | 10 | 10 | 16 | 15 |
 
 Track selection is on the right column of the Launchpad: track 1 is pad 89 at the top, track 8 is pad 19 at the bottom.

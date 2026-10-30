@@ -27,7 +27,8 @@ The first time the program starts, it creates a `data` folder next to the progra
 | `data/config` | `settings.json`: the global settings, the clock tempo and the hold-EDIT bookmarks |
 | `data/sessions` | Projects, saved as `.tjam` files: 64 slots per track, 512 in all |
 | `data/presets` | Device presets (`input` and `output` subfolders) |
-| `data/logs`, `data/cache` | Program logs and temporary files |
+| `data/logs`, `data/cache` | Reserved for program logs and temporary files |
+| `data/recordings` | Created, but MIDI recordings are not written here (see [Recording and files]({% link recording-and-files/index.md %})) |
 
 The stability log goes to `data/telemetry`, and only while it is switched on in [Global > Clock]({% link global/clock.md %}).
 

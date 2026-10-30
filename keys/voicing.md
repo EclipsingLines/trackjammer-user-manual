@@ -39,11 +39,12 @@ Arpeggio steps have 19 patterns, so they need two layers. The first layer is pad
 
 | Item | Setting |
 |---|---|
-| Pattern | Set per step; with no step held or selected, the track's default pattern |
+| Pattern | Set per step. With no step held or selected, the pad changes the step under the playhead |
 | Arp octaves and seed | On [Voice]({% link keys/voice.md %}); they apply to all arp patterns |
 
 ## Notes to know
 
 - The pad list follows the step's type. A step set to Chord shows chord patterns, and so on.
+- A chord pattern adds its notes on top of the step's first note. Arp and Strum patterns put the step's own notes in order or time, so give the step more than one note.
 - Picking a pattern rebuilds that step's sub-steps.
 - Use [Type]({% link keys/type.md %}) to change the type first, and [Voice]({% link keys/voice.md %}) for the arp octaves and the seed.

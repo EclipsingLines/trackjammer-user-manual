@@ -25,14 +25,14 @@ Open it from Feel with RIGHT, or hold EDIT and tap pad 43 in the picker.
 ## Direction
 
 - Forward plays the steps in order. Reverse plays them backwards. Pendulum runs back and forth.
-- Random picks steps at random and Drunk takes a random walk, one step forward or back at a time. Both use a seeded generator, so they repeat the same way for the same settings.
-- One cycle is the track's length in steps, whatever the direction. Chains, the reset every N bars and the cycle counts all count cycles this way.
+- Random picks steps at random and Drunk takes a random walk, one step forward or back at a time. They are different every time you play.
+- One cycle is the track's length in steps (or the length of the loop, if one is set), whatever the direction. Chains, the reset every N bars and the cycle counts all count cycles this way.
 
 ## Loop
 
 The loop plays only a span of the track, for example steps 3 to 6.
 
-To set a loop, go to a page where steps can be locked (Beats > Steps, Beats > Repeat, Beats > Conditions, or a Keys page). Hold LOOP (25), tap the first step and then the last step; the order does not matter. Clear it with CLEAR and LOOP together, which returns the track to its full length.
+To set a loop, go to a page where steps can be locked (Beats > Steps, Repeat or Conditions, or Keys > Notes, Velocity, Gate, Type or Voicing). Hold LOOP (25), tap the first step and then the last step; the order does not matter. Clear it with CLEAR and LOOP together, which returns the track to its full length.
 
 On this page the loop row only shows the current span. Each value pad covers two steps, so pad 41 is steps 1 and 2 and pad 38 is steps 31 and 32.
 
@@ -52,4 +52,4 @@ If the transport is stopped, a Next bar launch waits for the first bar of the ne
 
 - [Feel]({% link track/feel.md %}) for swing and humanize.
 - [Steps]({% link beats/steps.md %}) for setting the loop on the steps.
-- [Performance]({% link perform/index.md %}) for the held FX that change playback while you play.
+- [Perform]({% link perform/index.md %}) for the held FX that change playback while you play.

@@ -39,10 +39,10 @@ Tracks 1 to 8 are pads 89, 79, 69, 59, 49, 39, 29 and 19, from top to bottom. A 
 | Value area | 41-48, 31-38 | 16 values for the selected setting or step |
 | Page options | 21-25 | Options of the current page. Pad 25 is LOOP (held) on pages that allow locks |
 | Held options | 26 LOCK, 27 DUP, 28 CLR | Modifier pads you hold while you tap another pad |
-| Scene row | 11-18 | Scenes 1 to 8. A tap recalls the scene at once |
+| Scene row | 11-18 | Scenes 1 to 8. A tap recalls the scene at once. SHIFT + tap stores the current patterns in it, and CLEAR + tap empties it |
 
 Each grid pad is numbered as 10 times (8 minus its row) plus its column, counting the top row as row 0 and the left column as column 1. So the top row is 81 to 88 and the bottom row is 11 to 18.
 
 In SESS, and on Global > Projects, the whole 8 by 8 grid is one screen.
 
-{% include tip.html text="The app window has a guide panel that lists the colours and the held-pad combinations for the current page. It can be hidden with Global option 68." %}
+{% include tip.html text="The app window has a guide panel that lists the colours and the held-pad combinations for the current page. It can be hidden with Global > Settings option 13 (step pad 68) or the Guide button." %}

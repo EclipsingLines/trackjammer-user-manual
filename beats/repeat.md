@@ -20,18 +20,18 @@ Repeat works on the selected step only. Press and hold a step to select it. With
 
 ## Repeat hits (value row)
 
-Each value pad switches one repeat hit on the selected step on or off. A lit pad is a hit. The pads run from left to right through the step's timeline.
+Each value pad switches one repeat hit on the selected step on or off. A lit pad is a hit. The pads run from left to right through the step's timeline. A step has 8 repeat slots by default.
 
 ## Pace and strength (options)
 
 | Pad | Option | What it does |
 |---|---|---|
 | 21 | Even | Hits are spread evenly across the step. This is the default. |
-| 22 | Accel | Hits are packed toward the start of the step. |
-| 23 | Decel | Hits are packed toward the end of the step. |
-| 24 | Strength | Steps the repeat strength up. The number shows after the pace name, for example Accel 2. |
+| 22 | Accel | Hits start close together at the beginning of the step and spread out towards its end. |
+| 23 | Decel | Hits start spread out and bunch up towards the end of the step. |
+| 24 | Strength | Cycles the pace strength 2, 3, 1, 2 and so on. A higher number bends the spacing more. The number shows after the pace name, for example Accel 2. It has no effect on Even. |
 
-{% include hardware-unverified.html text="The exact curves of Accel and Decel, and the order in which the strength steps through its values, are described from the app code and not checked on a Launchpad." %}
+{% include hardware-unverified.html text="The spacing of Accel and Decel is worked out from the app code and has not been checked by ear on hardware." %}
 
 ## Gotchas
 

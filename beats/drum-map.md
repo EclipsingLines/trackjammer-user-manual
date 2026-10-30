@@ -8,7 +8,7 @@ description: "Generate rhythm rows from a two-dimensional drum map"
 
 # Drum map
 
-The drum map generates a rhythm for up to four drum rows from a small two-dimensional map. Two faders choose a point on the map, and each row has its own density at that point. Moving the point changes the rhythm without rewriting it by hand.
+The drum map generates a rhythm from a small two-dimensional map. Two faders choose a point on the map, and a density pad sets how full the rhythm is. A normal track plays one map row (kick, snare, hat or percussion); a drum rack track plays one row per lane. Moving the point changes the rhythm without rewriting it by hand.
 
 Hold EDIT and tap pad 47 in the picker, or press RIGHT from Conditions.
 
@@ -18,7 +18,7 @@ Hold EDIT and tap pad 47 in the picker, or press RIGHT from Conditions.
 
 - Step rows 81 to 88 are the X fader, from position 1 to 8. Each tap moves the X position.
 - Step rows 71 to 78 are the Y fader, from position 1 to 8. Each tap moves the Y position.
-- The value row sets the density of the chosen row, from 0 to 100 percent, in 16 steps.
+- The value row sets the density of the chosen row, in 16 steps: 41 is 0 percent, then 7, 13, 20, 27, 33, 40 and 47 up to pad 48; 31 is 53, then 60, 67, 73, 80, 87 and 93, and pad 38 is 100 percent.
 
 The lower step rows show a preview of the first 16 steps of the result. They do not change anything.
 
@@ -27,14 +27,12 @@ The lower step rows show a preview of the first 16 steps of the result. They do 
 | Pad | Option | What it does |
 |---|---|---|
 | 21 | On or off | Turns the map on (green) or off (red). |
-| 22 | Kick | Chooses the kick row for the value row. |
-| 23 | Snare | Chooses the snare row. |
-| 24 | Hat | Chooses the hat row. |
-| 25 | Percussion | Chooses the percussion row. |
+| 22 | Kick | The track plays the kick row. |
+| 23 | Snare | The track plays the snare row. |
+| 24 | Hat | The track plays the hat row. |
+| 25 | Percussion | The track plays the percussion row. |
 
 On a drum rack track, options 22 to 25 pick the rack lane instead of a drum row.
-
-{% include hardware-unverified.html text="The mapping of options 22 to 25 to the drum rows, and the value steps of the density pads, come from the app code and have not been checked on a Launchpad." %}
 
 ## What it writes
 

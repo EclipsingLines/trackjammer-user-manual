@@ -8,9 +8,9 @@ description: "Use hardware knobs to edit the current page."
 
 # Knob control
 
-With knob control on, the CT MIDI-track knobs edit the values of the current page. Knobs 1 to 8 (CC 80 to 87 on the knob channel) edit the eight values of the page from left to right. A knob move changes the track's own value. It is not a step lock. TrackJammer does not change the sounds on the CT. The knobs only send control data.
+With knob control on, the CT MIDI-track knobs edit the values of the current page. Knobs 1 to 8 (CC 80 to 87 on the knob channel) edit the eight values of the page from left to right. A knob move changes the track's own value. It is not a step lock. TrackJammer only listens to the knob messages the CT sends; it does not change the sounds on the CT.
 
-{% include hardware-unverified.html text="Knob control listens on one channel only: the knob channel set below, which is 3 by default from the Circuit Tracks preset. A knob on another channel is not heard unless that channel is set. This has not been checked on hardware." %}
+{% include hardware-unverified.html text="In the app code, knob control listens on one MIDI channel only: the knob channel set below, which is 3 by default from the Circuit Tracks preset (the first MIDI track). A knob on another channel is not heard until you pick that channel. The channel and CC numbers of the knobs depend on the CT track and its template. A bench capture reported that Synth 1 and 2 knobs send CC 80 to 87 on channels 1 and 2 and still change the CT sound, and that MIDI tracks send what their template says. This has not been checked with TrackJammer on hardware." %}
 
 ## Turn it on
 
@@ -20,7 +20,7 @@ With knob control on, the CT MIDI-track knobs edit the values of the current pag
 
 {% include launchpad-grid.html top="newnav" top_lit="global" presets="steps_empty,steps_empty,steps_empty,steps_empty,empty_row,empty_row,options_row,slots_row" pads="24=red:1:Knob:Knob control is off by default;25=red:1:Trk:CT track follow is off by default;75=orange:3:Ch:Pick the knob channel, then tap a value pad" hint="1@24,2@75" alt="Launchpad Global LFO page: option 24 turns knob control on, pad 75 picks the knob channel" caption="Tap option 24 to turn knob control on (1). Pad 75 picks the knob channel, then tap a value pad (2)." %}
 
-The knob map in the companion window shows which knob edits which value.
+The Matrix panel in the Godot window (header button Matrix) shows a knob map: which knob edits which value, and whether it is picked up yet.
 
 ## Pickup
 

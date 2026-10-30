@@ -18,9 +18,9 @@ Keys > Notes (page 1). Hold EDIT, tap 23 (Keys), tap 41. The step area is for tu
 
 ## How to use it
 
-1. Hold a step to select it. The keyboard edits that step's notes.
+1. Hold a step to select it. The keyboard edits that step's notes. With no step held or selected, it edits the step under the playhead.
 2. Tap a key on the value area. The note is added. Tap it again to remove it.
-3. To change the step type, use pads 21 to 24 (Mono, Arp, Chord, Strum). See [Type]({% link keys/type.md %}).
+3. To change the step type, use pads 21 to 24 (Mono, Arp, Chord, Strum). With a step selected they change that step. With none selected they change the track's default type. See [Type]({% link keys/type.md %}).
 
 ## Keyboard layout
 
@@ -39,11 +39,13 @@ Keys > Notes (page 1). Hold EDIT, tap 23 (Keys), tap 41. The step area is for tu
 
 The octave is the track's keyboard octave. It runs from 0 to 10. Changing it moves the keys; it does not change notes already in the steps.
 
+A tap on a step turns it on or off. A step turned on this way starts with velocity 64, gate 64 and the track's root note.
+
 ## Options and defaults
 
 | Item | Setting |
 |---|---|
-| Step type | Pads 21 to 24 |
+| Step type | Pads 21 (Mono), 22 (Arp), 23 (Chord), 24 (Strum) |
 | Keyboard octave | Pads 41 (down) and 48 (up) |
 | Empty step | Plays nothing |
 
@@ -52,7 +54,7 @@ The octave is the track's keyboard octave. It runs from 0 to 10. Changing it mov
 - Tapping a key stores the note in the track's own key. On a track that follows the global key, the keyboard shows the global key, and the stored note is converted back to the track's key. See [Harmony]({% link keys/harmony.md %}).
 - When the track's source is Stochastic and a step is selected, a tap changes that note's weight instead. Each tap steps the weight through absent, 1, 2, 3, 4 and removed. See [Source]({% link keys/source.md %}).
 - Phrase, Markov and Random loop sources write their own notes into the steps each time the step fires, unless the step is locked or has been edited by hand. The notes you see are then the last generated ones.
-- Notes are kept inside the track's root, scale and octave range.
+- Keys light in the track's scale. Keyboard taps are stored as you press them; only generated notes are kept inside the track's scale and octave range.
 
 ## Related
 

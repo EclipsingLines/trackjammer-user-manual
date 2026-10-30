@@ -16,8 +16,8 @@ Hold EDIT and tap pad 44 in the picker, or press RIGHT from Beat count.
 
 ## How it works
 
-- The step area sets how many beats are accented. Tap the pad for the number you want. It cannot be more than the beat count.
-- The value area sets the strength of the accent.
+- The step area sets how many beats are accented. Tap the pad for the number you want (pad 81 is 1). It cannot be more than the beat count. To set it back to 0, hold CLEAR and tap an arrow pad while you are on this page.
+- The value area sets the strength of the accent, from pad 41 (weakest) to pad 38 (strongest). The default is about the middle of the row.
 - Options 21 to 25 pick what the accent does.
 
 ## Accent types
@@ -30,11 +30,11 @@ Hold EDIT and tap pad 44 in the picker, or press RIGHT from Beat count.
 | 24 | Timing | They move forwards or backwards in time |
 | 25 | Note change | Their note, using the track's scale and root |
 
-The selected type is lit. Note change uses the scale and root set on [Params]({% link track/params.md %}).
+The selected type is lit. The default type is Note change, which uses the scale and root set on [Params]({% link track/params.md %}).
 
 ## Accent complement
 
-Accent complement is on [Params]({% link track/params.md %}), step pad 65. It changes which beats the accent prefers: as on the old Pattern page, off favours the strong beats and on favours the weak ones.
+Accent complement is on [Params]({% link track/params.md %}), step pad 65. It reverses which steps the accent type favours.
 
 ## See also
 

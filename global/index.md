@@ -8,7 +8,7 @@ description: "Project-wide settings, chords, key, clock, projects and LFOs."
 
 # Global
 
-Global holds the project-wide settings and tools. Open it by holding SHIFT (95) and tapping SESS (98). The top row shows SESS in red while you are in Global.
+Global holds the project-wide settings and tools. Open it by holding SHIFT (95) and tapping SESS (98). The SESS pad is lit red while you are in Global.
 
 {% include launchpad-top-newnav.html lit="global" hint="1@95,2@98" alt="Launchpad top row: hold SHIFT, then tap SESS to open Global" caption="Hold SHIFT (1), then tap SESS (2)." %}
 
@@ -28,7 +28,7 @@ Global holds the project-wide settings and tools. Open it by holding SHIFT (95) 
 - LEFT and RIGHT move between pages. Hold nothing else while you press them.
 - The companion window shows the page as, for example, "GLOBAL > Projects (5/6)".
 - Tap EDIT to leave Global. You return to the last EDIT sub-mode and page you used, not to the home page.
-- On Settings, Chords, Key, Clock and LFO the step pads choose which setting you edit, and the value pads set it. Projects is different: the whole grid is save slots.
+- On Settings, Key and LFO the step pads choose which setting you edit, and the value pads set it. On Chords the step pads are the eight chord slots. On Clock they only show who is the clock, and the value pads set the tempo. Projects is different: the whole grid is save slots.
 
 Some values are saved in the project and some in your settings file, so they apply to every project. Each page says which.
 

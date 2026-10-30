@@ -35,7 +35,7 @@ The Chords page holds one global chord progression lane: up to eight slots, each
 - The lane moves on with the bar master's bars. Each slot holds for its length in bars.
 - Empty slots are skipped.
 - A transport start, or bar 0, restarts the lane.
-- The playing slot is green on the Launchpad, and the companion shows it as "SLOT n" with the chord it plays.
+- The playing slot is lit in the playhead colour on the Launchpad (the selected slot blinks). The Launchpad scroll text shows "SLOT n" with its chord, and the companion status line shows "CHORD" with the chord now playing.
 
 ## Related
 

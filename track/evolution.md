@@ -35,8 +35,8 @@ A cycle is the track's length in steps, as set on [Playback]({% link track/playb
 
 ## Gotchas
 
-- Evolution is off when Every is set to Off.
-- Changing the action resets the accumulator to 0. Moving the action away from Accumulate brings back the original notes.
+- Evolution is off when Every is set to Off. This is the default. The other defaults are action Rotate, amount +1 and accumulate range 7.
+- Moving the action away from Accumulate resets the accumulator to 0, which brings back the original notes.
 - The accumulator is not saved with the project. It restarts at 0 whenever the transport starts.
 
 ## See also

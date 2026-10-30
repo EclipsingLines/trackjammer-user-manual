@@ -44,13 +44,13 @@ Undo and redo are not available in SESS, on Global > Projects, under the hold-ED
 ## A recording is missing
 
 - The file is written only when the transport stops. Stop playback, then look again.
-- A recording has the sequencer's output. Incoming messages from the Circuit Tracks are added only when Global option 6, "record external", is on.
+- A recording has the sequencer's output. Incoming messages from the Circuit Tracks are added only when Global > Settings option 6, "record external" (step pad 73), is on.
 - Recordings are in Godot's user folder for this app, not in the `data` folder. See [Recording and files]({% link recording-and-files/index.md %}).
 
 ## Projects or settings are gone after an update
 
 The projects, scenes and settings are in the `data` folder next to the program file. A new copy of the program in a new folder starts with an empty `data` folder. Copy the old `data` folder into the new one.
 
-## The app reports that it cannot open its folder
+## Settings and projects are not saved
 
-The app keeps its data next to the program file, so it needs write access there. Move the program to a folder you can write to, and start it again.
+The app keeps its data in a `data` folder next to the program file, so it needs write access there. If it cannot create the folder, settings and projects cannot be saved. Move the program to a folder you can write to, and start it again.

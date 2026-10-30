@@ -52,15 +52,19 @@ The shipped file looks like this:
 }
 ```
 
-{% include note.html text="The user folder is not the data folder. It is Godot's per-application folder, and its location depends on your operating system." %}
+{% include note.html text="The user folder is not the data folder. It is Godot's per-application folder, named after the project (Tracks Jammer MIDI Sequencer), and its location depends on your operating system. On Windows it is normally in your AppData Roaming folder, under Godot/app_userdata." %}
 
 ## Connect by hand
 
-If automatic connection is turned off, or it fails, the connection tab in the app window shows the input and output lists. You can select more than one output.
+If automatic connection is turned off, or the Launchpad and the sequencer were not both found, the connection tab in the app window shows the input and output lists. Pick the ports there. You can select more than one output.
 
 ## Virtual port and all devices
 
 Where the platform allows it, the app also opens a virtual MIDI output port. A track whose device is set to all devices sends to every open output, including that virtual port. See [Track > Params]({% link track/params.md %}).
+
+## Circuit Rhythm
+
+The Circuit Rhythm preset has the same default channels as the Circuit Tracks. The preset in use is named by `output_device` in `data/config/settings.json`; when it is empty, the Circuit Tracks preset is used. There is no pad or screen for changing it. To use a Circuit Rhythm, also set the sequencer port names above to its port name.
 
 ## Clock
 

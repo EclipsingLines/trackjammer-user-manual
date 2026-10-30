@@ -38,7 +38,7 @@ The sub-mode pads 21 to 24 are the ones shown in the picker. Each page is descri
 
 | Gesture | Result |
 |---|---|
-| LEFT / RIGHT, nothing held | Previous / next page |
+| LEFT / RIGHT, nothing held | Previous / next page. They stop at the first and last page; they do not wrap round |
 | UP / DOWN, nothing held | Previous / next EDIT sub-mode. Opens on that sub-mode's last page |
 | Track held + LEFT / RIGHT | Rotate the track |
 | Track held + UP / DOWN | Transpose the track |
@@ -52,7 +52,7 @@ Hold EDIT (96) for a moment. The options row shows the four sub-modes, and the t
 
 {% include launchpad-picker.html sub_mode="beats" page=3 bookmarks="track:1,beats:3,keys:6,-" hint="1@96,2@43" alt="Launchpad with EDIT held: the picker shows the Beats sub-mode, with page 3 (Beats) lit." caption="Hold EDIT (1), then tap 43 (2) to open Beats > Beats." %}
 
-The bottom value row, 31 to 38, holds bookmarks. While EDIT is held, tap one to jump to the sub-mode and page saved in it. Hold EDIT and press SHIFT with a bookmark pad to save the current place there. Hold EDIT and press CLEAR with a bookmark pad to empty it.
+The bottom value row, 31 to 38, holds bookmarks. While EDIT is held, tap one to jump to the sub-mode and page saved in it. The jump closes the picker. Hold EDIT and press SHIFT with a bookmark pad to save the current place there. Hold EDIT and press CLEAR with a bookmark pad to empty it.
 
 ## Home page
 

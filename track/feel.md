@@ -12,7 +12,7 @@ Feel moves notes a little around the grid and changes their strength. Swing and 
 
 Open it from Params with RIGHT, or hold EDIT and tap pad 42 in the picker.
 
-{% include launchpad-grid.html top="newnav" top_lit="edit" sub_mode="track" track_sel=1 presets="steps_empty,steps_empty,steps_empty,steps_empty,empty_row,empty_row,options_row,slots_row" pads="82=purple:3:Swng:Swing;87=purple:3:Grv:Groove;88=purple:3:Grv:Groove;75=purple:3:HumT:Humanize timing;76=purple:3:HumT:Humanize timing;63=purple:3:HumV:Humanize velocity;64=purple:3:HumV:Humanize velocity" hint="1@82,2@43" alt="Launchpad Track Feel page: swing on step pad 82, groove on 87 and 88, humanize on the lower step pads" caption="Tap Swing (1), then 54 on the value row (2)." %}
+{% include launchpad-grid.html top="newnav" top_lit="edit" sub_mode="track" track_sel=1 presets="steps_empty,steps_empty,steps_empty,steps_empty,empty_row,empty_row,options_row,slots_row" pads="82=purple:3:Swng:Swing;87=purple:3:Grv:Groove;88=purple:3:Grv:Groove;75=purple:3:HumT:Humanize timing;76=purple:3:HumT:Humanize timing;63=purple:3:HumV:Humanize velocity;64=purple:3:HumV:Humanize velocity" hint="1@82,2@43" alt="Launchpad Track Feel page: swing on step pad 82, groove on 87 and 88, humanize on the lower step pads" caption="Tap Swing (1), then value pad 43 (2) to set swing 54." %}
 
 ## Settings
 
@@ -29,7 +29,7 @@ Swing delays every second step by part of the step length. 50 is straight, 66 is
 
 Value pads: 41 = 50, 42 = 52, 43 = 54, 44 = 56, 45 = 58, 46 = 60, 47 = 62, 48 = 64, 31 = 66, 32 = 68, 33 = 70, 34 = 71, 35 = 72, 36 = 73, 37 = 74, 38 = 75.
 
-The track's swing adds to the global swing (Global > Settings, pad 64): effective swing = 50 + (track - 50) + (global - 50), kept between 50 and 75.
+The track's swing adds to the global swing (Global > Settings, option 11, step pad 64): effective swing = 50 + (track - 50) + (global - 50), kept between 50 and 75.
 
 ## Groove
 
@@ -37,7 +37,7 @@ A groove is a repeating timing and velocity pattern that runs across the steps, 
 
 Value pads: 41 = Global (use the global groove), 42 = Straight, 43 = MPC 54, 44 = MPC 58, 45 = MPC 62, 46 = MPC 66, 47 = Laid back, 48 = Rushed hats, 31 = 12/8 shuffle, 32 = Drunk.
 
-The global groove is set on Global > Settings, pad 66. Tracks left on Global use it.
+The global groove is set on Global > Settings, option 12, step pad 66. Tracks left on Global use it.
 
 ## Humanize
 

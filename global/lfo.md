@@ -14,7 +14,7 @@ The LFO page sets up the eight project LFOs: their shape, rate, depth, phase and
 
 ## Choosing an LFO and a setting
 
-- Step pads 81-88 select LFO 1-8. The selected LFO blinks white. Each LFO pad brightness shows that LFO's current value, so a bipolar LFO goes dark, bright, dark as it swings.
+- Step pads 81-88 select LFO 1-8. The selected LFO blinks. Each LFO pad brightness shows that LFO's current value, so a bipolar LFO goes dark, bright, dark as it swings.
 - Step pads 71-75 pick what the value pads edit: Shape, Rate, Depth, Phase, and Knob channel.
 
 ## Values
@@ -24,7 +24,7 @@ The LFO page sets up the eight project LFOs: their shape, rate, depth, phase and
 | Shape | 41-47 | Sine, triangle, saw up, saw down, square, sample and hold, smooth random |
 | Rate | 41-48, 31-35 | 13 rates, slowest first: 16 bars, 8, 4, 2, 1 bar, 1/2, 1/2 triplet, 1/4, 1/4 triplet, 1/8, 1/8 triplet, 1/16, 1/16 triplet |
 | Depth | 41-48, 31-38 | 16 steps from 0 to 100 |
-| Phase | 41-48, 31-38 | 16 steps from 0 to 337.5 degrees, in 22.5 degree steps |
+| Phase | 41-48, 31-38 | 16 steps from 0 to 337 degrees, in steps of about 22.5 |
 | Knob channel | 41-48, 31-38 | MIDI channel 1-16 for the CT knobs. Tapping the channel already set returns it to the device preset (channel 3 on the Circuit Tracks) |
 
 ## Options (selected LFO)
