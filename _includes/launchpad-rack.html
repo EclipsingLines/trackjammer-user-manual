@@ -1,0 +1,60 @@
+{%- comment -%}
+Drum rack step view (Beats > Steps on a drum rack track): 4 lanes x 8 steps on pads 81-88, 71-78, 61-68, 51-58;
+pads 41-48 / 31-38 show the value of the selected step; pads 21-24 are the four rack pages.
+Params:
+  lanes     4 comma-separated strings of 8 chars, lane 1 first (missing lanes stay empty). Each char is one step:
+            x on   .  off   L locked + on   l locked + off   p playhead on an on step   q playhead on an off step
+            s selected step
+  page      1-4, the lit rack page (pads 21-24), default 1
+  bar       0-16: number of lit value pads, 41-48 then 31-38 (a velocity or chance bar; the colour is an estimate)
+  sub_mode  beats (default) | track : which EDIT sub-mode is lit
+  track_sel, hint, pads, blink, held, alt, caption, numbers
+{%- endcomment -%}
+{%- assign rk_lanes = include.lanes | default: "" | remove: " " | split: "," -%}
+{%- assign rk_page = include.page | default: 1 | plus: 0 -%}
+{%- assign rk_bar = include.bar | default: 0 | plus: 0 -%}
+{%- for rk_r in (0..3) -%}
+  {%- assign rk_line = rk_lanes[rk_r] | default: "........" -%}
+  {%- assign rk_out = "" -%}
+  {%- for rk_c in (0..7) -%}
+    {%- assign rk_ch = rk_line | slice: rk_c, 1 -%}
+    {%- assign rk_ln = rk_r | plus: 1 -%}
+    {%- assign rk_sn = rk_c | plus: 1 -%}
+    {%- assign rk_d = ":Lane " | append: rk_ln | append: " step " | append: rk_sn -%}
+    {%- case rk_ch -%}
+      {%- when "x" -%}{%- assign rk_t = "cyan:3:" | append: rk_d -%}
+      {%- when "L" -%}{%- assign rk_t = "cream:3:" | append: rk_d | append: " (locked)" -%}
+      {%- when "l" -%}{%- assign rk_t = "cream:0:" | append: rk_d | append: " (locked and off)" -%}
+      {%- when "p" -%}{%- assign rk_t = "green:3:" | append: rk_d | append: " (playhead)" -%}
+      {%- when "q" -%}{%- assign rk_t = "green:1:" | append: rk_d | append: " (playhead)" -%}
+      {%- when "s" -%}{%- assign rk_t = "gray:3:" | append: rk_d | append: " (selected)" -%}
+      {%- else -%}{%- assign rk_t = "cyan:0:" | append: rk_d | append: " (off)" -%}
+    {%- endcase -%}
+    {%- if rk_c == 0 -%}{%- assign rk_out = rk_t -%}{%- else -%}{%- assign rk_out = rk_out | append: "," | append: rk_t -%}{%- endif -%}
+  {%- endfor -%}
+  {%- case rk_r -%}
+    {%- when 0 -%}{%- assign rk_row1 = rk_out -%}
+    {%- when 1 -%}{%- assign rk_row2 = rk_out -%}
+    {%- when 2 -%}{%- assign rk_row3 = rk_out -%}
+    {%- when 3 -%}{%- assign rk_row4 = rk_out -%}
+  {%- endcase -%}
+{%- endfor -%}
+{%- assign rk_row5 = "" -%}
+{%- assign rk_row6 = "" -%}
+{%- for rk_i in (0..15) -%}
+  {%- if rk_i < rk_bar -%}{%- assign rk_t = "orange:2" -%}{%- else -%}{%- assign rk_t = "off" -%}{%- endif -%}
+  {%- if rk_i < 8 -%}
+    {%- if rk_i == 0 -%}{%- assign rk_row5 = rk_t -%}{%- else -%}{%- assign rk_row5 = rk_row5 | append: "," | append: rk_t -%}{%- endif -%}
+  {%- else -%}
+    {%- if rk_i == 8 -%}{%- assign rk_row6 = rk_t -%}{%- else -%}{%- assign rk_row6 = rk_row6 | append: "," | append: rk_t -%}{%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign rk_row7 = "" -%}
+{%- for rk_i in (1..4) -%}
+  {%- if rk_i == rk_page -%}{%- assign rk_t = "orange:3:" | append: rk_i | append: ":Rack page " | append: rk_i | append: " (current)" -%}
+  {%- else -%}{%- assign rk_t = "purple:2:" | append: rk_i | append: ":Rack page " | append: rk_i -%}{%- endif -%}
+  {%- if rk_i == 1 -%}{%- assign rk_row7 = rk_t -%}{%- else -%}{%- assign rk_row7 = rk_row7 | append: "," | append: rk_t -%}{%- endif -%}
+{%- endfor -%}
+{%- assign rk_row7 = rk_row7 | append: ",off,cream:0:Lock:Lock (held pad),cyan:1:Dup:Duplicate (held pad),red:1:Clr:Clear (held pad)" -%}
+{%- assign rk_sub = include.sub_mode | default: "beats" -%}
+{% include launchpad-grid.html top="newnav" top_lit="edit" sub_mode=rk_sub right="track" track_sel=include.track_sel row1=rk_row1 row2=rk_row2 row3=rk_row3 row4=rk_row4 row5=rk_row5 row6=rk_row6 row7=rk_row7 row8="gray:0,gray:0,gray:0,gray:0,gray:0,gray:0,gray:0,gray:0" pads=include.pads hint=include.hint blink=include.blink held=include.held alt=include.alt caption=include.caption numbers=include.numbers %}

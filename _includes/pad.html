@@ -1,0 +1,42 @@
+{%- comment -%}
+Inline pad chip, for use in running text (include pad.html with name="SHIFT")
+Params:
+  name   up down left right shift edit perf sess global lock loop dup clear fill track1 ... track8  (case-insensitive)
+  cc     a pad number, for any other pad (with label and color)
+  label  text on the chip (default: from name, or the pad number)
+  color  override: red orange yellow green cyan blue purple magenta pink gray cream hotpink white
+  num    true: append the pad number, e.g. "SHIFT 95"
+Output is a single line with no surrounding whitespace so it can sit inside a sentence.
+{%- endcomment -%}
+{%- assign pc_name = include.name | default: "" | downcase -%}
+{%- assign pc_cc = include.cc | default: 0 -%}
+{%- assign pc_color = "gray" -%}
+{%- assign pc_label = "" -%}
+{%- case pc_name -%}
+  {%- when "up" -%}{%- assign pc_cc = 91 -%}{%- assign pc_label = "▲ Up" -%}
+  {%- when "down" -%}{%- assign pc_cc = 92 -%}{%- assign pc_label = "▼ Down" -%}
+  {%- when "left" -%}{%- assign pc_cc = 93 -%}{%- assign pc_label = "◄ Left" -%}
+  {%- when "right" -%}{%- assign pc_cc = 94 -%}{%- assign pc_label = "► Right" -%}
+  {%- when "shift" -%}{%- assign pc_cc = 95 -%}{%- assign pc_label = "SHIFT" -%}
+  {%- when "edit" -%}{%- assign pc_cc = 96 -%}{%- assign pc_color = "purple" -%}{%- assign pc_label = "EDIT" -%}
+  {%- when "perf" -%}{%- assign pc_cc = 97 -%}{%- assign pc_color = "orange" -%}{%- assign pc_label = "PERF" -%}
+  {%- when "sess" -%}{%- assign pc_cc = 98 -%}{%- assign pc_color = "cyan" -%}{%- assign pc_label = "SESS" -%}
+  {%- when "global" -%}{%- assign pc_cc = 98 -%}{%- assign pc_color = "red" -%}{%- assign pc_label = "SHIFT + SESS" -%}
+  {%- when "loop" -%}{%- assign pc_cc = 25 -%}{%- assign pc_color = "green" -%}{%- assign pc_label = "LOOP" -%}
+  {%- when "lock" -%}{%- assign pc_cc = 26 -%}{%- assign pc_color = "cream" -%}{%- assign pc_label = "LOCK" -%}
+  {%- when "dup" -%}{%- assign pc_cc = 27 -%}{%- assign pc_color = "cyan" -%}{%- assign pc_label = "DUP" -%}
+  {%- when "clear" -%}{%- assign pc_cc = 28 -%}{%- assign pc_color = "red" -%}{%- assign pc_label = "CLR" -%}
+  {%- when "fill" -%}{%- assign pc_cc = 97 -%}{%- assign pc_color = "red" -%}{%- assign pc_label = "PERF (held)" -%}
+  {%- when "track1" -%}{%- assign pc_cc = 89 -%}{%- assign pc_label = "Track 1" -%}
+  {%- when "track2" -%}{%- assign pc_cc = 79 -%}{%- assign pc_label = "Track 2" -%}
+  {%- when "track3" -%}{%- assign pc_cc = 69 -%}{%- assign pc_label = "Track 3" -%}
+  {%- when "track4" -%}{%- assign pc_cc = 59 -%}{%- assign pc_label = "Track 4" -%}
+  {%- when "track5" -%}{%- assign pc_cc = 49 -%}{%- assign pc_label = "Track 5" -%}
+  {%- when "track6" -%}{%- assign pc_cc = 39 -%}{%- assign pc_label = "Track 6" -%}
+  {%- when "track7" -%}{%- assign pc_cc = 29 -%}{%- assign pc_label = "Track 7" -%}
+  {%- when "track8" -%}{%- assign pc_cc = 19 -%}{%- assign pc_label = "Track 8" -%}
+{%- endcase -%}
+{%- if include.color -%}{%- assign pc_color = include.color -%}{%- endif -%}
+{%- if include.label -%}{%- assign pc_label = include.label -%}{%- endif -%}
+{%- if pc_label == "" -%}{%- assign pc_label = pc_cc -%}{%- endif -%}
+<span class="lp-chip lp-chip-{{ pc_color }}" title="Pad {{ pc_cc }}">{{ pc_label | escape }}{% if include.num %} {{ pc_cc }}{% endif %}</span>{%- comment -%}{%- endcomment -%}

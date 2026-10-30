@@ -1,0 +1,60 @@
+{%- comment -%}
+INTERNAL. One pad of a Launchpad diagram. Called only by launchpad-grid.html; do not call from pages.
+Params: cc, token ("color:level:label:desc"), blink (bool), tag (extra css class), step handling is derived from cc.
+Reads these variables assigned by launchpad-grid.html: lp_pads_s, lp_hint_s, lp_blink_s, lp_held_s, lp_numbers,
+lp_playhead_n, lp_playhead_at.
+Writes only variables starting with lpc_.
+{%- endcomment -%}
+{%- assign lpc_cc = include.cc -%}
+{%- assign lpc_tp = include.token | default: "off" | split: ":" -%}
+{%- assign lpc_color = lpc_tp[0] | default: "off" -%}
+{%- if lpc_color == "" or lpc_color == "." -%}{%- assign lpc_color = "off" -%}{%- endif -%}
+{%- assign lpc_level = lpc_tp[1] | default: "3" -%}
+{%- if lpc_level == "" -%}{%- assign lpc_level = "3" -%}{%- endif -%}
+{%- assign lpc_label = lpc_tp[2] | default: "" -%}
+{%- assign lpc_desc = "" -%}
+{%- if lpc_tp.size > 3 -%}{%- assign lpc_desc = lpc_tp | slice: 3, 50 | join: ":" -%}{%- endif -%}
+{%- assign lpc_key = ";" | append: lpc_cc | append: "=" -%}
+{%- if lp_pads_s contains lpc_key -%}
+  {%- assign lpc_ov = lp_pads_s | split: lpc_key -%}
+  {%- assign lpc_ov = lpc_ov[1] | split: ";" | first | split: ":" -%}
+  {%- if lpc_ov[0] and lpc_ov[0] != "" -%}{%- assign lpc_color = lpc_ov[0] -%}{%- endif -%}
+  {%- if lpc_ov[1] and lpc_ov[1] != "" -%}{%- assign lpc_level = lpc_ov[1] -%}{%- endif -%}
+  {%- if lpc_ov[2] and lpc_ov[2] != "" -%}
+    {%- if lpc_ov[2] == "-" -%}{%- assign lpc_label = "" -%}{%- else -%}{%- assign lpc_label = lpc_ov[2] -%}{%- endif -%}
+  {%- endif -%}
+  {%- if lpc_ov.size > 3 -%}{%- assign lpc_desc = lpc_ov | slice: 3, 50 | join: ":" -%}{%- endif -%}
+{%- endif -%}
+{%- assign lpc_ck = "," | append: lpc_cc | append: "," -%}
+{%- assign lpc_blink = include.blink -%}
+{%- if lp_blink_s contains lpc_ck -%}{%- assign lpc_blink = true -%}{%- endif -%}
+{%- assign lpc_held = false -%}
+{%- if lp_held_s contains lpc_ck -%}{%- assign lpc_held = true -%}{%- endif -%}
+{%- assign lpc_hint = "" -%}
+{%- assign lpc_hk = "@" | append: lpc_cc | append: "," -%}
+{%- if lp_hint_s contains lpc_hk -%}
+  {%- assign lpc_hint = lp_hint_s | split: lpc_hk | first | split: "," | last | split: "@" | first -%}
+{%- endif -%}
+{%- assign lpc_step = 0 -%}
+{%- assign lpc_ph = false -%}
+{%- if lp_playhead_n > 0 -%}
+  {%- assign lpc_t = lpc_cc | divided_by: 10 | floor -%}
+  {%- assign lpc_u = lpc_cc | modulo: 10 -%}
+  {%- if lpc_t >= 5 and lpc_t <= 8 and lpc_u >= 1 and lpc_u <= 8 -%}
+    {%- assign lpc_step = 8 | minus: lpc_t | times: 8 | plus: lpc_u -%}
+    {%- if lpc_step > lp_playhead_n -%}{%- assign lpc_step = 0 -%}{%- endif -%}
+    {%- if lpc_step == lp_playhead_at -%}{%- assign lpc_ph = true -%}{%- endif -%}
+  {%- endif -%}
+{%- endif -%}
+{%- assign lpc_info = false -%}
+{%- if lpc_label != "" or lpc_desc != "" or lpc_hint != "" -%}{%- assign lpc_info = true -%}{%- endif -%}
+{%- capture lpc_aria -%}Pad {{ lpc_cc }}{% if lpc_label != "" %}, {{ lpc_label }}{% endif %}{% if lpc_desc != "" %}. {{ lpc_desc }}{% endif %}{% if lpc_hint != "" %}. Press number {{ lpc_hint }}{% endif %}{%- endcapture -%}
+<div class="launchpad-pad pad-{{ lpc_color }}{% if lpc_color != 'off' %} intensity-{{ lpc_level }}{% endif %}{% if lpc_blink %} pad-blink{% endif %}{% if lpc_held %} pad-held{% endif %}{% if lpc_hint != '' %} pad-hint{% endif %}{% if lpc_ph %} pad-playhead{% endif %}{% if lpc_info %} lp-info{% endif %}{% if include.tag %} {{ include.tag }}{% endif %}" data-cc="{{ lpc_cc }}"
+{%- if lpc_step > 0 %} data-step="{{ lpc_step }}"{% endif -%}
+{%- if lpc_hint != "" %} data-hint="{{ lpc_hint }}"{% endif -%}
+{%- if lpc_info %} data-label="{{ lpc_label | escape }}" data-desc="{{ lpc_desc | escape }}" tabindex="0" role="img" aria-label="{{ lpc_aria | escape }}" title="{{ lpc_label | escape }}{% if lpc_desc != '' %}: {{ lpc_desc | escape }}{% endif %}"{% else %} aria-hidden="true"{% endif -%}
+>
+{%- if lpc_label != "" %}<span class="lp-label">{{ lpc_label | escape }}</span>{% endif -%}
+{%- if lpc_hint != "" %}<span class="lp-hint">{{ lpc_hint }}</span>{% endif -%}
+{%- if lp_numbers %}<span class="lp-cc">{{ lpc_cc }}</span>{% endif -%}
+</div>

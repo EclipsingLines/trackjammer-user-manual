@@ -1,0 +1,5 @@
+{%- comment -%} Marks behaviour taken from the app code or specs but not yet tried on real hardware. Params: text (markdown, optional), title. {%- endcomment -%}
+<div class="lp-callout lp-callout-unverified" role="note">
+<p class="lp-callout-title">{{ include.title | default: "Not yet verified on hardware" | escape }}</p>
+{% if include.text %}{{ include.text | markdownify }}{% else %}<p>This is described from the app's design and code. It has not been confirmed on a Launchpad and a synth yet, so it may differ in small ways.</p>{% endif %}
+</div>

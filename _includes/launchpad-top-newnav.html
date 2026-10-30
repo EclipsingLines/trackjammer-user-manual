@@ -1,0 +1,6 @@
+{%- comment -%}
+Top row only (UP DOWN LEFT RIGHT SHIFT EDIT PERF SESS = pads 91-98).
+Params: lit (names: up down left right shift edit perf sess global fill), sub_mode (track|beats|keys|cc, colours EDIT),
+hint ("1@95,2@96"), pads (overrides, see launchpad-grid), blink, held, alt, caption, numbers.
+{%- endcomment -%}
+{% include launchpad-grid.html top="newnav" top_lit=include.lit sub_mode=include.sub_mode rows=0 right="none" hint=include.hint pads=include.pads blink=include.blink held=include.held alt=include.alt caption=include.caption numbers=include.numbers %}

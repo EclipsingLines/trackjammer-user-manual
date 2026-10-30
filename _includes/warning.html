@@ -1,0 +1,5 @@
+{%- comment -%} Callout for things that can lose data or wreck a pattern. Params: text (markdown, required), title (default "Warning"). {%- endcomment -%}
+<div class="lp-callout lp-callout-warning" role="note">
+<p class="lp-callout-title">{{ include.title | default: "Warning" | escape }}</p>
+{{ include.text | markdownify }}
+</div>

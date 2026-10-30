@@ -1,0 +1,165 @@
+{%- comment -%}
+================================================================================
+Launchpad Mini MK3 diagram (engine). Programmer-mode layout: 8x8 main grid (pads 11-88), top row (91-98),
+right column (89, 79 ... 19). Everything is addressed by the pad numbers (CC) the app uses.
+Full parameter list and examples: the component guide for writers.
+
+  presets    comma list of named 8-pad rows, top row first (see PRESETS below). Optional.
+  row1..row8 one row of 8 tokens, "color:level:label:desc,..." (row1 = pads 81-88, row8 = 11-18). Beats presets.
+  rows       rows drawn, 0-8. Default: rows implied by presets, else 8.
+  pads       per-pad overrides by pad number: "81=cyan:3:Kick:First step;95=gray:3". Entries split by ";".
+  top        "none" (default) or "newnav" (UP DOWN LEFT RIGHT SHIFT EDIT PERF SESS).
+  top_lit    comma list of lit top pads: up down left right shift edit perf sess global fill
+  sub_mode   track | beats | keys | cc : colour of the EDIT pad (default track)
+  right      track (default) | scene | none
+  track_sel  1-8 : the selected track (right=track)
+  scenes     8 chars for right=scene: . empty  f filled  c current  q queued  s song  a morph A  b morph B
+  hint       "1@81,2@95" press order @ pad number
+  blink      comma list of pad numbers that flash white
+  held       comma list of pad numbers drawn as physically held
+  playhead   1-32 steps of the step area (81-88, 71-78, 61-68, 51-58) a playhead runs through
+  playhead_at  1-32 start position (and the no-JavaScript position), default 1
+  playhead_ms  ms per step, default 250
+  numbers    true : print the pad number on every pad
+  alt        accessible description of the whole diagram
+  caption    visible caption under the diagram
+================================================================================
+{%- endcomment -%}
+
+{%- comment -%} ====== string lists used by lp-cell.html ====== {%- endcomment -%}
+{%- assign lp_pads_s = ";" | append: include.pads -%}
+{%- assign lp_hint_s = include.hint | default: "" | remove: " " | append: "," -%}
+{%- assign lp_blink_s = "," | append: include.blink | remove: " " | append: "," -%}
+{%- assign lp_held_s = "," | append: include.held | remove: " " | append: "," -%}
+{%- assign lp_numbers = include.numbers | default: false -%}
+{%- assign lp_playhead_n = include.playhead | default: 0 | plus: 0 -%}
+{%- assign lp_playhead_at = include.playhead_at | default: 1 | plus: 0 -%}
+{%- assign lp_playhead_ms = include.playhead_ms | default: 250 | plus: 0 -%}
+{%- assign lp_top = include.top | default: "none" -%}
+{%- assign lp_top_lit = "," | append: include.top_lit | remove: " " | append: "," -%}
+{%- assign lp_right = include.right | default: "track" -%}
+{%- assign lp_track_sel = include.track_sel | default: 0 | plus: 0 -%}
+{%- assign lp_scenes = include.scenes | default: "........" -%}
+{%- assign lp_alt = include.alt | default: "Launchpad Mini MK3 pad diagram" -%}
+
+{%- assign lp_sub_mode = include.sub_mode | default: "track" -%}
+{%- case lp_sub_mode -%}
+  {%- when "beats" -%}{%- assign lp_edit_color = "cyan" -%}
+  {%- when "keys" -%}{%- assign lp_edit_color = "yellow" -%}
+  {%- when "cc" -%}{%- assign lp_edit_color = "green" -%}
+  {%- else -%}{%- assign lp_edit_color = "purple" -%}
+{%- endcase -%}
+
+{%- comment -%}
+====== PRESETS (named rows of 8 tokens; levels 0-3) ======
+steps_empty            8 inactive steps
+steps_4_floor          steps 1, 5 on (four steps apart)
+steps_4_floor_select   same, step 5 selected (grey)
+steps_euclid_3_8       E(3,8): steps 1, 4, 7
+steps_euclid_5_8       E(5,8): steps 1, 3, 4, 6, 7
+empty_row              8 dark pads
+options_row            pads 21-28 as they look when nothing is held (Lock, Dup, Clr dim)
+slots_row              pads 11-18, eight empty scene/quick slots
+logo_full              8 rows: the TrackJammer logo (use with presets="logo_full" alone)
+{%- endcomment -%}
+{%- assign lp_all = "" | split: "," -%}
+{%- if include.presets -%}
+  {%- assign lp_names = include.presets | remove: " " | split: "," -%}
+  {%- for lp_pname in lp_names -%}
+    {%- case lp_pname -%}
+      {%- when "empty_row" -%}{%- assign lp_cur = "off,off,off,off,off,off,off,off" | split: "," -%}
+      {%- when "steps_empty" -%}{%- assign lp_cur = "cyan:0,cyan:0,cyan:0,cyan:0,cyan:0,cyan:0,cyan:0,cyan:0" | split: "," -%}
+      {%- when "steps_4_floor" -%}{%- assign lp_cur = "cyan:3,cyan:0,cyan:0,cyan:0,cyan:3,cyan:0,cyan:0,cyan:0" | split: "," -%}
+      {%- when "steps_4_floor_select" -%}{%- assign lp_cur = "cyan:3,cyan:0,cyan:0,cyan:0,gray:3,cyan:0,cyan:0,cyan:0" | split: "," -%}
+      {%- when "steps_euclid_3_8" -%}{%- assign lp_cur = "cyan:3,cyan:0,cyan:0,cyan:3,cyan:0,cyan:0,cyan:3,cyan:0" | split: "," -%}
+      {%- when "steps_euclid_5_8" -%}{%- assign lp_cur = "cyan:3,cyan:0,cyan:3,cyan:3,cyan:0,cyan:3,cyan:3,cyan:0" | split: "," -%}
+      {%- when "options_row" -%}{%- assign lp_cur = "off,off,off,off,off,cream:0:Lock:Hold Lock and tap a step to lock or unlock it,cyan:1:Dup:Duplicate (held pad),red:1:Clr:Clear (held pad)" | split: "," -%}
+      {%- when "slots_row" -%}{%- assign lp_cur = "gray:0,gray:0,gray:0,gray:0,gray:0,gray:0,gray:0,gray:0" | split: "," -%}
+      {%- when "logo_full" -%}{%- assign lp_cur = "purple:3,purple:3,purple:3,purple:3,purple:3,off,off,off,off,off,purple:3,off,off,off,off,off,off,off,purple:3,off,off,off,off,off,off,off,purple:3,cyan:3,cyan:3,cyan:3,cyan:3,cyan:3,off,off,purple:3,off,off,cyan:3,off,off,off,off,off,off,off,cyan:3,off,off,off,off,off,cyan:3,off,cyan:3,off,off,off,off,off,cyan:3,cyan:3,cyan:3,off,off" | split: "," -%}
+      {%- else -%}<!-- launchpad-grid: unknown preset {{ lp_pname }} -->{%- assign lp_cur = "off,off,off,off,off,off,off,off" | split: "," -%}
+    {%- endcase -%}
+    {%- assign lp_all = lp_all | concat: lp_cur -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- assign lp_rows = 8 -%}
+{%- if include.presets -%}{%- assign lp_rows = lp_all.size | divided_by: 8.0 | ceil -%}{%- endif -%}
+{%- if include.rows != nil and include.rows != "" -%}{%- assign lp_rows = include.rows | plus: 0 -%}{%- endif -%}
+{%- if lp_rows > 8 -%}{%- assign lp_rows = 8 -%}{%- endif -%}
+
+<figure class="lp-figure">
+<div class="launchpad-container{% if lp_numbers %} show-cc{% endif %}" role="group" aria-label="{{ lp_alt | escape }}"{% if lp_playhead_n > 0 %} data-playhead="{{ lp_playhead_n }}" data-playhead-at="{{ lp_playhead_at }}" data-playhead-ms="{{ lp_playhead_ms }}"{% endif %}>
+{%- comment -%} ====== top row ====== {%- endcomment -%}
+{%- if lp_top == "newnav" -%}
+  {%- assign lp_tn = "up,down,left,right,shift,edit,perf,sess" | split: "," -%}
+  {%- for lp_n in lp_tn -%}
+    {%- assign lp_tcc = forloop.index0 | plus: 91 -%}
+    {%- assign lp_tlit = false -%}
+    {%- assign lp_nk = "," | append: lp_n | append: "," -%}
+    {%- if lp_top_lit contains lp_nk -%}{%- assign lp_tlit = true -%}{%- endif -%}
+    {%- case lp_n -%}
+      {%- when "up" -%}{%- if lp_tlit -%}{%- assign lp_tok = "gray:3:▲:UP. Nothing held: previous sub-mode" -%}{%- else -%}{%- assign lp_tok = "off:3:▲:UP. Nothing held: previous sub-mode" -%}{%- endif -%}
+      {%- when "down" -%}{%- if lp_tlit -%}{%- assign lp_tok = "gray:3:▼:DOWN. Nothing held: next sub-mode" -%}{%- else -%}{%- assign lp_tok = "off:3:▼:DOWN. Nothing held: next sub-mode" -%}{%- endif -%}
+      {%- when "left" -%}{%- if lp_tlit -%}{%- assign lp_tok = "gray:3:◄:LEFT. Nothing held: previous page" -%}{%- else -%}{%- assign lp_tok = "off:3:◄:LEFT. Nothing held: previous page" -%}{%- endif -%}
+      {%- when "right" -%}{%- if lp_tlit -%}{%- assign lp_tok = "gray:3:►:RIGHT. Nothing held: next page" -%}{%- else -%}{%- assign lp_tok = "off:3:►:RIGHT. Nothing held: next page" -%}{%- endif -%}
+      {%- when "shift" -%}{%- if lp_tlit -%}{%- assign lp_tok = "gray:3:SHIFT:Shift. Hold it and tap another pad" -%}{%- else -%}{%- assign lp_tok = "gray:1:SHIFT:Shift. Hold it and tap another pad" -%}{%- endif -%}
+      {%- when "edit" -%}
+        {%- if lp_tlit -%}{%- assign lp_tok = lp_edit_color | append: ":3:EDIT:EDIT. Hold for the picker, tap to return to EDIT" -%}
+        {%- else -%}{%- assign lp_tok = lp_edit_color | append: ":1:EDIT:EDIT. Hold for the picker, tap to return to EDIT" -%}{%- endif -%}
+      {%- when "perf" -%}
+        {%- if lp_top_lit contains ",fill," -%}{%- assign lp_tok = "red:3:PERF:PERF held: fill is active" -%}
+        {%- elsif lp_tlit -%}{%- assign lp_tok = "orange:3:PERF:PERF. Tap: performance grid. Hold: fill" -%}
+        {%- else -%}{%- assign lp_tok = "gray:1:PERF:PERF. Tap: performance grid. Hold: fill" -%}{%- endif -%}
+      {%- when "sess" -%}
+        {%- if lp_top_lit contains ",global," -%}{%- assign lp_tok = "red:3:SESS:SESS (with SHIFT: Global settings)" -%}
+        {%- elsif lp_tlit -%}{%- assign lp_tok = "cyan:3:SESS:SESS. Tap: clip launcher. SHIFT + SESS: Global" -%}
+        {%- else -%}{%- assign lp_tok = "gray:1:SESS:SESS. Tap: clip launcher. SHIFT + SESS: Global" -%}{%- endif -%}
+    {%- endcase -%}
+    {% include lp-cell.html cc=lp_tcc token=lp_tok %}
+  {%- endfor -%}
+<div class="lp-corner" aria-hidden="true"></div>
+{%- endif -%}
+
+{%- comment -%} ====== main grid rows + right column ====== {%- endcomment -%}
+{%- for lp_r in (0..7) -%}
+  {%- if lp_r < lp_rows -%}
+    {%- assign lp_rk = lp_r | plus: 1 | prepend: "row" -%}
+    {%- assign lp_rowspec = include[lp_rk] -%}
+    {%- if lp_rowspec -%}
+      {%- assign lp_toks = lp_rowspec | split: "," -%}
+    {%- else -%}
+      {%- assign lp_off = lp_r | times: 8 -%}
+      {%- assign lp_toks = lp_all | slice: lp_off, 8 -%}
+    {%- endif -%}
+    {%- for lp_c in (0..7) -%}
+      {%- assign lp_cc = 8 | minus: lp_r | times: 10 | plus: lp_c | plus: 1 -%}
+      {%- assign lp_tok = lp_toks[lp_c] | default: "off" | strip -%}
+      {% include lp-cell.html cc=lp_cc token=lp_tok %}
+    {%- endfor -%}
+    {%- if lp_right != "none" -%}
+      {%- assign lp_rt = lp_r | times: 10 -%}
+      {%- assign lp_rcc = 89 | minus: lp_rt -%}
+      {%- assign lp_n = lp_r | plus: 1 -%}
+      {%- assign lp_rblink = false -%}
+      {%- if lp_right == "scene" -%}
+        {%- assign lp_sc = lp_scenes | slice: lp_r, 1 -%}
+        {%- case lp_sc -%}
+          {%- when "f" -%}{%- assign lp_tok = "blue:2:" | append: lp_n | append: ":Scene " | append: lp_n | append: " (filled)" -%}
+          {%- when "c" -%}{%- assign lp_tok = "green:3:" | append: lp_n | append: ":Scene " | append: lp_n | append: " (last launched)" -%}
+          {%- when "q" -%}{%- assign lp_tok = "orange:3:" | append: lp_n | append: ":Scene " | append: lp_n | append: " (queued)" -%}{%- assign lp_rblink = true -%}
+          {%- when "s" -%}{%- assign lp_tok = "cyan:3:" | append: lp_n | append: ":Scene " | append: lp_n | append: " (song entry)" -%}
+          {%- when "a" -%}{%- assign lp_tok = "purple:3:" | append: lp_n | append: ":Scene " | append: lp_n | append: " (morph A)" -%}
+          {%- when "b" -%}{%- assign lp_tok = "magenta:3:" | append: lp_n | append: ":Scene " | append: lp_n | append: " (morph B)" -%}
+          {%- else -%}{%- assign lp_tok = "gray:0:" | append: lp_n | append: ":Scene " | append: lp_n | append: " (empty)" -%}
+        {%- endcase -%}
+      {%- else -%}
+        {%- if lp_n == lp_track_sel -%}{%- assign lp_tok = "gray:3:" | append: lp_n | append: ":Track " | append: lp_n | append: " (selected)" -%}
+        {%- else -%}{%- assign lp_tok = "blue:0:" | append: lp_n | append: ":Track " | append: lp_n -%}{%- endif -%}
+      {%- endif -%}
+      {% include lp-cell.html cc=lp_rcc token=lp_tok blink=lp_rblink %}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+</div>
+<figcaption class="lp-caption">{% if include.caption %}{{ include.caption }}{% endif %}<span class="lp-readout" hidden></span></figcaption>
+</figure>
